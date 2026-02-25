@@ -23,6 +23,10 @@ dist/
 .mypy_cache/
 .ruff_cache/
 
+# Local outputs/artifacts
+outputs/
+*.json
+
 # OS/editor noise
 .DS_Store
 Thumbs.db
