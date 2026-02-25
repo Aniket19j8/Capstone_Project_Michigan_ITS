@@ -1,0 +1,15 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local outputs/artifacts
+outputs/
+*.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
