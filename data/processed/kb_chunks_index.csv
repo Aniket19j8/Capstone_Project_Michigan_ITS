@@ -1,0 +1,234 @@
+id,text,doc_id,doc_title,doc_type,section,chunk_index,source_file
+KB-00000,"# Knowledge Base: Network Printer Setup and Common Issues
+
+
+## Setup: Adding a Network Printer
+1. Open Settings → Bluetooth & Devices → Printers & Scanners
+2. Click ""Add device"" → Select printer from list
+3. If not found: Click ""Add manually"" → Enter IP address (see printer label)
+4. Install driver from Company Software Center if prompted
+
+
+## Common Issues
+
+
+### Print Jobs Stuck in Queue
+1. Open Services (services.msc) → Stop ""Print Spooler""
+2. Delete files in `C:\Windows\System32\spool\PRINTERS\`
+3. Restart Print Spooler service
+4. Retry print job
+
+
+### Printer Offline
+1. Check physical connection (network cable, power)
+2. Ping printer IP address
+3. Remove and re-add printer
+4. Check if print server is running (IT Operations can verify)
+
+
+### Poor Print Quality
+1. Run printer self-cleaning cycle (from printer menu)
+2. Check toner/ink levels
+3. Verify correct paper type is selected in print settings
+4. If persistent: Submit maintenance request to Facilities
+
+
+## Secure Print
+All printers support secure print. Documents are held until user authenticates at the printer with their badge. Enable via: Print → Properties → Secure Print → Enter PIN.",kb_article_printer_setup,Kb Article Printer Setup,kb_article,Kb Article Printer Setup,0,kb_article_printer_setup.md
+KB-00001,"# Knowledge Base: Microsoft Teams Performance Issues
+
+
+## Problem
+Users report Teams running slowly, consuming high memory, or causing system lag.
+
+
+## Root Cause
+Teams is an Electron-based application that can consume significant RAM (1-2GB+).
+Common triggers: many open chats, large files in channels, background activity.
+
+
+## Solution
+1. **Clear Teams cache** (most effective):
+   - Close Teams completely (check system tray)
+   - Delete contents of: `%appdata%\Microsoft\Teams\Cache`
+   - Also clear: `blob_storage`, `databases`, `GPUCache`, `IndexedDB`, `Local Storage`, `tmp`
+   - Restart Teams
+
+2. **Reduce memory usage**:
+   - Close unused chats and channels
+   - Disable GPU hardware acceleration: Settings → General → Uncheck ""Disable GPU hardware acceleration""
+   - Reduce notification frequency
+   - Limit Teams startup: Settings → General → Uncheck ""Auto-start Teams""
+
+3. **New Teams app** (recommended):
+   - Upgrade to ""New Teams"" (Microsoft Teams 2.0) which uses 50% less memory
+   - Available through Settings → ""Try the new Teams"" toggle
+
+
+## Prevention
+- Regularly clear cache (monthly)
+- Keep Teams updated to latest version
+- Report persistent issues to vendor management for tracking",kb_article_teams_performance,Kb Article Teams Performance,kb_article,Kb Article Teams Performance,0,kb_article_teams_performance.md
+KB-00002,"# Email / Outlook Troubleshooting Runbook
+
+
+## Symptom: Outlook Not Syncing / Cannot Send or Receive
+
+
+### Step 1: Quick Checks
+1. Verify internet connectivity
+2. Check Microsoft 365 service health: https://status.office365.com
+3. Try Outlook Web App (OWA) - if OWA works, issue is client-side
+
+
+### Step 2: Client-Side Fixes
+- **Clear Outlook cache**: Close Outlook → Delete files in `%localappdata%\Microsoft\Outlook\RoamCache\`
+- **Repair Office**: Settings → Apps → Microsoft 365 → Modify → Quick Repair
+- **Recreate profile**: Control Panel → Mail → Show Profiles → Add new profile
+- **Disable add-ins**: File → Options → Add-ins → Manage COM Add-ins → Uncheck all
+
+
+### Step 3: Server-Side Checks
+- Check mailbox size (quota: 50GB for standard, 100GB for executives)
+- Verify mail flow rules aren't blocking
+- Check transport queue for stuck messages
+- Review message trace in Exchange admin center
+
+
+### Step 4: Shared Mailbox Issues
+- Verify user has Full Access and Send As permissions
+- Remove and re-add the shared mailbox in Outlook
+- Check auto-mapping is enabled in Exchange
+
+**Resolution time target: 20 minutes for client issues, 1 hour for server issues**",runbook_email_issues,Runbook Email Issues,runbook,Runbook Email Issues,0,runbook_email_issues.md
+KB-00003,"# Laptop Hardware Troubleshooting Runbook
+
+
+## Symptom: Laptop Not Turning On / Blue Screen / Overheating
+
+
+### Not Turning On
+1. Perform hard reset: Remove power, hold power button 15 seconds
+2. Try with only AC power (remove battery if removable)
+3. Check power adapter LED indicator
+4. Try external monitor to rule out display failure
+5. If no POST: Likely motherboard or RAM failure → Escalate to hardware depot
+
+
+### Blue Screen of Death (BSOD)
+1. Note the stop code (e.g., IRQL_NOT_LESS_OR_EQUAL, PAGE_FAULT_IN_NONPAGED_AREA)
+2. Check Event Viewer → Windows Logs → System for critical errors
+3. Common fixes by stop code:
+   - **IRQL_NOT_LESS_OR_EQUAL**: Driver issue → Update/rollback recent drivers
+   - **CRITICAL_PROCESS_DIED**: System file corruption → Run `sfc /scannow`
+   - **MEMORY_MANAGEMENT**: RAM issue → Run Windows Memory Diagnostic
+   - **KERNEL_DATA_INPAGE_ERROR**: Disk issue → Run `chkdsk /f /r`
+4. If recurring: Check for recent Windows updates, driver changes
+
+
+### Overheating
+1. Check Task Manager for high CPU processes
+2. Verify fans are running (listen/feel for airflow)
+3. Clean vents with compressed air
+4. Check thermal paste age (if >3 years, may need replacement)
+5. Use cooling pad as temporary measure
+6. BIOS update may improve thermal management
+
+**Escalation**: Hardware depot for physical repairs. Ship via standard IT logistics process.",runbook_hardware_laptop,Runbook Hardware Laptop,runbook,Runbook Hardware Laptop,0,runbook_hardware_laptop.md
+KB-00004,"# Password Reset & Account Lockout Runbook
+
+
+## Symptom: Account Locked Out
+
+
+### Step 1: Verify Identity
+Confirm user identity through:
+- Employee ID verification
+- Manager confirmation (if remote)
+- Security questions (if configured)
+
+
+### Step 2: Check Lockout Reason
+1. Open Active Directory Users and Computers
+2. Find user account → Properties → Account tab
+3. Check ""Account is locked out"" checkbox
+4. Review Event Viewer on domain controller for Event ID 4740
+
+
+### Common Causes:
+- **Multiple failed login attempts**: Usually 5+ failures within 30 minutes
+- **Cached credentials**: Old password stored on mobile device or mapped drive
+- **Service account**: Application using expired credentials
+- **Brute force attempt**: Check source IP in security logs
+
+
+### Step 3: Unlock Account
+1. In AD: Right-click user → Unlock Account
+2. If password expired: Reset password, require change at next login
+3. If MFA issue: Reset MFA enrollment in Azure AD / Okta admin portal
+
+
+### Step 4: Prevent Recurrence
+- Have user update credentials on all devices
+- Check for service accounts using their credentials
+- Enable self-service password reset if not already active
+
+**Resolution time target: 15 minutes**",runbook_password_reset,Runbook Password Reset,runbook,Runbook Password Reset,0,runbook_password_reset.md
+KB-00005,"# Software Installation & License Troubleshooting
+
+
+## Standard Software Catalog
+All approved software is available through the Company Software Center.
+
+
+### Installation Failures
+1. **Error: Insufficient permissions**: User needs local admin → Submit elevation request
+2. **Error: Disk space**: Need minimum 2GB free → Help user clear temp files
+3. **Error: Compatibility**: Check system requirements against user's hardware
+4. **Error: Network timeout**: Switch to wired connection, retry during off-peak
+
+
+### License Issues
+- **Office 365**: Licenses managed through Azure AD groups. Add user to correct license group.
+- **Adobe Creative Cloud**: Limited seats. Check with department admin for availability.
+- **Specialized software (SAP, Salesforce)**: Requires manager approval + specific role assignment.
+
+
+### Common License Errors
+- **""Product activation failed""**: Run `ospp.vbs /act` from admin command prompt
+- **""License limit reached""**: Deactivate on old device first, or contact vendor
+- **""Subscription expired""**: Verify user's license assignment in admin portal
+
+**Resolution time target: 30 minutes for standard software, 24 hours for specialized**",runbook_software_installation,Runbook Software Installation,runbook,Runbook Software Installation,0,runbook_software_installation.md
+KB-00006,"# VPN Troubleshooting Runbook
+
+
+## Symptom: VPN Connection Drops Intermittently
+
+
+### Step 1: Check Client Version
+Ensure the VPN client is updated to the latest version (v4.2+).
+- Windows: Check via Settings > Apps > VPN Client
+- macOS: Check via Applications > VPN Client > About
+
+
+### Step 2: Network Diagnostics
+1. Run `ping vpn-gateway.company.com` to verify connectivity
+2. Check for packet loss: `tracert vpn-gateway.company.com`
+3. Verify DNS resolution: `nslookup vpn-gateway.company.com`
+
+
+### Step 3: Common Fixes
+- **Split tunneling conflict**: Disable split tunneling in VPN settings
+- **MTU mismatch**: Set MTU to 1400: `netsh interface ipv4 set subinterface ""VPN"" mtu=1400`
+- **Firewall interference**: Add VPN client to firewall exceptions
+- **Proxy conflict**: Disable proxy while connected to VPN
+
+
+### Step 4: Escalation
+If above steps don't resolve, collect:
+- VPN client logs (export from client settings)
+- Network trace (30 seconds during disconnect event)
+- Escalate to Network Engineering team (Tier 2)
+
+**Resolution time target: 30 minutes for Tier 1, 2 hours for Tier 2**",runbook_vpn_troubleshooting,Runbook Vpn Troubleshooting,runbook,Runbook Vpn Troubleshooting,0,runbook_vpn_troubleshooting.md

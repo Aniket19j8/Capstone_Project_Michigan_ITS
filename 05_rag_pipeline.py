@@ -23,9 +23,19 @@ import argparse
 import requests
 from typing import List, Dict, Optional
 from pathlib import Path
+import importlib.util
 
-# Import our retriever
-from hybrid_retrieval_engine import HybridRetriever, KBRetriever, CombinedRetriever
+# Import retrievers from 04_hybrid_retrieval.py (filename starts with a digit)
+_retriever_path = Path(__file__).parent / "04_hybrid_retrieval.py"
+_retriever_spec = importlib.util.spec_from_file_location("hybrid_retrieval_engine", _retriever_path)
+if _retriever_spec is None or _retriever_spec.loader is None:
+    raise ImportError(f"Cannot load retriever module from {_retriever_path}")
+_retriever_module = importlib.util.module_from_spec(_retriever_spec)
+_retriever_spec.loader.exec_module(_retriever_module)
+
+HybridRetriever = _retriever_module.HybridRetriever
+KBRetriever = _retriever_module.KBRetriever
+CombinedRetriever = _retriever_module.CombinedRetriever
 
 # ──────────────────────────────────────────────
 # Configuration

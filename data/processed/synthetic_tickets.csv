@@ -1,0 +1,1501 @@
+ticket_id,title,description,category,component,issue_type,severity,priority,status,assigned_team,environment,resolution,created_date,steps_to_reproduce
+ITS-00001,[Network] Proxy - cannot connect to WiFi,Urgent: Proxy - cannot connect to WiFi. Multiple users reporting similar issues. Environment is Windows 10.,Network,Proxy,Bug,Medium,Medium,In Progress,Security,Windows 10,,2025-07-06,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: cannot connect to WiFi"
+ITS-00002,WiFi slow internet speed,My WiFi is slow internet speed. I've been experiencing this since this morning. Environment: Chrome OS.,Network,WiFi,Service Request,Low,Low,Closed,Security,Chrome OS,Reconfigured proxy settings. Verified with user that issue is fixed.,2025-08-25,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: slow internet speed"
+ITS-00003,MFA account locked out,My MFA is account locked out. I've been experiencing this since this morning. Environment: macOS 14.,Account,MFA,Bug,Medium,Medium,Resolved,Security,macOS 14,Unlocked account in AD. Verified with user that issue is fixed.,2025-06-20,"1. Open MFA
+2. Attempt normal operation
+3. Observe: account locked out"
+ITS-00004,SSO problem: email forwarding setup,Urgent: SSO - email forwarding setup. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Account,SSO,Question,Medium,Medium,In Progress,DevOps,Ubuntu 22.04,,2025-11-25,"1. Open SSO
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00005,Ethernet cannot reach specific websites,My Ethernet is cannot reach specific websites. I've been experiencing this since this morning. Environment: macOS 14.,Network,Ethernet,Service Request,Low,Low,Open,Network Engineering,macOS 14,,2025-01-14,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00006,[Incident] Load Balancer - backup job failed overnight,The Load Balancer has been backup job failed overnight for the past few hours. OS: macOS 14. Please help.,Incident,Load Balancer,Incident,Medium,Medium,Open,Security,macOS 14,,2025-09-27,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00007,[Incident] API Gateway - data sync failure between systems,Urgent: API Gateway - data sync failure between systems. Multiple users reporting similar issues. Environment is Windows 10.,Incident,API Gateway,Incident,High,High,Resolved,Help Desk,Windows 10,Performed manual failover. Verified with user that issue is fixed.,2025-12-10,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00008,[Incident] Email Server - SSL certificate expired,"Hi, I need help. Email Server keeps SSL certificate expired. Started yesterday. I'm on Windows 11.",Incident,Email Server,Incident,Medium,Medium,Open,Security,Windows 11,,2025-11-17,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00009,Laptop not turning on,"Hi, I need help. Laptop keeps not turning on. Started yesterday. I'm on Windows 11.",Hardware,Laptop,Question,Medium,Medium,Closed,Help Desk,Windows 11,Updated BIOS firmware. Verified with user that issue is fixed.,2025-03-26,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: not turning on"
+ITS-00010,WiFi cannot reach specific websites,"Hi, I need help. WiFi keeps cannot reach specific websites. Started yesterday. I'm on Chrome OS.",Network,WiFi,Question,Medium,Medium,Open,DevOps,Chrome OS,,2025-12-08,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00011,Password cannot access shared mailbox,"Hi, I need help. Password keeps cannot access shared mailbox. Started yesterday. I'm on Ubuntu 22.04.",Account,Password,Bug,Medium,Medium,In Progress,Security,Ubuntu 22.04,,2025-12-10,"1. Open Password
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00012,Firewall problem: cannot connect to WiFi,My Firewall is cannot connect to WiFi. I've been experiencing this since this morning. Environment: Windows 10.,Network,Firewall,Service Request,Low,Low,In Progress,IT Operations,Windows 10,,2025-04-11,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot connect to WiFi"
+ITS-00013,[Software] Antivirus - corrupted installation,The Antivirus has been corrupted installation for the past few hours. OS: Windows 10. Please help.,Software,Antivirus,Question,Medium,Medium,Open,Help Desk,Windows 10,,2025-01-05,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: corrupted installation"
+ITS-00014,Firewall cannot access internal resources,My Firewall is cannot access internal resources. I've been experiencing this since this morning. Environment: Windows 11.,Network,Firewall,Question,Medium,Medium,Open,Help Desk,Windows 11,,2025-02-10,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00015,[Account] Password - SSO login loop,My Password is SSO login loop. I've been experiencing this since this morning. Environment: Windows 10.,Account,Password,Bug,Medium,Medium,In Progress,Security,Windows 10,,2025-01-04,"1. Open Password
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00016,Laptop problem: not connecting to docking station,"Hi, I need help. Laptop keeps not connecting to docking station. Started yesterday. I'm on Windows 10.",Hardware,Laptop,Service Request,High,High,Open,DevOps,Windows 10,,2025-06-09,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: not connecting to docking station"
+ITS-00017,Email Server problem: memory exhaustion on app server,"Hi, I need help. Email Server keeps memory exhaustion on app server. Started yesterday. I'm on Windows 10.",Incident,Email Server,Incident,Low,Low,Resolved,Security,Windows 10,Restarted affected services. Verified with user that issue is fixed.,2025-09-01,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00018,SSO problem: new hire needs account setup,Issue with SSO: new hire needs account setup. This is affecting my work. Running on macOS 14.,Account,SSO,Service Request,Critical,Critical,In Progress,IT Operations,macOS 14,,2025-06-25,"1. Open SSO
+2. Attempt normal operation
+3. Observe: new hire needs account setup"
+ITS-00019,[Incident] Load Balancer - data sync failure between systems,The Load Balancer has been data sync failure between systems for the past few hours. OS: macOS 14. Please help.,Incident,Load Balancer,Incident,Medium,Medium,Closed,DevOps,macOS 14,Freed disk space and set alerts. Verified with user that issue is fixed.,2025-03-01,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00020,Firewall intermittent disconnections,"Hi, I need help. Firewall keeps intermittent disconnections. Started yesterday. I'm on Ubuntu 22.04.",Network,Firewall,Bug,Medium,Medium,Open,IT Operations,Ubuntu 22.04,,2025-10-16,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00021,Email Server problem: failover did not trigger,My Email Server is failover did not trigger. I've been experiencing this since this morning. Environment: macOS 14.,Incident,Email Server,Incident,Critical,Critical,In Progress,DevOps,macOS 14,,2025-06-15,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00022,[Network] Firewall - cannot reach specific websites,My Firewall is cannot reach specific websites. I've been experiencing this since this morning. Environment: Windows 10.,Network,Firewall,Bug,Medium,Medium,Open,IT Operations,Windows 10,,2025-06-09,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00023,Load Balancer problem: backup job failed overnight,Issue with Load Balancer: backup job failed overnight. This is affecting my work. Running on Windows 10.,Incident,Load Balancer,Incident,Medium,Medium,In Progress,Security,Windows 10,,2025-02-20,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00024,API Gateway problem: memory exhaustion on app server,"Hi, I need help. API Gateway keeps memory exhaustion on app server. Started yesterday. I'm on Chrome OS.",Incident,API Gateway,Incident,Medium,Medium,Closed,Help Desk,Chrome OS,Applied emergency patch. Verified with user that issue is fixed.,2025-11-26,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00025,[Software] Outlook - corrupted installation,The Outlook has been corrupted installation for the past few hours. OS: Chrome OS. Please help.,Software,Outlook,Question,Medium,Medium,Closed,Help Desk,Chrome OS,Reinstalled application. Verified with user that issue is fixed.,2025-04-12,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: corrupted installation"
+ITS-00026,Password group membership change needed,Issue with Password: group membership change needed. This is affecting my work. Running on Windows 10.,Account,Password,Bug,Medium,Medium,In Progress,Security,Windows 10,,2025-09-15,"1. Open Password
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00027,Web App failover did not trigger,Urgent: Web App - failover did not trigger. Multiple users reporting similar issues. Environment is Chrome OS.,Incident,Web App,Incident,High,High,Closed,IT Operations,Chrome OS,Restarted affected services. Verified with user that issue is fixed.,2025-09-06,"1. Open Web App
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00028,[Incident] Storage - degraded performance across region,Urgent: Storage - degraded performance across region. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Incident,Storage,Incident,Low,Low,Resolved,DevOps,Ubuntu 22.04,Applied emergency patch. Verified with user that issue is fixed.,2025-01-09,"1. Open Storage
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00029,Email Server data sync failure between systems,Issue with Email Server: data sync failure between systems. This is affecting my work. Running on Ubuntu 22.04.,Incident,Email Server,Incident,Medium,Medium,Resolved,Network Engineering,Ubuntu 22.04,Renewed SSL certificate and redeployed. Verified with user that issue is fixed.,2025-07-22,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00030,[Network] VPN - cannot access internal resources,"Hi, I need help. VPN keeps cannot access internal resources. Started yesterday. I'm on macOS 14.",Network,VPN,Service Request,Medium,Medium,Open,IT Operations,macOS 14,,2025-12-14,"1. Open VPN
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00031,Active Directory permission denied,My Active Directory is permission denied. I've been experiencing this since this morning. Environment: Windows 11.,Account,Active Directory,Bug,Medium,Medium,Resolved,Network Engineering,Windows 11,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-02-07,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00032,[Incident] Load Balancer - data sync failure between systems,Issue with Load Balancer: data sync failure between systems. This is affecting my work. Running on Chrome OS.,Incident,Load Balancer,Incident,Low,Low,In Progress,Network Engineering,Chrome OS,,2025-08-05,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00033,Password problem: new hire needs account setup,"Hi, I need help. Password keeps new hire needs account setup. Started yesterday. I'm on Windows 10.",Account,Password,Service Request,Low,Low,Closed,IT Operations,Windows 10,Updated group memberships. Verified with user that issue is fixed.,2025-05-03,"1. Open Password
+2. Attempt normal operation
+3. Observe: new hire needs account setup"
+ITS-00034,Mouse no display output,"Hi, I need help. Mouse keeps no display output. Started yesterday. I'm on Ubuntu 22.04.",Hardware,Mouse,Service Request,Medium,Medium,Open,DevOps,Ubuntu 22.04,,2025-04-04,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: no display output"
+ITS-00035,Firewall cannot access internal resources,"Hi, I need help. Firewall keeps cannot access internal resources. Started yesterday. I'm on Ubuntu 22.04.",Network,Firewall,Bug,Low,Low,Open,DevOps,Ubuntu 22.04,,2025-09-24,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00036,Office 365 missing features after update,My Office 365 is missing features after update. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Software,Office 365,Bug,High,High,Resolved,DevOps,Ubuntu 22.04,Cleared cache and temp files. Verified with user that issue is fixed.,2025-10-19,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: missing features after update"
+ITS-00037,[Incident] Web App - failover did not trigger,Issue with Web App: failover did not trigger. This is affecting my work. Running on Ubuntu 22.04.,Incident,Web App,Incident,Critical,Critical,In Progress,DevOps,Ubuntu 22.04,,2025-09-11,"1. Open Web App
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00038,DNS problem: intermittent disconnections,Issue with DNS: intermittent disconnections. This is affecting my work. Running on Windows 11.,Network,DNS,Bug,Critical,Critical,In Progress,IT Operations,Windows 11,,2025-08-09,"1. Open DNS
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00039,[Account] SSO - permission denied,"Hi, I need help. SSO keeps permission denied. Started yesterday. I'm on Windows 11.",Account,SSO,Service Request,Medium,Medium,Resolved,Help Desk,Windows 11,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-10-26,"1. Open SSO
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00040,Web App disk space critical on production server,My Web App is disk space critical on production server. I've been experiencing this since this morning. Environment: Chrome OS.,Incident,Web App,Incident,Low,Low,In Progress,Security,Chrome OS,,2025-05-26,"1. Open Web App
+2. Attempt normal operation
+3. Observe: disk space critical on production server"
+ITS-00041,[Incident] Load Balancer - backup job failed overnight,"Hi, I need help. Load Balancer keeps backup job failed overnight. Started yesterday. I'm on Windows 11.",Incident,Load Balancer,Incident,Medium,Medium,Resolved,DevOps,Windows 11,Restarted affected services. Verified with user that issue is fixed.,2025-01-07,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00042,DNS DNS resolution failure,My DNS is DNS resolution failure. I've been experiencing this since this morning. Environment: Chrome OS.,Network,DNS,Service Request,Low,Low,Open,Network Engineering,Chrome OS,,2025-02-05,"1. Open DNS
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00043,Password MFA not working,My Password is MFA not working. I've been experiencing this since this morning. Environment: Windows 11.,Account,Password,Question,Low,Low,Open,Security,Windows 11,,2025-06-10,"1. Open Password
+2. Attempt normal operation
+3. Observe: MFA not working"
+ITS-00044,Storage unauthorized access attempt detected,Issue with Storage: unauthorized access attempt detected. This is affecting my work. Running on Chrome OS.,Incident,Storage,Incident,Critical,Critical,Open,IT Operations,Chrome OS,,2025-03-23,"1. Open Storage
+2. Attempt normal operation
+3. Observe: unauthorized access attempt detected"
+ITS-00045,Web App problem: SSL certificate expired,The Web App has been SSL certificate expired for the past few hours. OS: macOS 14. Please help.,Incident,Web App,Incident,Low,Low,Open,Help Desk,macOS 14,,2025-06-07,"1. Open Web App
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00046,Mouse not turning on,Issue with Mouse: not turning on. This is affecting my work. Running on macOS 14.,Hardware,Mouse,Question,Medium,Medium,In Progress,DevOps,macOS 14,,2025-10-28,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: not turning on"
+ITS-00047,Mouse problem: cracked screen,Issue with Mouse: cracked screen. This is affecting my work. Running on macOS 14.,Hardware,Mouse,Question,Medium,Medium,Resolved,Network Engineering,macOS 14,Reseated RAM modules. Verified with user that issue is fixed.,2025-11-07,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: cracked screen"
+ITS-00048,Windows plugin not working,Urgent: Windows - plugin not working. Multiple users reporting similar issues. Environment is macOS 14.,Software,Windows,Bug,Medium,Medium,Open,Security,macOS 14,,2025-01-13,"1. Open Windows
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00049,Office 365 crashing on startup,"Hi, I need help. Office 365 keeps crashing on startup. Started yesterday. I'm on Windows 11.",Software,Office 365,Bug,High,High,Closed,Security,Windows 11,Renewed license through admin portal. Verified with user that issue is fixed.,2025-12-15,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00050,[Hardware] Docking Station - USB ports not working,My Docking Station is USB ports not working. I've been experiencing this since this morning. Environment: Windows 10.,Hardware,Docking Station,Bug,Medium,Medium,In Progress,Network Engineering,Windows 10,,2025-02-24,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: USB ports not working"
+ITS-00051,Laptop fan making loud noise,Issue with Laptop: fan making loud noise. This is affecting my work. Running on Windows 10.,Hardware,Laptop,Question,Low,Low,Open,DevOps,Windows 10,,2025-01-18,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00052,Monitor problem: freezing randomly,"Hi, I need help. Monitor keeps freezing randomly. Started yesterday. I'm on macOS 14.",Hardware,Monitor,Question,High,High,Resolved,IT Operations,macOS 14,Replaced faulty component. Verified with user that issue is fixed.,2025-03-21,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: freezing randomly"
+ITS-00053,Storage disk space critical on production server,The Storage has been disk space critical on production server for the past few hours. OS: Windows 11. Please help.,Incident,Storage,Incident,Medium,Medium,Open,DevOps,Windows 11,,2025-01-05,"1. Open Storage
+2. Attempt normal operation
+3. Observe: disk space critical on production server"
+ITS-00054,Monitor problem: cracked screen,Issue with Monitor: cracked screen. This is affecting my work. Running on Chrome OS.,Hardware,Monitor,Question,Medium,Medium,In Progress,Network Engineering,Chrome OS,,2025-09-24,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: cracked screen"
+ITS-00055,VPN VPN connection drops,"Hi, I need help. VPN keeps VPN connection drops. Started yesterday. I'm on macOS 14.",Network,VPN,Question,High,High,In Progress,Network Engineering,macOS 14,,2025-03-14,"1. Open VPN
+2. Attempt normal operation
+3. Observe: VPN connection drops"
+ITS-00056,Email Server data sync failure between systems,"Hi, I need help. Email Server keeps data sync failure between systems. Started yesterday. I'm on macOS 14.",Incident,Email Server,Incident,High,High,Resolved,Security,macOS 14,Applied emergency patch. Verified with user that issue is fixed.,2025-11-17,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00057,Storage SSL certificate expired,"Hi, I need help. Storage keeps SSL certificate expired. Started yesterday. I'm on Ubuntu 22.04.",Incident,Storage,Incident,Medium,Medium,Closed,IT Operations,Ubuntu 22.04,Freed disk space and set alerts. Verified with user that issue is fixed.,2025-02-25,"1. Open Storage
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00058,[Network] VPN - cannot connect to WiFi,My VPN is cannot connect to WiFi. I've been experiencing this since this morning. Environment: Windows 10.,Network,VPN,Bug,Medium,Medium,Resolved,Help Desk,Windows 10,Added firewall rule exception. Verified with user that issue is fixed.,2025-12-26,"1. Open VPN
+2. Attempt normal operation
+3. Observe: cannot connect to WiFi"
+ITS-00059,Storage backup job failed overnight,"Hi, I need help. Storage keeps backup job failed overnight. Started yesterday. I'm on macOS 14.",Incident,Storage,Incident,Low,Low,In Progress,Help Desk,macOS 14,,2025-02-26,"1. Open Storage
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00060,[Incident] Storage - memory exhaustion on app server,My Storage is memory exhaustion on app server. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Incident,Storage,Incident,High,High,Open,Security,Ubuntu 22.04,,2025-03-05,"1. Open Storage
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00061,[Software] Outlook - slow loading,Urgent: Outlook - slow loading. Multiple users reporting similar issues. Environment is Windows 11.,Software,Outlook,Bug,Medium,Medium,In Progress,Network Engineering,Windows 11,,2025-09-13,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: slow loading"
+ITS-00062,VPN cannot access internal resources,Urgent: VPN - cannot access internal resources. Multiple users reporting similar issues. Environment is Windows 10.,Network,VPN,Bug,Medium,Medium,Closed,IT Operations,Windows 10,Added firewall rule exception. Verified with user that issue is fixed.,2025-07-11,"1. Open VPN
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00063,[Hardware] Monitor - screen flickering,My Monitor is screen flickering. I've been experiencing this since this morning. Environment: macOS 14.,Hardware,Monitor,Service Request,Medium,Medium,Open,Security,macOS 14,,2025-10-14,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: screen flickering"
+ITS-00064,[Network] Proxy - proxy authentication error,My Proxy is proxy authentication error. I've been experiencing this since this morning. Environment: macOS 14.,Network,Proxy,Service Request,Medium,Medium,Open,IT Operations,macOS 14,,2025-03-06,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00065,[Account] SSO - cannot access shared mailbox,The SSO has been cannot access shared mailbox for the past few hours. OS: Windows 10. Please help.,Account,SSO,Bug,Low,Low,Closed,Security,Windows 10,Granted appropriate permissions. Verified with user that issue is fixed.,2025-08-23,"1. Open SSO
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00066,Database problem: disk space critical on production server,My Database is disk space critical on production server. I've been experiencing this since this morning. Environment: Chrome OS.,Incident,Database,Incident,High,High,Open,Help Desk,Chrome OS,,2025-11-22,"1. Open Database
+2. Attempt normal operation
+3. Observe: disk space critical on production server"
+ITS-00067,Active Directory problem: password expired,The Active Directory has been password expired for the past few hours. OS: macOS 14. Please help.,Account,Active Directory,Service Request,Low,Low,Closed,IT Operations,macOS 14,Updated group memberships. Verified with user that issue is fixed.,2025-08-06,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00068,Password permission denied,Urgent: Password - permission denied. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Account,Password,Question,Low,Low,Open,Security,Ubuntu 22.04,,2025-12-05,"1. Open Password
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00069,Mouse problem: USB ports not working,Issue with Mouse: USB ports not working. This is affecting my work. Running on Windows 10.,Hardware,Mouse,Question,Medium,Medium,Open,Security,Windows 10,,2025-05-13,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: USB ports not working"
+ITS-00070,Desktop problem: USB ports not working,"Hi, I need help. Desktop keeps USB ports not working. Started yesterday. I'm on Ubuntu 22.04.",Hardware,Desktop,Bug,Low,Low,Open,Help Desk,Ubuntu 22.04,,2025-03-27,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: USB ports not working"
+ITS-00071,API Gateway memory exhaustion on app server,Urgent: API Gateway - memory exhaustion on app server. Multiple users reporting similar issues. Environment is Windows 10.,Incident,API Gateway,Incident,Low,Low,Closed,Help Desk,Windows 10,Applied emergency patch. Verified with user that issue is fixed.,2025-09-12,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00072,Email cannot access shared mailbox,My Email is cannot access shared mailbox. I've been experiencing this since this morning. Environment: Windows 11.,Account,Email,Service Request,Medium,Medium,In Progress,Network Engineering,Windows 11,,2025-04-28,"1. Open Email
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00073,Web App service outage affecting all users,My Web App is service outage affecting all users. I've been experiencing this since this morning. Environment: Chrome OS.,Incident,Web App,Incident,High,High,In Progress,Help Desk,Chrome OS,,2025-06-06,"1. Open Web App
+2. Attempt normal operation
+3. Observe: service outage affecting all users"
+ITS-00074,API Gateway problem: backup job failed overnight,My API Gateway is backup job failed overnight. I've been experiencing this since this morning. Environment: Chrome OS.,Incident,API Gateway,Incident,Low,Low,Open,Network Engineering,Chrome OS,,2025-03-04,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00075,[Software] Outlook - slow loading,Urgent: Outlook - slow loading. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Software,Outlook,Service Request,Medium,Medium,Closed,DevOps,Ubuntu 22.04,Reinstalled application. Verified with user that issue is fixed.,2025-10-01,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: slow loading"
+ITS-00076,[Software] VPN - crashing on startup,Issue with VPN: crashing on startup. This is affecting my work. Running on macOS 14.,Software,VPN,Question,Low,Low,In Progress,DevOps,macOS 14,,2025-02-18,"1. Open VPN
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00077,[Hardware] Desktop - screen flickering,"Hi, I need help. Desktop keeps screen flickering. Started yesterday. I'm on Windows 10.",Hardware,Desktop,Bug,Medium,Medium,Closed,DevOps,Windows 10,Replaced battery. Verified with user that issue is fixed.,2025-01-25,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: screen flickering"
+ITS-00078,Teams problem: compatibility issue,The Teams has been compatibility issue for the past few hours. OS: Windows 11. Please help.,Software,Teams,Question,Low,Low,Resolved,Network Engineering,Windows 11,Rolled back to previous version. Verified with user that issue is fixed.,2025-10-13,"1. Open Teams
+2. Attempt normal operation
+3. Observe: compatibility issue"
+ITS-00079,Email problem: email forwarding setup,Urgent: Email - email forwarding setup. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Account,Email,Service Request,Medium,Medium,Open,Help Desk,Ubuntu 22.04,,2025-11-27,"1. Open Email
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00080,[Account] Active Directory - SSO login loop,The Active Directory has been SSO login loop for the past few hours. OS: Windows 10. Please help.,Account,Active Directory,Question,High,High,Closed,Help Desk,Windows 10,Updated group memberships. Verified with user that issue is fixed.,2025-03-24,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00081,Desktop problem: not connecting to docking station,"Hi, I need help. Desktop keeps not connecting to docking station. Started yesterday. I'm on Windows 11.",Hardware,Desktop,Question,High,High,Resolved,Network Engineering,Windows 11,Updated BIOS firmware. Verified with user that issue is fixed.,2025-09-07,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: not connecting to docking station"
+ITS-00082,Firewall packet loss,"Hi, I need help. Firewall keeps packet loss. Started yesterday. I'm on Ubuntu 22.04.",Network,Firewall,Bug,Medium,Medium,Open,Help Desk,Ubuntu 22.04,,2025-09-18,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00083,Load Balancer disk space critical on production server,The Load Balancer has been disk space critical on production server for the past few hours. OS: Windows 10. Please help.,Incident,Load Balancer,Incident,Low,Low,In Progress,Help Desk,Windows 10,,2025-07-13,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: disk space critical on production server"
+ITS-00084,[Network] Ethernet - cannot access internal resources,Issue with Ethernet: cannot access internal resources. This is affecting my work. Running on Chrome OS.,Network,Ethernet,Bug,Medium,Medium,Open,IT Operations,Chrome OS,,2025-09-08,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00085,Salesforce problem: memory leak causing slowdown,Issue with Salesforce: memory leak causing slowdown. This is affecting my work. Running on Chrome OS.,Software,Salesforce,Service Request,Medium,Medium,In Progress,Help Desk,Chrome OS,,2025-12-18,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: memory leak causing slowdown"
+ITS-00086,[Software] Windows - missing features after update,Urgent: Windows - missing features after update. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Software,Windows,Question,High,High,Open,Help Desk,Ubuntu 22.04,,2025-03-02,"1. Open Windows
+2. Attempt normal operation
+3. Observe: missing features after update"
+ITS-00087,Email problem: group membership change needed,The Email has been group membership change needed for the past few hours. OS: Windows 10. Please help.,Account,Email,Service Request,High,High,Open,IT Operations,Windows 10,,2025-04-24,"1. Open Email
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00088,API Gateway problem: service outage affecting all users,Urgent: API Gateway - service outage affecting all users. Multiple users reporting similar issues. Environment is macOS 14.,Incident,API Gateway,Incident,Medium,Medium,Resolved,IT Operations,macOS 14,Performed manual failover. Verified with user that issue is fixed.,2025-07-11,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: service outage affecting all users"
+ITS-00089,Docking Station problem: freezing randomly,Urgent: Docking Station - freezing randomly. Multiple users reporting similar issues. Environment is Chrome OS.,Hardware,Docking Station,Bug,High,High,Open,DevOps,Chrome OS,,2025-02-15,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: freezing randomly"
+ITS-00090,Load Balancer problem: failover did not trigger,My Load Balancer is failover did not trigger. I've been experiencing this since this morning. Environment: macOS 14.,Incident,Load Balancer,Incident,Medium,Medium,Resolved,Network Engineering,macOS 14,Re-ran backup with increased timeout. Verified with user that issue is fixed.,2025-04-23,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00091,[Software] Office 365 - crashing on startup,The Office 365 has been crashing on startup for the past few hours. OS: Windows 10. Please help.,Software,Office 365,Question,Low,Low,Open,Security,Windows 10,,2025-09-18,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00092,[Network] Ethernet - proxy authentication error,Issue with Ethernet: proxy authentication error. This is affecting my work. Running on Windows 11.,Network,Ethernet,Bug,High,High,In Progress,Help Desk,Windows 11,,2025-06-05,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00093,[Hardware] Monitor - screen flickering,Urgent: Monitor - screen flickering. Multiple users reporting similar issues. Environment is macOS 14.,Hardware,Monitor,Question,High,High,Resolved,Network Engineering,macOS 14,Replaced faulty component. Verified with user that issue is fixed.,2025-08-01,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: screen flickering"
+ITS-00094,[Network] VPN - cannot reach specific websites,Urgent: VPN - cannot reach specific websites. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Network,VPN,Service Request,Low,Low,In Progress,DevOps,Ubuntu 22.04,,2025-01-28,"1. Open VPN
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00095,[Incident] Load Balancer - SSL certificate expired,The Load Balancer has been SSL certificate expired for the past few hours. OS: Ubuntu 22.04. Please help.,Incident,Load Balancer,Incident,Low,Low,Open,DevOps,Ubuntu 22.04,,2025-10-12,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00096,VPN problem: slow loading,Issue with VPN: slow loading. This is affecting my work. Running on Windows 11.,Software,VPN,Question,Low,Low,Closed,Help Desk,Windows 11,Reinstalled application. Verified with user that issue is fixed.,2025-01-17,"1. Open VPN
+2. Attempt normal operation
+3. Observe: slow loading"
+ITS-00097,Storage unauthorized access attempt detected,The Storage has been unauthorized access attempt detected for the past few hours. OS: Windows 11. Please help.,Incident,Storage,Incident,Medium,Medium,Closed,Help Desk,Windows 11,Re-ran backup with increased timeout. Verified with user that issue is fixed.,2025-05-10,"1. Open Storage
+2. Attempt normal operation
+3. Observe: unauthorized access attempt detected"
+ITS-00098,[Software] Salesforce - crashing on startup,My Salesforce is crashing on startup. I've been experiencing this since this morning. Environment: macOS 14.,Software,Salesforce,Bug,Low,Low,Resolved,Help Desk,macOS 14,Cleared cache and temp files. Verified with user that issue is fixed.,2025-06-02,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00099,VPN problem: proxy authentication error,"Hi, I need help. VPN keeps proxy authentication error. Started yesterday. I'm on macOS 14.",Network,VPN,Question,Medium,Medium,Resolved,Help Desk,macOS 14,Added firewall rule exception. Verified with user that issue is fixed.,2025-04-12,"1. Open VPN
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00100,Password problem: new hire needs account setup,"Hi, I need help. Password keeps new hire needs account setup. Started yesterday. I'm on Chrome OS.",Account,Password,Service Request,Medium,Medium,Resolved,Security,Chrome OS,Fixed SSO federation config. Verified with user that issue is fixed.,2025-09-19,"1. Open Password
+2. Attempt normal operation
+3. Observe: new hire needs account setup"
+ITS-00101,Monitor cracked screen,My Monitor is cracked screen. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Hardware,Monitor,Bug,Low,Low,Open,Help Desk,Ubuntu 22.04,,2025-12-27,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: cracked screen"
+ITS-00102,Salesforce problem: cannot login,Issue with Salesforce: cannot login. This is affecting my work. Running on macOS 14.,Software,Salesforce,Question,Medium,Medium,Resolved,Help Desk,macOS 14,Reset user profile. Verified with user that issue is fixed.,2025-04-07,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: cannot login"
+ITS-00103,WiFi intermittent disconnections,Urgent: WiFi - intermittent disconnections. Multiple users reporting similar issues. Environment is Windows 11.,Network,WiFi,Question,High,High,In Progress,Help Desk,Windows 11,,2025-09-02,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00104,Storage problem: memory exhaustion on app server,Urgent: Storage - memory exhaustion on app server. Multiple users reporting similar issues. Environment is Chrome OS.,Incident,Storage,Incident,Medium,Medium,Open,IT Operations,Chrome OS,,2025-02-11,"1. Open Storage
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00105,[Software] Outlook - error code 0x80070005,Issue with Outlook: error code 0x80070005. This is affecting my work. Running on macOS 14.,Software,Outlook,Service Request,High,High,Open,Security,macOS 14,,2025-12-20,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: error code 0x80070005"
+ITS-00106,WiFi cannot access internal resources,Urgent: WiFi - cannot access internal resources. Multiple users reporting similar issues. Environment is Windows 11.,Network,WiFi,Bug,Medium,Medium,In Progress,Security,Windows 11,,2025-10-24,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00107,[Account] SSO - MFA not working,Issue with SSO: MFA not working. This is affecting my work. Running on Windows 10.,Account,SSO,Bug,Medium,Medium,Open,IT Operations,Windows 10,,2025-02-02,"1. Open SSO
+2. Attempt normal operation
+3. Observe: MFA not working"
+ITS-00108,[Software] Outlook - slow loading,Urgent: Outlook - slow loading. Multiple users reporting similar issues. Environment is Chrome OS.,Software,Outlook,Bug,Low,Low,Resolved,DevOps,Chrome OS,Reset user profile. Verified with user that issue is fixed.,2025-07-26,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: slow loading"
+ITS-00109,Load Balancer data sync failure between systems,My Load Balancer is data sync failure between systems. I've been experiencing this since this morning. Environment: Windows 11.,Incident,Load Balancer,Incident,High,High,In Progress,IT Operations,Windows 11,,2025-08-26,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00110,[Software] Windows - missing features after update,My Windows is missing features after update. I've been experiencing this since this morning. Environment: Windows 10.,Software,Windows,Service Request,Medium,Medium,In Progress,Network Engineering,Windows 10,,2025-07-25,"1. Open Windows
+2. Attempt normal operation
+3. Observe: missing features after update"
+ITS-00111,VPN packet loss,Urgent: VPN - packet loss. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Network,VPN,Question,Medium,Medium,In Progress,IT Operations,Ubuntu 22.04,,2025-04-10,"1. Open VPN
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00112,Antivirus cannot login,Issue with Antivirus: cannot login. This is affecting my work. Running on Windows 10.,Software,Antivirus,Question,Medium,Medium,Closed,DevOps,Windows 10,Renewed license through admin portal. Verified with user that issue is fixed.,2025-11-01,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: cannot login"
+ITS-00113,Ethernet cannot connect to WiFi,Issue with Ethernet: cannot connect to WiFi. This is affecting my work. Running on Windows 11.,Network,Ethernet,Bug,Low,Low,Closed,Help Desk,Windows 11,Flushed DNS cache. Verified with user that issue is fixed.,2025-11-06,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: cannot connect to WiFi"
+ITS-00114,[Network] Proxy - proxy authentication error,My Proxy is proxy authentication error. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Network,Proxy,Service Request,Medium,Medium,In Progress,DevOps,Ubuntu 22.04,,2025-04-11,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00115,[Incident] Load Balancer - degraded performance across region,"Hi, I need help. Load Balancer keeps degraded performance across region. Started yesterday. I'm on Windows 10.",Incident,Load Balancer,Incident,Medium,Medium,In Progress,Network Engineering,Windows 10,,2025-08-23,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00116,[Software] Windows - compatibility issue,My Windows is compatibility issue. I've been experiencing this since this morning. Environment: Windows 11.,Software,Windows,Service Request,High,High,In Progress,Security,Windows 11,,2025-07-21,"1. Open Windows
+2. Attempt normal operation
+3. Observe: compatibility issue"
+ITS-00117,SSO group membership change needed,The SSO has been group membership change needed for the past few hours. OS: Ubuntu 22.04. Please help.,Account,SSO,Service Request,Medium,Medium,Resolved,IT Operations,Ubuntu 22.04,Reset password and synced. Verified with user that issue is fixed.,2025-11-19,"1. Open SSO
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00118,Email group membership change needed,My Email is group membership change needed. I've been experiencing this since this morning. Environment: Windows 11.,Account,Email,Question,Critical,Critical,In Progress,Network Engineering,Windows 11,,2025-05-17,"1. Open Email
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00119,WiFi problem: cannot reach specific websites,"Hi, I need help. WiFi keeps cannot reach specific websites. Started yesterday. I'm on Chrome OS.",Network,WiFi,Bug,Medium,Medium,Closed,DevOps,Chrome OS,Replaced network cable. Verified with user that issue is fixed.,2025-04-18,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00120,DNS problem: packet loss,Issue with DNS: packet loss. This is affecting my work. Running on Windows 10.,Network,DNS,Bug,Medium,Medium,Open,Help Desk,Windows 10,,2025-04-10,"1. Open DNS
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00121,WiFi DNS resolution failure,The WiFi has been DNS resolution failure for the past few hours. OS: Windows 10. Please help.,Network,WiFi,Bug,Medium,Medium,Open,IT Operations,Windows 10,,2025-08-10,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00122,Laptop problem: not connecting to docking station,Issue with Laptop: not connecting to docking station. This is affecting my work. Running on Windows 11.,Hardware,Laptop,Question,Medium,Medium,In Progress,DevOps,Windows 11,,2025-06-18,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: not connecting to docking station"
+ITS-00123,Docking Station not connecting to docking station,Issue with Docking Station: not connecting to docking station. This is affecting my work. Running on Windows 10.,Hardware,Docking Station,Question,Critical,Critical,In Progress,Network Engineering,Windows 10,,2025-02-16,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: not connecting to docking station"
+ITS-00124,Password permission denied,Urgent: Password - permission denied. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Account,Password,Bug,Low,Low,Open,Help Desk,Ubuntu 22.04,,2025-04-21,"1. Open Password
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00125,Password group membership change needed,My Password is group membership change needed. I've been experiencing this since this morning. Environment: Chrome OS.,Account,Password,Question,Low,Low,Open,Network Engineering,Chrome OS,,2025-08-26,"1. Open Password
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00126,[Account] Email - email forwarding setup,Urgent: Email - email forwarding setup. Multiple users reporting similar issues. Environment is Chrome OS.,Account,Email,Bug,Low,Low,Resolved,IT Operations,Chrome OS,Created new account with standard template. Verified with user that issue is fixed.,2025-08-07,"1. Open Email
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00127,Email Server data sync failure between systems,"Hi, I need help. Email Server keeps data sync failure between systems. Started yesterday. I'm on Windows 10.",Incident,Email Server,Incident,Low,Low,In Progress,IT Operations,Windows 10,,2025-01-05,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00128,[Network] Ethernet - intermittent disconnections,Issue with Ethernet: intermittent disconnections. This is affecting my work. Running on Windows 11.,Network,Ethernet,Question,Low,Low,In Progress,DevOps,Windows 11,,2025-02-19,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00129,VPN problem: corrupted installation,The VPN has been corrupted installation for the past few hours. OS: Windows 11. Please help.,Software,VPN,Service Request,Medium,Medium,Closed,Help Desk,Windows 11,Rolled back to previous version. Verified with user that issue is fixed.,2025-03-15,"1. Open VPN
+2. Attempt normal operation
+3. Observe: corrupted installation"
+ITS-00130,Docking Station USB ports not working,The Docking Station has been USB ports not working for the past few hours. OS: Windows 11. Please help.,Hardware,Docking Station,Service Request,Medium,Medium,Open,Security,Windows 11,,2025-01-25,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: USB ports not working"
+ITS-00131,[Incident] Database - failover did not trigger,The Database has been failover did not trigger for the past few hours. OS: macOS 14. Please help.,Incident,Database,Incident,Medium,Medium,Resolved,IT Operations,macOS 14,Performed manual failover. Verified with user that issue is fixed.,2025-12-10,"1. Open Database
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00132,VPN packet loss,The VPN has been packet loss for the past few hours. OS: Chrome OS. Please help.,Network,VPN,Question,Low,Low,Open,Help Desk,Chrome OS,,2025-06-22,"1. Open VPN
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00133,[Account] Password - account deactivation request,Issue with Password: account deactivation request. This is affecting my work. Running on macOS 14.,Account,Password,Bug,Medium,Medium,Open,Network Engineering,macOS 14,,2025-02-05,"1. Open Password
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00134,Web App problem: service outage affecting all users,My Web App is service outage affecting all users. I've been experiencing this since this morning. Environment: Chrome OS.,Incident,Web App,Incident,Low,Low,Open,Help Desk,Chrome OS,,2025-02-21,"1. Open Web App
+2. Attempt normal operation
+3. Observe: service outage affecting all users"
+ITS-00135,Storage degraded performance across region,Urgent: Storage - degraded performance across region. Multiple users reporting similar issues. Environment is Windows 10.,Incident,Storage,Incident,Medium,Medium,Closed,Help Desk,Windows 10,Re-ran backup with increased timeout. Verified with user that issue is fixed.,2025-01-26,"1. Open Storage
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00136,Password password expired,Issue with Password: password expired. This is affecting my work. Running on Windows 10.,Account,Password,Service Request,High,High,Resolved,DevOps,Windows 10,Reset password and synced. Verified with user that issue is fixed.,2025-09-24,"1. Open Password
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00137,[Account] Password - account locked out,Issue with Password: account locked out. This is affecting my work. Running on Chrome OS.,Account,Password,Service Request,Low,Low,Closed,Network Engineering,Chrome OS,Granted appropriate permissions. Verified with user that issue is fixed.,2025-12-03,"1. Open Password
+2. Attempt normal operation
+3. Observe: account locked out"
+ITS-00138,Mouse not connecting to docking station,The Mouse has been not connecting to docking station for the past few hours. OS: Windows 10. Please help.,Hardware,Mouse,Bug,Medium,Medium,In Progress,Security,Windows 10,,2025-04-21,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: not connecting to docking station"
+ITS-00139,Mouse problem: not connecting to docking station,Urgent: Mouse - not connecting to docking station. Multiple users reporting similar issues. Environment is Windows 10.,Hardware,Mouse,Service Request,High,High,Closed,DevOps,Windows 10,Updated device drivers. Verified with user that issue is fixed.,2025-05-05,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: not connecting to docking station"
+ITS-00140,[Incident] Email Server - degraded performance across region,Urgent: Email Server - degraded performance across region. Multiple users reporting similar issues. Environment is Windows 10.,Incident,Email Server,Incident,Medium,Medium,In Progress,DevOps,Windows 10,,2025-10-08,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00141,[Incident] API Gateway - backup job failed overnight,"Hi, I need help. API Gateway keeps backup job failed overnight. Started yesterday. I'm on Windows 11.",Incident,API Gateway,Incident,Medium,Medium,Open,Help Desk,Windows 11,,2025-06-12,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00142,Email Server problem: scheduled maintenance overran window,The Email Server has been scheduled maintenance overran window for the past few hours. OS: Windows 11. Please help.,Incident,Email Server,Incident,Low,Low,Closed,IT Operations,Windows 11,Restarted affected services. Verified with user that issue is fixed.,2025-11-08,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: scheduled maintenance overran window"
+ITS-00143,[Hardware] Laptop - no display output,My Laptop is no display output. I've been experiencing this since this morning. Environment: Windows 11.,Hardware,Laptop,Bug,Low,Low,Resolved,Security,Windows 11,Replaced battery. Verified with user that issue is fixed.,2025-06-27,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: no display output"
+ITS-00144,Outlook crashing on startup,My Outlook is crashing on startup. I've been experiencing this since this morning. Environment: macOS 14.,Software,Outlook,Service Request,Medium,Medium,Closed,Network Engineering,macOS 14,Renewed license through admin portal. Verified with user that issue is fixed.,2025-02-15,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00145,Monitor problem: not turning on,My Monitor is not turning on. I've been experiencing this since this morning. Environment: Windows 11.,Hardware,Monitor,Service Request,High,High,Resolved,IT Operations,Windows 11,Replaced faulty component. Verified with user that issue is fixed.,2025-12-10,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: not turning on"
+ITS-00146,Outlook problem: plugin not working,My Outlook is plugin not working. I've been experiencing this since this morning. Environment: macOS 14.,Software,Outlook,Bug,Medium,Medium,Open,Security,macOS 14,,2025-10-07,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00147,SSO problem: account locked out,Issue with SSO: account locked out. This is affecting my work. Running on Ubuntu 22.04.,Account,SSO,Service Request,Low,Low,Open,IT Operations,Ubuntu 22.04,,2025-12-15,"1. Open SSO
+2. Attempt normal operation
+3. Observe: account locked out"
+ITS-00148,Windows problem: memory leak causing slowdown,"Hi, I need help. Windows keeps memory leak causing slowdown. Started yesterday. I'm on Windows 11.",Software,Windows,Question,High,High,Closed,Security,Windows 11,Reset user profile. Verified with user that issue is fixed.,2025-12-22,"1. Open Windows
+2. Attempt normal operation
+3. Observe: memory leak causing slowdown"
+ITS-00149,Teams plugin not working,My Teams is plugin not working. I've been experiencing this since this morning. Environment: Windows 11.,Software,Teams,Question,Medium,Medium,In Progress,DevOps,Windows 11,,2025-12-14,"1. Open Teams
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00150,Web App problem: memory exhaustion on app server,The Web App has been memory exhaustion on app server for the past few hours. OS: macOS 14. Please help.,Incident,Web App,Incident,Medium,Medium,Open,Help Desk,macOS 14,,2025-05-04,"1. Open Web App
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00151,Office 365 problem: corrupted installation,"Hi, I need help. Office 365 keeps corrupted installation. Started yesterday. I'm on Windows 10.",Software,Office 365,Bug,High,High,In Progress,Help Desk,Windows 10,,2025-12-27,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: corrupted installation"
+ITS-00152,Storage data sync failure between systems,My Storage is data sync failure between systems. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Incident,Storage,Incident,Medium,Medium,Open,Security,Ubuntu 22.04,,2025-07-20,"1. Open Storage
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00153,[Network] Ethernet - cannot reach specific websites,My Ethernet is cannot reach specific websites. I've been experiencing this since this morning. Environment: macOS 14.,Network,Ethernet,Question,Medium,Medium,Resolved,Help Desk,macOS 14,Updated VPN client. Verified with user that issue is fixed.,2025-12-16,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00154,Web App problem: SSL certificate expired,"Hi, I need help. Web App keeps SSL certificate expired. Started yesterday. I'm on Ubuntu 22.04.",Incident,Web App,Incident,Low,Low,Closed,DevOps,Ubuntu 22.04,Renewed SSL certificate and redeployed. Verified with user that issue is fixed.,2025-07-24,"1. Open Web App
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00155,Firewall problem: DNS resolution failure,Urgent: Firewall - DNS resolution failure. Multiple users reporting similar issues. Environment is Windows 11.,Network,Firewall,Question,Low,Low,Closed,DevOps,Windows 11,Reset network adapter. Verified with user that issue is fixed.,2025-07-20,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00156,Docking Station problem: USB ports not working,Issue with Docking Station: USB ports not working. This is affecting my work. Running on macOS 14.,Hardware,Docking Station,Question,Medium,Medium,Open,DevOps,macOS 14,,2025-11-13,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: USB ports not working"
+ITS-00157,SSO account deactivation request,The SSO has been account deactivation request for the past few hours. OS: macOS 14. Please help.,Account,SSO,Service Request,Low,Low,Resolved,DevOps,macOS 14,Updated group memberships. Verified with user that issue is fixed.,2025-05-06,"1. Open SSO
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00158,Desktop USB ports not working,Issue with Desktop: USB ports not working. This is affecting my work. Running on Windows 11.,Hardware,Desktop,Service Request,Low,Low,In Progress,Network Engineering,Windows 11,,2025-07-25,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: USB ports not working"
+ITS-00159,API Gateway problem: service outage affecting all users,"Hi, I need help. API Gateway keeps service outage affecting all users. Started yesterday. I'm on Windows 10.",Incident,API Gateway,Incident,Low,Low,In Progress,IT Operations,Windows 10,,2025-10-04,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: service outage affecting all users"
+ITS-00160,VPN problem: cannot login,"Hi, I need help. VPN keeps cannot login. Started yesterday. I'm on Chrome OS.",Software,VPN,Question,Low,Low,Closed,DevOps,Chrome OS,Reinstalled application. Verified with user that issue is fixed.,2025-07-05,"1. Open VPN
+2. Attempt normal operation
+3. Observe: cannot login"
+ITS-00161,Web App problem: memory exhaustion on app server,My Web App is memory exhaustion on app server. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Incident,Web App,Incident,High,High,Resolved,Security,Ubuntu 22.04,Applied emergency patch. Verified with user that issue is fixed.,2025-06-22,"1. Open Web App
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00162,Email Server problem: scheduled maintenance overran window,"Hi, I need help. Email Server keeps scheduled maintenance overran window. Started yesterday. I'm on Ubuntu 22.04.",Incident,Email Server,Incident,Medium,Medium,Closed,Help Desk,Ubuntu 22.04,Performed manual failover. Verified with user that issue is fixed.,2025-03-04,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: scheduled maintenance overran window"
+ITS-00163,Monitor screen flickering,"Hi, I need help. Monitor keeps screen flickering. Started yesterday. I'm on Chrome OS.",Hardware,Monitor,Bug,Medium,Medium,Open,DevOps,Chrome OS,,2025-09-11,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: screen flickering"
+ITS-00164,Active Directory problem: account locked out,Urgent: Active Directory - account locked out. Multiple users reporting similar issues. Environment is macOS 14.,Account,Active Directory,Service Request,Critical,Critical,In Progress,Security,macOS 14,,2025-04-16,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: account locked out"
+ITS-00165,[Software] Teams - memory leak causing slowdown,Issue with Teams: memory leak causing slowdown. This is affecting my work. Running on Chrome OS.,Software,Teams,Bug,Medium,Medium,Open,IT Operations,Chrome OS,,2025-06-03,"1. Open Teams
+2. Attempt normal operation
+3. Observe: memory leak causing slowdown"
+ITS-00166,Salesforce slow loading,The Salesforce has been slow loading for the past few hours. OS: Chrome OS. Please help.,Software,Salesforce,Service Request,Low,Low,In Progress,DevOps,Chrome OS,,2025-06-07,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: slow loading"
+ITS-00167,Web App memory exhaustion on app server,"Hi, I need help. Web App keeps memory exhaustion on app server. Started yesterday. I'm on Windows 10.",Incident,Web App,Incident,Medium,Medium,Open,Network Engineering,Windows 10,,2025-05-01,"1. Open Web App
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00168,[Software] Salesforce - missing features after update,Issue with Salesforce: missing features after update. This is affecting my work. Running on Ubuntu 22.04.,Software,Salesforce,Service Request,Medium,Medium,Resolved,DevOps,Ubuntu 22.04,Configured firewall exceptions. Verified with user that issue is fixed.,2025-09-01,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: missing features after update"
+ITS-00169,[Network] Firewall - cannot access internal resources,Issue with Firewall: cannot access internal resources. This is affecting my work. Running on macOS 14.,Network,Firewall,Question,High,High,Closed,IT Operations,macOS 14,Flushed DNS cache. Verified with user that issue is fixed.,2025-10-09,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00170,[Account] Password - SSO login loop,"Hi, I need help. Password keeps SSO login loop. Started yesterday. I'm on macOS 14.",Account,Password,Service Request,Low,Low,Closed,Network Engineering,macOS 14,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-11-13,"1. Open Password
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00171,Mouse problem: keyboard keys stuck,Urgent: Mouse - keyboard keys stuck. Multiple users reporting similar issues. Environment is Windows 11.,Hardware,Mouse,Bug,Medium,Medium,Resolved,DevOps,Windows 11,Replaced faulty component. Verified with user that issue is fixed.,2025-01-02,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: keyboard keys stuck"
+ITS-00172,[Software] Windows - crashing on startup,My Windows is crashing on startup. I've been experiencing this since this morning. Environment: Windows 10.,Software,Windows,Service Request,High,High,Open,Help Desk,Windows 10,,2025-10-28,"1. Open Windows
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00173,Email problem: account deactivation request,Issue with Email: account deactivation request. This is affecting my work. Running on Windows 11.,Account,Email,Question,Medium,Medium,Resolved,Help Desk,Windows 11,Granted appropriate permissions. Verified with user that issue is fixed.,2025-03-22,"1. Open Email
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00174,[Hardware] Printer - fan making loud noise,Urgent: Printer - fan making loud noise. Multiple users reporting similar issues. Environment is Chrome OS.,Hardware,Printer,Question,Low,Low,In Progress,Network Engineering,Chrome OS,,2025-09-19,"1. Open Printer
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00175,Windows crashing on startup,Urgent: Windows - crashing on startup. Multiple users reporting similar issues. Environment is Chrome OS.,Software,Windows,Bug,Medium,Medium,Closed,Security,Chrome OS,Configured firewall exceptions. Verified with user that issue is fixed.,2025-03-08,"1. Open Windows
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00176,[Software] Salesforce - compatibility issue,"Hi, I need help. Salesforce keeps compatibility issue. Started yesterday. I'm on Windows 10.",Software,Salesforce,Question,Medium,Medium,Closed,IT Operations,Windows 10,Applied latest patch. Verified with user that issue is fixed.,2025-09-02,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: compatibility issue"
+ITS-00177,[Software] Office 365 - crashing on startup,The Office 365 has been crashing on startup for the past few hours. OS: macOS 14. Please help.,Software,Office 365,Service Request,High,High,Closed,IT Operations,macOS 14,Reset user profile. Verified with user that issue is fixed.,2025-02-11,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00178,Docking Station not connecting to docking station,"Hi, I need help. Docking Station keeps not connecting to docking station. Started yesterday. I'm on Windows 10.",Hardware,Docking Station,Service Request,High,High,Closed,Security,Windows 10,Ordered replacement unit. Verified with user that issue is fixed.,2025-08-15,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: not connecting to docking station"
+ITS-00179,Active Directory problem: cannot access shared mailbox,The Active Directory has been cannot access shared mailbox for the past few hours. OS: Windows 10. Please help.,Account,Active Directory,Service Request,Medium,Medium,Closed,Network Engineering,Windows 10,Unlocked account in AD. Verified with user that issue is fixed.,2025-08-07,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00180,Monitor keyboard keys stuck,"Hi, I need help. Monitor keeps keyboard keys stuck. Started yesterday. I'm on Windows 10.",Hardware,Monitor,Service Request,Medium,Medium,In Progress,IT Operations,Windows 10,,2025-08-27,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: keyboard keys stuck"
+ITS-00181,Password problem: permission denied,"Hi, I need help. Password keeps permission denied. Started yesterday. I'm on macOS 14.",Account,Password,Question,High,High,Open,DevOps,macOS 14,,2025-01-22,"1. Open Password
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00182,[Account] Active Directory - password expired,"Hi, I need help. Active Directory keeps password expired. Started yesterday. I'm on Ubuntu 22.04.",Account,Active Directory,Service Request,Medium,Medium,Resolved,DevOps,Ubuntu 22.04,Updated group memberships. Verified with user that issue is fixed.,2025-04-26,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00183,VPN cannot access internal resources,Urgent: VPN - cannot access internal resources. Multiple users reporting similar issues. Environment is Chrome OS.,Network,VPN,Bug,High,High,Resolved,IT Operations,Chrome OS,Added firewall rule exception. Verified with user that issue is fixed.,2025-03-02,"1. Open VPN
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00184,Database problem: failover did not trigger,The Database has been failover did not trigger for the past few hours. OS: Windows 10. Please help.,Incident,Database,Incident,Medium,Medium,Resolved,Security,Windows 10,Freed disk space and set alerts. Verified with user that issue is fixed.,2025-11-21,"1. Open Database
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00185,[Hardware] Laptop - keyboard keys stuck,The Laptop has been keyboard keys stuck for the past few hours. OS: macOS 14. Please help.,Hardware,Laptop,Question,Medium,Medium,In Progress,IT Operations,macOS 14,,2025-05-08,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: keyboard keys stuck"
+ITS-00186,Storage service outage affecting all users,Urgent: Storage - service outage affecting all users. Multiple users reporting similar issues. Environment is Windows 10.,Incident,Storage,Incident,Medium,Medium,Open,Network Engineering,Windows 10,,2025-10-11,"1. Open Storage
+2. Attempt normal operation
+3. Observe: service outage affecting all users"
+ITS-00187,[Hardware] Monitor - screen flickering,"Hi, I need help. Monitor keeps screen flickering. Started yesterday. I'm on Windows 10.",Hardware,Monitor,Service Request,Medium,Medium,In Progress,Security,Windows 10,,2025-08-18,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: screen flickering"
+ITS-00188,Email problem: permission denied,The Email has been permission denied for the past few hours. OS: macOS 14. Please help.,Account,Email,Question,High,High,Closed,IT Operations,macOS 14,Updated group memberships. Verified with user that issue is fixed.,2025-07-07,"1. Open Email
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00189,[Network] DNS - VPN connection drops,Urgent: DNS - VPN connection drops. Multiple users reporting similar issues. Environment is Windows 11.,Network,DNS,Question,Medium,Medium,Resolved,Security,Windows 11,Reconfigured proxy settings. Verified with user that issue is fixed.,2025-08-17,"1. Open DNS
+2. Attempt normal operation
+3. Observe: VPN connection drops"
+ITS-00190,Printer freezing randomly,The Printer has been freezing randomly for the past few hours. OS: Chrome OS. Please help.,Hardware,Printer,Bug,Medium,Medium,Closed,Help Desk,Chrome OS,Reseated RAM modules. Verified with user that issue is fixed.,2025-03-01,"1. Open Printer
+2. Attempt normal operation
+3. Observe: freezing randomly"
+ITS-00191,Firewall problem: cannot access internal resources,My Firewall is cannot access internal resources. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Network,Firewall,Question,High,High,Open,Network Engineering,Ubuntu 22.04,,2025-10-22,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00192,[Software] Salesforce - plugin not working,"Hi, I need help. Salesforce keeps plugin not working. Started yesterday. I'm on Windows 11.",Software,Salesforce,Question,Medium,Medium,Open,IT Operations,Windows 11,,2025-06-21,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00193,Proxy problem: IP conflict,Issue with Proxy: IP conflict. This is affecting my work. Running on Windows 10.,Network,Proxy,Question,Medium,Medium,Closed,IT Operations,Windows 10,Flushed DNS cache. Verified with user that issue is fixed.,2025-10-06,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: IP conflict"
+ITS-00194,[Account] SSO - password expired,Urgent: SSO - password expired. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Account,SSO,Question,Medium,Medium,Closed,IT Operations,Ubuntu 22.04,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-01-07,"1. Open SSO
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00195,WiFi problem: intermittent disconnections,Urgent: WiFi - intermittent disconnections. Multiple users reporting similar issues. Environment is Windows 11.,Network,WiFi,Service Request,Medium,Medium,Closed,Help Desk,Windows 11,Reconfigured proxy settings. Verified with user that issue is fixed.,2025-11-28,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00196,[Network] Ethernet - slow internet speed,Issue with Ethernet: slow internet speed. This is affecting my work. Running on Ubuntu 22.04.,Network,Ethernet,Question,Medium,Medium,Open,Security,Ubuntu 22.04,,2025-10-12,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: slow internet speed"
+ITS-00197,Outlook not syncing properly,My Outlook is not syncing properly. I've been experiencing this since this morning. Environment: macOS 14.,Software,Outlook,Bug,Medium,Medium,Resolved,Help Desk,macOS 14,Applied latest patch. Verified with user that issue is fixed.,2025-08-20,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: not syncing properly"
+ITS-00198,[Hardware] Printer - cracked screen,My Printer is cracked screen. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Hardware,Printer,Service Request,Medium,Medium,Closed,Network Engineering,Ubuntu 22.04,Reseated RAM modules. Verified with user that issue is fixed.,2025-06-16,"1. Open Printer
+2. Attempt normal operation
+3. Observe: cracked screen"
+ITS-00199,[Account] Email - group membership change needed,Issue with Email: group membership change needed. This is affecting my work. Running on macOS 14.,Account,Email,Question,High,High,Resolved,IT Operations,macOS 14,Fixed SSO federation config. Verified with user that issue is fixed.,2025-01-22,"1. Open Email
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00200,Database service outage affecting all users,Urgent: Database - service outage affecting all users. Multiple users reporting similar issues. Environment is Windows 10.,Incident,Database,Incident,Medium,Medium,Closed,Help Desk,Windows 10,Re-ran backup with increased timeout. Verified with user that issue is fixed.,2025-07-19,"1. Open Database
+2. Attempt normal operation
+3. Observe: service outage affecting all users"
+ITS-00201,Teams plugin not working,Issue with Teams: plugin not working. This is affecting my work. Running on Windows 11.,Software,Teams,Bug,Low,Low,Closed,Help Desk,Windows 11,Configured firewall exceptions. Verified with user that issue is fixed.,2025-12-24,"1. Open Teams
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00202,[Network] Firewall - proxy authentication error,Urgent: Firewall - proxy authentication error. Multiple users reporting similar issues. Environment is Windows 11.,Network,Firewall,Bug,Low,Low,Closed,Help Desk,Windows 11,Updated VPN client. Verified with user that issue is fixed.,2025-08-03,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00203,Email SSO login loop,My Email is SSO login loop. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Account,Email,Bug,High,High,In Progress,Security,Ubuntu 22.04,,2025-11-14,"1. Open Email
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00204,[Account] Email - MFA not working,Urgent: Email - MFA not working. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Account,Email,Bug,Low,Low,Closed,Security,Ubuntu 22.04,Reset password and synced. Verified with user that issue is fixed.,2025-05-16,"1. Open Email
+2. Attempt normal operation
+3. Observe: MFA not working"
+ITS-00205,[Network] Ethernet - DNS resolution failure,My Ethernet is DNS resolution failure. I've been experiencing this since this morning. Environment: Chrome OS.,Network,Ethernet,Bug,Medium,Medium,Closed,DevOps,Chrome OS,Updated VPN client. Verified with user that issue is fixed.,2025-11-03,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00206,Active Directory problem: cannot access shared mailbox,Issue with Active Directory: cannot access shared mailbox. This is affecting my work. Running on Windows 10.,Account,Active Directory,Question,Medium,Medium,Closed,Network Engineering,Windows 10,Reset password and synced. Verified with user that issue is fixed.,2025-10-20,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00207,Outlook license expired,Issue with Outlook: license expired. This is affecting my work. Running on Windows 11.,Software,Outlook,Bug,Critical,Critical,In Progress,Help Desk,Windows 11,,2025-03-08,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: license expired"
+ITS-00208,[Network] VPN - packet loss,The VPN has been packet loss for the past few hours. OS: Windows 10. Please help.,Network,VPN,Bug,Medium,Medium,In Progress,DevOps,Windows 10,,2025-02-12,"1. Open VPN
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00209,Laptop problem: not turning on,My Laptop is not turning on. I've been experiencing this since this morning. Environment: Windows 10.,Hardware,Laptop,Service Request,High,High,Resolved,Help Desk,Windows 10,Replaced faulty component. Verified with user that issue is fixed.,2025-09-28,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: not turning on"
+ITS-00210,Storage SSL certificate expired,Issue with Storage: SSL certificate expired. This is affecting my work. Running on macOS 14.,Incident,Storage,Incident,Medium,Medium,Closed,Help Desk,macOS 14,Restarted affected services. Verified with user that issue is fixed.,2025-05-13,"1. Open Storage
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00211,WiFi problem: cannot reach specific websites,My WiFi is cannot reach specific websites. I've been experiencing this since this morning. Environment: Windows 10.,Network,WiFi,Service Request,High,High,Closed,Network Engineering,Windows 10,Flushed DNS cache. Verified with user that issue is fixed.,2025-10-27,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00212,Storage problem: backup job failed overnight,My Storage is backup job failed overnight. I've been experiencing this since this morning. Environment: macOS 14.,Incident,Storage,Incident,Critical,Critical,Closed,IT Operations,macOS 14,Blocked IP and reviewed access logs. Verified with user that issue is fixed.,2025-01-21,"1. Open Storage
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00213,SAP slow loading,"Hi, I need help. SAP keeps slow loading. Started yesterday. I'm on macOS 14.",Software,SAP,Service Request,Low,Low,Open,DevOps,macOS 14,,2025-09-11,"1. Open SAP
+2. Attempt normal operation
+3. Observe: slow loading"
+ITS-00214,MFA new hire needs account setup,Issue with MFA: new hire needs account setup. This is affecting my work. Running on Chrome OS.,Account,MFA,Question,Critical,Critical,Open,Help Desk,Chrome OS,,2025-04-21,"1. Open MFA
+2. Attempt normal operation
+3. Observe: new hire needs account setup"
+ITS-00215,[Software] Teams - license expired,Issue with Teams: license expired. This is affecting my work. Running on Windows 11.,Software,Teams,Service Request,Low,Low,Resolved,Security,Windows 11,Renewed license through admin portal. Verified with user that issue is fixed.,2025-12-21,"1. Open Teams
+2. Attempt normal operation
+3. Observe: license expired"
+ITS-00216,Teams problem: not syncing properly,My Teams is not syncing properly. I've been experiencing this since this morning. Environment: Chrome OS.,Software,Teams,Question,High,High,Resolved,Network Engineering,Chrome OS,Reset user profile. Verified with user that issue is fixed.,2025-08-27,"1. Open Teams
+2. Attempt normal operation
+3. Observe: not syncing properly"
+ITS-00217,[Hardware] Desktop - blue screen of death,"Hi, I need help. Desktop keeps blue screen of death. Started yesterday. I'm on Chrome OS.",Hardware,Desktop,Question,Medium,Medium,Resolved,IT Operations,Chrome OS,Performed hardware diagnostic. Verified with user that issue is fixed.,2025-06-12,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: blue screen of death"
+ITS-00218,Active Directory permission denied,Urgent: Active Directory - permission denied. Multiple users reporting similar issues. Environment is Chrome OS.,Account,Active Directory,Question,Medium,Medium,In Progress,DevOps,Chrome OS,,2025-05-11,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00219,[Software] Salesforce - cannot login,Issue with Salesforce: cannot login. This is affecting my work. Running on Chrome OS.,Software,Salesforce,Bug,Medium,Medium,Closed,DevOps,Chrome OS,Renewed license through admin portal. Verified with user that issue is fixed.,2025-12-12,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: cannot login"
+ITS-00220,[Hardware] Monitor - screen flickering,"Hi, I need help. Monitor keeps screen flickering. Started yesterday. I'm on Windows 11.",Hardware,Monitor,Question,Low,Low,In Progress,Help Desk,Windows 11,,2025-09-13,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: screen flickering"
+ITS-00221,[Network] Ethernet - DNS resolution failure,Issue with Ethernet: DNS resolution failure. This is affecting my work. Running on Windows 11.,Network,Ethernet,Service Request,Medium,Medium,Open,Security,Windows 11,,2025-05-22,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00222,Docking Station problem: slow performance,My Docking Station is slow performance. I've been experiencing this since this morning. Environment: Windows 11.,Hardware,Docking Station,Bug,High,High,Open,Help Desk,Windows 11,,2025-05-05,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: slow performance"
+ITS-00223,[Incident] Load Balancer - unauthorized access attempt detected,"Hi, I need help. Load Balancer keeps unauthorized access attempt detected. Started yesterday. I'm on Ubuntu 22.04.",Incident,Load Balancer,Incident,Low,Low,Closed,IT Operations,Ubuntu 22.04,Renewed SSL certificate and redeployed. Verified with user that issue is fixed.,2025-04-02,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: unauthorized access attempt detected"
+ITS-00224,[Account] Password - account deactivation request,"Hi, I need help. Password keeps account deactivation request. Started yesterday. I'm on Windows 10.",Account,Password,Service Request,Low,Low,Closed,DevOps,Windows 10,Created new account with standard template. Verified with user that issue is fixed.,2025-06-07,"1. Open Password
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00225,[Account] MFA - account deactivation request,My MFA is account deactivation request. I've been experiencing this since this morning. Environment: Windows 11.,Account,MFA,Question,High,High,In Progress,DevOps,Windows 11,,2025-08-01,"1. Open MFA
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00226,Password account locked out,Urgent: Password - account locked out. Multiple users reporting similar issues. Environment is Windows 11.,Account,Password,Question,Low,Low,Closed,IT Operations,Windows 11,Granted appropriate permissions. Verified with user that issue is fixed.,2025-06-08,"1. Open Password
+2. Attempt normal operation
+3. Observe: account locked out"
+ITS-00227,VPN intermittent disconnections,"Hi, I need help. VPN keeps intermittent disconnections. Started yesterday. I'm on Chrome OS.",Network,VPN,Service Request,Medium,Medium,Resolved,Security,Chrome OS,Assigned static IP. Verified with user that issue is fixed.,2025-02-18,"1. Open VPN
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00228,[Software] Antivirus - update failed,Urgent: Antivirus - update failed. Multiple users reporting similar issues. Environment is macOS 14.,Software,Antivirus,Bug,Low,Low,Closed,Network Engineering,macOS 14,Rolled back to previous version. Verified with user that issue is fixed.,2025-09-21,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: update failed"
+ITS-00229,[Software] Salesforce - corrupted installation,My Salesforce is corrupted installation. I've been experiencing this since this morning. Environment: Chrome OS.,Software,Salesforce,Service Request,Low,Low,Closed,Network Engineering,Chrome OS,Applied latest patch. Verified with user that issue is fixed.,2025-06-07,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: corrupted installation"
+ITS-00230,VPN compatibility issue,"Hi, I need help. VPN keeps compatibility issue. Started yesterday. I'm on Windows 10.",Software,VPN,Bug,Low,Low,Closed,Network Engineering,Windows 10,Applied latest patch. Verified with user that issue is fixed.,2025-07-10,"1. Open VPN
+2. Attempt normal operation
+3. Observe: compatibility issue"
+ITS-00231,DNS DNS resolution failure,My DNS is DNS resolution failure. I've been experiencing this since this morning. Environment: Windows 10.,Network,DNS,Question,High,High,Open,Network Engineering,Windows 10,,2025-11-22,"1. Open DNS
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00232,Email Server problem: memory exhaustion on app server,Urgent: Email Server - memory exhaustion on app server. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Incident,Email Server,Incident,Medium,Medium,Resolved,Network Engineering,Ubuntu 22.04,Restarted affected services. Verified with user that issue is fixed.,2025-12-26,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00233,Printer keyboard keys stuck,"Hi, I need help. Printer keeps keyboard keys stuck. Started yesterday. I'm on Windows 11.",Hardware,Printer,Service Request,Medium,Medium,Closed,Security,Windows 11,Updated device drivers. Verified with user that issue is fixed.,2025-08-21,"1. Open Printer
+2. Attempt normal operation
+3. Observe: keyboard keys stuck"
+ITS-00234,WiFi problem: intermittent disconnections,"Hi, I need help. WiFi keeps intermittent disconnections. Started yesterday. I'm on Chrome OS.",Network,WiFi,Question,Medium,Medium,Open,IT Operations,Chrome OS,,2025-09-19,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00235,[Incident] Storage - unauthorized access attempt detected,Urgent: Storage - unauthorized access attempt detected. Multiple users reporting similar issues. Environment is Windows 11.,Incident,Storage,Incident,Medium,Medium,In Progress,Help Desk,Windows 11,,2025-09-23,"1. Open Storage
+2. Attempt normal operation
+3. Observe: unauthorized access attempt detected"
+ITS-00236,VPN problem: packet loss,My VPN is packet loss. I've been experiencing this since this morning. Environment: Chrome OS.,Network,VPN,Question,Medium,Medium,Closed,Network Engineering,Chrome OS,Assigned static IP. Verified with user that issue is fixed.,2025-03-22,"1. Open VPN
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00237,Desktop problem: battery not charging,Urgent: Desktop - battery not charging. Multiple users reporting similar issues. Environment is Windows 10.,Hardware,Desktop,Bug,Low,Low,Resolved,Help Desk,Windows 10,Updated device drivers. Verified with user that issue is fixed.,2025-12-25,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: battery not charging"
+ITS-00238,Ethernet intermittent disconnections,The Ethernet has been intermittent disconnections for the past few hours. OS: macOS 14. Please help.,Network,Ethernet,Question,Medium,Medium,Resolved,Help Desk,macOS 14,Reconfigured proxy settings. Verified with user that issue is fixed.,2025-03-07,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00239,[Incident] Storage - failover did not trigger,Issue with Storage: failover did not trigger. This is affecting my work. Running on Chrome OS.,Incident,Storage,Incident,Low,Low,Open,Network Engineering,Chrome OS,,2025-01-07,"1. Open Storage
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00240,Database problem: disk space critical on production server,"Hi, I need help. Database keeps disk space critical on production server. Started yesterday. I'm on Chrome OS.",Incident,Database,Incident,Medium,Medium,Resolved,Help Desk,Chrome OS,Scaled up server resources. Verified with user that issue is fixed.,2025-12-07,"1. Open Database
+2. Attempt normal operation
+3. Observe: disk space critical on production server"
+ITS-00241,[Hardware] Monitor - blue screen of death,Urgent: Monitor - blue screen of death. Multiple users reporting similar issues. Environment is Chrome OS.,Hardware,Monitor,Bug,Low,Low,Open,Help Desk,Chrome OS,,2025-07-23,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: blue screen of death"
+ITS-00242,Laptop problem: fan making loud noise,Urgent: Laptop - fan making loud noise. Multiple users reporting similar issues. Environment is macOS 14.,Hardware,Laptop,Bug,High,High,Open,IT Operations,macOS 14,,2025-12-23,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00243,Email new hire needs account setup,My Email is new hire needs account setup. I've been experiencing this since this morning. Environment: Windows 11.,Account,Email,Service Request,Critical,Critical,In Progress,Help Desk,Windows 11,,2025-01-13,"1. Open Email
+2. Attempt normal operation
+3. Observe: new hire needs account setup"
+ITS-00244,Database problem: backup job failed overnight,"Hi, I need help. Database keeps backup job failed overnight. Started yesterday. I'm on Ubuntu 22.04.",Incident,Database,Incident,Low,Low,In Progress,IT Operations,Ubuntu 22.04,,2025-06-25,"1. Open Database
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00245,Antivirus problem: plugin not working,My Antivirus is plugin not working. I've been experiencing this since this morning. Environment: macOS 14.,Software,Antivirus,Question,Medium,Medium,Open,Help Desk,macOS 14,,2025-12-20,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00246,Firewall problem: intermittent disconnections,Issue with Firewall: intermittent disconnections. This is affecting my work. Running on Windows 11.,Network,Firewall,Question,Medium,Medium,Resolved,IT Operations,Windows 11,Flushed DNS cache. Verified with user that issue is fixed.,2025-12-12,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00247,Outlook problem: crashing on startup,The Outlook has been crashing on startup for the past few hours. OS: Windows 10. Please help.,Software,Outlook,Question,Low,Low,Resolved,DevOps,Windows 10,Configured firewall exceptions. Verified with user that issue is fixed.,2025-07-06,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00248,Desktop problem: freezing randomly,Issue with Desktop: freezing randomly. This is affecting my work. Running on Chrome OS.,Hardware,Desktop,Service Request,High,High,In Progress,Help Desk,Chrome OS,,2025-10-03,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: freezing randomly"
+ITS-00249,Printer problem: fan making loud noise,The Printer has been fan making loud noise for the past few hours. OS: Chrome OS. Please help.,Hardware,Printer,Bug,Medium,Medium,Resolved,DevOps,Chrome OS,Replaced faulty component. Verified with user that issue is fixed.,2025-09-05,"1. Open Printer
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00250,[Software] Outlook - not responding,Issue with Outlook: not responding. This is affecting my work. Running on Ubuntu 22.04.,Software,Outlook,Bug,High,High,In Progress,DevOps,Ubuntu 22.04,,2025-11-12,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: not responding"
+ITS-00251,VPN IP conflict,My VPN is IP conflict. I've been experiencing this since this morning. Environment: Windows 10.,Network,VPN,Bug,High,High,In Progress,Network Engineering,Windows 10,,2025-07-26,"1. Open VPN
+2. Attempt normal operation
+3. Observe: IP conflict"
+ITS-00252,[Software] Antivirus - memory leak causing slowdown,Issue with Antivirus: memory leak causing slowdown. This is affecting my work. Running on Chrome OS.,Software,Antivirus,Bug,Low,Low,Closed,Help Desk,Chrome OS,Cleared cache and temp files. Verified with user that issue is fixed.,2025-02-10,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: memory leak causing slowdown"
+ITS-00253,[Network] DNS - IP conflict,Urgent: DNS - IP conflict. Multiple users reporting similar issues. Environment is macOS 14.,Network,DNS,Question,High,High,Closed,Help Desk,macOS 14,Reset network adapter. Verified with user that issue is fixed.,2025-11-28,"1. Open DNS
+2. Attempt normal operation
+3. Observe: IP conflict"
+ITS-00254,Desktop not turning on,The Desktop has been not turning on for the past few hours. OS: macOS 14. Please help.,Hardware,Desktop,Bug,Low,Low,In Progress,DevOps,macOS 14,,2025-05-26,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: not turning on"
+ITS-00255,VPN problem: update failed,Issue with VPN: update failed. This is affecting my work. Running on Windows 10.,Software,VPN,Question,Low,Low,Open,Security,Windows 10,,2025-09-15,"1. Open VPN
+2. Attempt normal operation
+3. Observe: update failed"
+ITS-00256,[Software] Salesforce - update failed,Urgent: Salesforce - update failed. Multiple users reporting similar issues. Environment is Chrome OS.,Software,Salesforce,Question,Medium,Medium,Open,Network Engineering,Chrome OS,,2025-10-20,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: update failed"
+ITS-00257,Proxy IP conflict,"Hi, I need help. Proxy keeps IP conflict. Started yesterday. I'm on Windows 10.",Network,Proxy,Bug,Critical,Critical,In Progress,IT Operations,Windows 10,,2025-01-03,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: IP conflict"
+ITS-00258,Email problem: new hire needs account setup,The Email has been new hire needs account setup for the past few hours. OS: Ubuntu 22.04. Please help.,Account,Email,Bug,Medium,Medium,Closed,Security,Ubuntu 22.04,Unlocked account in AD. Verified with user that issue is fixed.,2025-08-12,"1. Open Email
+2. Attempt normal operation
+3. Observe: new hire needs account setup"
+ITS-00259,[Hardware] Laptop - fan making loud noise,"Hi, I need help. Laptop keeps fan making loud noise. Started yesterday. I'm on Ubuntu 22.04.",Hardware,Laptop,Question,Medium,Medium,In Progress,Network Engineering,Ubuntu 22.04,,2025-04-16,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00260,Antivirus problem: not syncing properly,Urgent: Antivirus - not syncing properly. Multiple users reporting similar issues. Environment is Chrome OS.,Software,Antivirus,Bug,Low,Low,Closed,DevOps,Chrome OS,Reinstalled application. Verified with user that issue is fixed.,2025-02-25,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: not syncing properly"
+ITS-00261,MFA SSO login loop,The MFA has been SSO login loop for the past few hours. OS: Windows 11. Please help.,Account,MFA,Service Request,Low,Low,In Progress,DevOps,Windows 11,,2025-06-15,"1. Open MFA
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00262,Email email forwarding setup,"Hi, I need help. Email keeps email forwarding setup. Started yesterday. I'm on Windows 11.",Account,Email,Bug,Medium,Medium,Closed,Security,Windows 11,Reset password and synced. Verified with user that issue is fixed.,2025-08-07,"1. Open Email
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00263,API Gateway scheduled maintenance overran window,Issue with API Gateway: scheduled maintenance overran window. This is affecting my work. Running on Ubuntu 22.04.,Incident,API Gateway,Incident,High,High,In Progress,Help Desk,Ubuntu 22.04,,2025-07-10,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: scheduled maintenance overran window"
+ITS-00264,[Account] Active Directory - password expired,My Active Directory is password expired. I've been experiencing this since this morning. Environment: Windows 10.,Account,Active Directory,Bug,Medium,Medium,In Progress,DevOps,Windows 10,,2025-08-28,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00265,Monitor no display output,The Monitor has been no display output for the past few hours. OS: macOS 14. Please help.,Hardware,Monitor,Service Request,Low,Low,Closed,Security,macOS 14,Replaced faulty component. Verified with user that issue is fixed.,2025-01-06,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: no display output"
+ITS-00266,Active Directory problem: group membership change needed,Urgent: Active Directory - group membership change needed. Multiple users reporting similar issues. Environment is Windows 10.,Account,Active Directory,Service Request,Low,Low,In Progress,DevOps,Windows 10,,2025-12-12,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00267,Proxy problem: proxy authentication error,Urgent: Proxy - proxy authentication error. Multiple users reporting similar issues. Environment is Windows 10.,Network,Proxy,Service Request,Medium,Medium,Open,IT Operations,Windows 10,,2025-01-08,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00268,SSO problem: account deactivation request,Urgent: SSO - account deactivation request. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Account,SSO,Bug,Medium,Medium,Resolved,Help Desk,Ubuntu 22.04,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-06-23,"1. Open SSO
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00269,[Account] Email - group membership change needed,My Email is group membership change needed. I've been experiencing this since this morning. Environment: Chrome OS.,Account,Email,Question,Medium,Medium,Open,Help Desk,Chrome OS,,2025-06-09,"1. Open Email
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00270,[Account] Email - cannot access shared mailbox,Urgent: Email - cannot access shared mailbox. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Account,Email,Bug,Low,Low,Closed,IT Operations,Ubuntu 22.04,Fixed SSO federation config. Verified with user that issue is fixed.,2025-08-14,"1. Open Email
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00271,[Incident] Load Balancer - data sync failure between systems,Urgent: Load Balancer - data sync failure between systems. Multiple users reporting similar issues. Environment is macOS 14.,Incident,Load Balancer,Incident,Medium,Medium,Resolved,DevOps,macOS 14,Re-ran backup with increased timeout. Verified with user that issue is fixed.,2025-06-28,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00272,Teams problem: missing features after update,Urgent: Teams - missing features after update. Multiple users reporting similar issues. Environment is Chrome OS.,Software,Teams,Service Request,Medium,Medium,Closed,Security,Chrome OS,Reset user profile. Verified with user that issue is fixed.,2025-05-06,"1. Open Teams
+2. Attempt normal operation
+3. Observe: missing features after update"
+ITS-00273,Outlook problem: not syncing properly,Issue with Outlook: not syncing properly. This is affecting my work. Running on Windows 10.,Software,Outlook,Question,Low,Low,In Progress,Network Engineering,Windows 10,,2025-04-15,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: not syncing properly"
+ITS-00274,MFA group membership change needed,My MFA is group membership change needed. I've been experiencing this since this morning. Environment: Windows 10.,Account,MFA,Service Request,Medium,Medium,Open,Network Engineering,Windows 10,,2025-03-16,"1. Open MFA
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00275,WiFi packet loss,Issue with WiFi: packet loss. This is affecting my work. Running on Windows 11.,Network,WiFi,Question,Medium,Medium,In Progress,DevOps,Windows 11,,2025-07-06,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00276,[Software] SAP - update failed,My SAP is update failed. I've been experiencing this since this morning. Environment: Chrome OS.,Software,SAP,Question,Critical,Critical,Open,IT Operations,Chrome OS,,2025-10-20,"1. Open SAP
+2. Attempt normal operation
+3. Observe: update failed"
+ITS-00277,[Account] SSO - cannot access shared mailbox,"Hi, I need help. SSO keeps cannot access shared mailbox. Started yesterday. I'm on Windows 10.",Account,SSO,Question,Medium,Medium,Closed,IT Operations,Windows 10,Created new account with standard template. Verified with user that issue is fixed.,2025-10-08,"1. Open SSO
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00278,[Account] MFA - MFA not working,"Hi, I need help. MFA keeps MFA not working. Started yesterday. I'm on Windows 11.",Account,MFA,Question,Medium,Medium,In Progress,IT Operations,Windows 11,,2025-12-13,"1. Open MFA
+2. Attempt normal operation
+3. Observe: MFA not working"
+ITS-00279,Database problem: data sync failure between systems,The Database has been data sync failure between systems for the past few hours. OS: Windows 11. Please help.,Incident,Database,Incident,Medium,Medium,Closed,DevOps,Windows 11,Performed manual failover. Verified with user that issue is fixed.,2025-11-23,"1. Open Database
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00280,Office 365 plugin not working,The Office 365 has been plugin not working for the past few hours. OS: Chrome OS. Please help.,Software,Office 365,Question,Medium,Medium,In Progress,IT Operations,Chrome OS,,2025-07-05,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00281,Email Server degraded performance across region,"Hi, I need help. Email Server keeps degraded performance across region. Started yesterday. I'm on Chrome OS.",Incident,Email Server,Incident,Medium,Medium,Open,Help Desk,Chrome OS,,2025-06-09,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00282,Keyboard fan making loud noise,Urgent: Keyboard - fan making loud noise. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Hardware,Keyboard,Question,Medium,Medium,Resolved,DevOps,Ubuntu 22.04,Reseated RAM modules. Verified with user that issue is fixed.,2025-10-09,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00283,Salesforce not responding,My Salesforce is not responding. I've been experiencing this since this morning. Environment: macOS 14.,Software,Salesforce,Question,Low,Low,Resolved,Network Engineering,macOS 14,Reinstalled application. Verified with user that issue is fixed.,2025-08-21,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: not responding"
+ITS-00284,Email Server problem: data sync failure between systems,Urgent: Email Server - data sync failure between systems. Multiple users reporting similar issues. Environment is Windows 11.,Incident,Email Server,Incident,Medium,Medium,Open,IT Operations,Windows 11,,2025-05-27,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00285,VPN problem: DNS resolution failure,The VPN has been DNS resolution failure for the past few hours. OS: macOS 14. Please help.,Network,VPN,Question,High,High,Open,Network Engineering,macOS 14,,2025-11-21,"1. Open VPN
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00286,[Software] Antivirus - memory leak causing slowdown,Urgent: Antivirus - memory leak causing slowdown. Multiple users reporting similar issues. Environment is Windows 11.,Software,Antivirus,Service Request,High,High,In Progress,IT Operations,Windows 11,,2025-04-11,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: memory leak causing slowdown"
+ITS-00287,Load Balancer problem: memory exhaustion on app server,The Load Balancer has been memory exhaustion on app server for the past few hours. OS: Windows 11. Please help.,Incident,Load Balancer,Incident,Low,Low,Resolved,IT Operations,Windows 11,Renewed SSL certificate and redeployed. Verified with user that issue is fixed.,2025-07-08,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00288,Docking Station blue screen of death,The Docking Station has been blue screen of death for the past few hours. OS: Windows 11. Please help.,Hardware,Docking Station,Bug,Medium,Medium,Resolved,DevOps,Windows 11,Reseated RAM modules. Verified with user that issue is fixed.,2025-10-12,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: blue screen of death"
+ITS-00289,[Account] Active Directory - new hire needs account setup,Issue with Active Directory: new hire needs account setup. This is affecting my work. Running on Ubuntu 22.04.,Account,Active Directory,Question,Low,Low,Resolved,DevOps,Ubuntu 22.04,Created new account with standard template. Verified with user that issue is fixed.,2025-02-09,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: new hire needs account setup"
+ITS-00290,Firewall cannot connect to WiFi,Urgent: Firewall - cannot connect to WiFi. Multiple users reporting similar issues. Environment is Chrome OS.,Network,Firewall,Question,Medium,Medium,Open,Security,Chrome OS,,2025-07-07,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot connect to WiFi"
+ITS-00291,Active Directory SSO login loop,My Active Directory is SSO login loop. I've been experiencing this since this morning. Environment: macOS 14.,Account,Active Directory,Service Request,Medium,Medium,In Progress,Help Desk,macOS 14,,2025-08-25,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00292,MFA problem: SSO login loop,My MFA is SSO login loop. I've been experiencing this since this morning. Environment: macOS 14.,Account,MFA,Question,Medium,Medium,In Progress,Help Desk,macOS 14,,2025-01-05,"1. Open MFA
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00293,Proxy problem: cannot access internal resources,Issue with Proxy: cannot access internal resources. This is affecting my work. Running on Chrome OS.,Network,Proxy,Bug,Medium,Medium,Resolved,Security,Chrome OS,Replaced network cable. Verified with user that issue is fixed.,2025-06-19,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00294,[Account] Password - password expired,The Password has been password expired for the past few hours. OS: macOS 14. Please help.,Account,Password,Service Request,High,High,In Progress,Network Engineering,macOS 14,,2025-11-23,"1. Open Password
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00295,[Hardware] Keyboard - keyboard keys stuck,The Keyboard has been keyboard keys stuck for the past few hours. OS: Ubuntu 22.04. Please help.,Hardware,Keyboard,Bug,Low,Low,Open,Security,Ubuntu 22.04,,2025-01-10,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: keyboard keys stuck"
+ITS-00296,[Network] Proxy - cannot reach specific websites,My Proxy is cannot reach specific websites. I've been experiencing this since this morning. Environment: Windows 11.,Network,Proxy,Question,High,High,Open,IT Operations,Windows 11,,2025-02-21,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00297,SAP problem: compatibility issue,The SAP has been compatibility issue for the past few hours. OS: Windows 11. Please help.,Software,SAP,Service Request,Low,Low,Resolved,Network Engineering,Windows 11,Reset user profile. Verified with user that issue is fixed.,2025-05-14,"1. Open SAP
+2. Attempt normal operation
+3. Observe: compatibility issue"
+ITS-00298,[Incident] API Gateway - failover did not trigger,"Hi, I need help. API Gateway keeps failover did not trigger. Started yesterday. I'm on macOS 14.",Incident,API Gateway,Incident,Low,Low,Open,DevOps,macOS 14,,2025-05-13,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00299,[Network] VPN - DNS resolution failure,My VPN is DNS resolution failure. I've been experiencing this since this morning. Environment: Windows 11.,Network,VPN,Question,Low,Low,Closed,DevOps,Windows 11,Assigned static IP. Verified with user that issue is fixed.,2025-11-05,"1. Open VPN
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00300,Proxy cannot reach specific websites,My Proxy is cannot reach specific websites. I've been experiencing this since this morning. Environment: Windows 10.,Network,Proxy,Bug,High,High,In Progress,Help Desk,Windows 10,,2025-04-10,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00301,[Account] MFA - group membership change needed,Issue with MFA: group membership change needed. This is affecting my work. Running on Windows 10.,Account,MFA,Service Request,Medium,Medium,Resolved,Help Desk,Windows 10,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-06-15,"1. Open MFA
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00302,DNS packet loss,Urgent: DNS - packet loss. Multiple users reporting similar issues. Environment is Windows 11.,Network,DNS,Question,Medium,Medium,In Progress,Network Engineering,Windows 11,,2025-10-18,"1. Open DNS
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00303,Windows problem: not syncing properly,Urgent: Windows - not syncing properly. Multiple users reporting similar issues. Environment is Windows 10.,Software,Windows,Service Request,Medium,Medium,Resolved,Security,Windows 10,Renewed license through admin portal. Verified with user that issue is fixed.,2025-07-23,"1. Open Windows
+2. Attempt normal operation
+3. Observe: not syncing properly"
+ITS-00304,[Software] Teams - plugin not working,The Teams has been plugin not working for the past few hours. OS: Ubuntu 22.04. Please help.,Software,Teams,Bug,Critical,Critical,Resolved,Security,Ubuntu 22.04,Renewed license through admin portal. Verified with user that issue is fixed.,2025-10-08,"1. Open Teams
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00305,Salesforce error code 0x80070005,My Salesforce is error code 0x80070005. I've been experiencing this since this morning. Environment: Chrome OS.,Software,Salesforce,Question,Medium,Medium,Open,Security,Chrome OS,,2025-05-14,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: error code 0x80070005"
+ITS-00306,[Account] SSO - account deactivation request,"Hi, I need help. SSO keeps account deactivation request. Started yesterday. I'm on Chrome OS.",Account,SSO,Bug,Low,Low,In Progress,DevOps,Chrome OS,,2025-09-19,"1. Open SSO
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00307,Email Server problem: failover did not trigger,"Hi, I need help. Email Server keeps failover did not trigger. Started yesterday. I'm on macOS 14.",Incident,Email Server,Incident,Medium,Medium,Open,Network Engineering,macOS 14,,2025-08-07,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00308,[Incident] API Gateway - unauthorized access attempt detected,"Hi, I need help. API Gateway keeps unauthorized access attempt detected. Started yesterday. I'm on Windows 10.",Incident,API Gateway,Incident,Medium,Medium,In Progress,Network Engineering,Windows 10,,2025-04-09,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: unauthorized access attempt detected"
+ITS-00309,Printer problem: slow performance,Urgent: Printer - slow performance. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Hardware,Printer,Question,Medium,Medium,Closed,Help Desk,Ubuntu 22.04,Replaced battery. Verified with user that issue is fixed.,2025-04-27,"1. Open Printer
+2. Attempt normal operation
+3. Observe: slow performance"
+ITS-00310,[Hardware] Mouse - no display output,Urgent: Mouse - no display output. Multiple users reporting similar issues. Environment is Chrome OS.,Hardware,Mouse,Question,Medium,Medium,In Progress,Help Desk,Chrome OS,,2025-09-17,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: no display output"
+ITS-00311,SAP problem: license expired,Urgent: SAP - license expired. Multiple users reporting similar issues. Environment is macOS 14.,Software,SAP,Bug,Low,Low,Open,DevOps,macOS 14,,2025-10-11,"1. Open SAP
+2. Attempt normal operation
+3. Observe: license expired"
+ITS-00312,Mouse problem: cracked screen,The Mouse has been cracked screen for the past few hours. OS: Chrome OS. Please help.,Hardware,Mouse,Bug,Low,Low,Open,Help Desk,Chrome OS,,2025-03-28,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: cracked screen"
+ITS-00313,Load Balancer problem: data sync failure between systems,Urgent: Load Balancer - data sync failure between systems. Multiple users reporting similar issues. Environment is Windows 10.,Incident,Load Balancer,Incident,Medium,Medium,Open,Network Engineering,Windows 10,,2025-04-11,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00314,Active Directory problem: permission denied,The Active Directory has been permission denied for the past few hours. OS: Ubuntu 22.04. Please help.,Account,Active Directory,Question,Low,Low,Open,IT Operations,Ubuntu 22.04,,2025-03-18,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00315,[Hardware] Laptop - freezing randomly,Urgent: Laptop - freezing randomly. Multiple users reporting similar issues. Environment is Windows 10.,Hardware,Laptop,Service Request,High,High,Open,Security,Windows 10,,2025-02-03,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: freezing randomly"
+ITS-00316,Teams cannot login,Urgent: Teams - cannot login. Multiple users reporting similar issues. Environment is Windows 11.,Software,Teams,Service Request,Medium,Medium,Open,Security,Windows 11,,2025-07-22,"1. Open Teams
+2. Attempt normal operation
+3. Observe: cannot login"
+ITS-00317,SAP problem: update failed,Urgent: SAP - update failed. Multiple users reporting similar issues. Environment is macOS 14.,Software,SAP,Question,Low,Low,Resolved,IT Operations,macOS 14,Reinstalled application. Verified with user that issue is fixed.,2025-06-20,"1. Open SAP
+2. Attempt normal operation
+3. Observe: update failed"
+ITS-00318,Laptop no display output,Issue with Laptop: no display output. This is affecting my work. Running on macOS 14.,Hardware,Laptop,Bug,Low,Low,Resolved,Network Engineering,macOS 14,Reseated RAM modules. Verified with user that issue is fixed.,2025-03-28,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: no display output"
+ITS-00319,Firewall problem: cannot reach specific websites,Urgent: Firewall - cannot reach specific websites. Multiple users reporting similar issues. Environment is Windows 11.,Network,Firewall,Bug,Critical,Critical,Resolved,IT Operations,Windows 11,Reset network adapter. Verified with user that issue is fixed.,2025-09-21,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00320,[Incident] API Gateway - backup job failed overnight,Issue with API Gateway: backup job failed overnight. This is affecting my work. Running on Windows 11.,Incident,API Gateway,Incident,High,High,In Progress,Security,Windows 11,,2025-08-18,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00321,Keyboard slow performance,Urgent: Keyboard - slow performance. Multiple users reporting similar issues. Environment is Chrome OS.,Hardware,Keyboard,Bug,Medium,Medium,Resolved,DevOps,Chrome OS,Updated BIOS firmware. Verified with user that issue is fixed.,2025-04-11,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: slow performance"
+ITS-00322,MFA problem: permission denied,The MFA has been permission denied for the past few hours. OS: Windows 10. Please help.,Account,MFA,Question,Low,Low,Open,Security,Windows 10,,2025-05-24,"1. Open MFA
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00323,WiFi problem: proxy authentication error,The WiFi has been proxy authentication error for the past few hours. OS: Windows 10. Please help.,Network,WiFi,Question,Low,Low,Resolved,Network Engineering,Windows 10,Reconfigured proxy settings. Verified with user that issue is fixed.,2025-10-13,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00324,WiFi slow internet speed,Urgent: WiFi - slow internet speed. Multiple users reporting similar issues. Environment is macOS 14.,Network,WiFi,Question,Medium,Medium,Open,Security,macOS 14,,2025-12-28,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: slow internet speed"
+ITS-00325,[Software] VPN - crashing on startup,Urgent: VPN - crashing on startup. Multiple users reporting similar issues. Environment is Windows 11.,Software,VPN,Bug,Medium,Medium,Closed,IT Operations,Windows 11,Cleared cache and temp files. Verified with user that issue is fixed.,2025-01-16,"1. Open VPN
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00326,Ethernet DNS resolution failure,"Hi, I need help. Ethernet keeps DNS resolution failure. Started yesterday. I'm on Ubuntu 22.04.",Network,Ethernet,Question,Medium,Medium,Closed,DevOps,Ubuntu 22.04,Assigned static IP. Verified with user that issue is fixed.,2025-04-23,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00327,Docking Station fan making loud noise,Issue with Docking Station: fan making loud noise. This is affecting my work. Running on Chrome OS.,Hardware,Docking Station,Service Request,Medium,Medium,Closed,Network Engineering,Chrome OS,Performed hardware diagnostic. Verified with user that issue is fixed.,2025-02-09,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00328,[Software] Outlook - update failed,Issue with Outlook: update failed. This is affecting my work. Running on Windows 10.,Software,Outlook,Question,Low,Low,In Progress,DevOps,Windows 10,,2025-11-17,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: update failed"
+ITS-00329,Load Balancer problem: degraded performance across region,"Hi, I need help. Load Balancer keeps degraded performance across region. Started yesterday. I'm on Ubuntu 22.04.",Incident,Load Balancer,Incident,Medium,Medium,Open,Network Engineering,Ubuntu 22.04,,2025-06-14,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00330,[Account] MFA - group membership change needed,My MFA is group membership change needed. I've been experiencing this since this morning. Environment: Chrome OS.,Account,MFA,Question,Medium,Medium,In Progress,Network Engineering,Chrome OS,,2025-01-11,"1. Open MFA
+2. Attempt normal operation
+3. Observe: group membership change needed"
+ITS-00331,SSO problem: cannot access shared mailbox,Urgent: SSO - cannot access shared mailbox. Multiple users reporting similar issues. Environment is Windows 10.,Account,SSO,Question,Medium,Medium,In Progress,Help Desk,Windows 10,,2025-04-11,"1. Open SSO
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00332,Mouse overheating,Urgent: Mouse - overheating. Multiple users reporting similar issues. Environment is Chrome OS.,Hardware,Mouse,Bug,High,High,Open,Security,Chrome OS,,2025-06-05,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: overheating"
+ITS-00333,[Incident] API Gateway - disk space critical on production server,My API Gateway is disk space critical on production server. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Incident,API Gateway,Incident,Medium,Medium,In Progress,Help Desk,Ubuntu 22.04,,2025-03-12,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: disk space critical on production server"
+ITS-00334,Email problem: email forwarding setup,My Email is email forwarding setup. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Account,Email,Bug,Medium,Medium,Resolved,Help Desk,Ubuntu 22.04,Created new account with standard template. Verified with user that issue is fixed.,2025-11-22,"1. Open Email
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00335,Email Server scheduled maintenance overran window,The Email Server has been scheduled maintenance overran window for the past few hours. OS: Windows 10. Please help.,Incident,Email Server,Incident,Medium,Medium,In Progress,Help Desk,Windows 10,,2025-08-05,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: scheduled maintenance overran window"
+ITS-00336,Email problem: MFA not working,"Hi, I need help. Email keeps MFA not working. Started yesterday. I'm on macOS 14.",Account,Email,Bug,Low,Low,Resolved,Security,macOS 14,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-07-07,"1. Open Email
+2. Attempt normal operation
+3. Observe: MFA not working"
+ITS-00337,VPN VPN connection drops,"Hi, I need help. VPN keeps VPN connection drops. Started yesterday. I'm on Ubuntu 22.04.",Network,VPN,Question,High,High,In Progress,DevOps,Ubuntu 22.04,,2025-11-15,"1. Open VPN
+2. Attempt normal operation
+3. Observe: VPN connection drops"
+ITS-00338,DNS problem: intermittent disconnections,Urgent: DNS - intermittent disconnections. Multiple users reporting similar issues. Environment is Windows 11.,Network,DNS,Question,Low,Low,In Progress,IT Operations,Windows 11,,2025-09-08,"1. Open DNS
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00339,Database problem: disk space critical on production server,My Database is disk space critical on production server. I've been experiencing this since this morning. Environment: Chrome OS.,Incident,Database,Incident,Low,Low,Resolved,Network Engineering,Chrome OS,Restarted affected services. Verified with user that issue is fixed.,2025-09-16,"1. Open Database
+2. Attempt normal operation
+3. Observe: disk space critical on production server"
+ITS-00340,DNS packet loss,Issue with DNS: packet loss. This is affecting my work. Running on Ubuntu 22.04.,Network,DNS,Service Request,Low,Low,Closed,Network Engineering,Ubuntu 22.04,Added firewall rule exception. Verified with user that issue is fixed.,2025-09-17,"1. Open DNS
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00341,Keyboard fan making loud noise,"Hi, I need help. Keyboard keeps fan making loud noise. Started yesterday. I'm on Chrome OS.",Hardware,Keyboard,Bug,High,High,Open,DevOps,Chrome OS,,2025-03-20,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00342,Load Balancer backup job failed overnight,The Load Balancer has been backup job failed overnight for the past few hours. OS: Windows 11. Please help.,Incident,Load Balancer,Incident,Critical,Critical,In Progress,Security,Windows 11,,2025-06-24,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00343,Windows cannot login,Urgent: Windows - cannot login. Multiple users reporting similar issues. Environment is macOS 14.,Software,Windows,Bug,Low,Low,Closed,DevOps,macOS 14,Reset user profile. Verified with user that issue is fixed.,2025-04-17,"1. Open Windows
+2. Attempt normal operation
+3. Observe: cannot login"
+ITS-00344,[Account] Password - permission denied,Issue with Password: permission denied. This is affecting my work. Running on Windows 11.,Account,Password,Question,High,High,Resolved,Help Desk,Windows 11,Granted appropriate permissions. Verified with user that issue is fixed.,2025-08-16,"1. Open Password
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00345,Docking Station problem: fan making loud noise,"Hi, I need help. Docking Station keeps fan making loud noise. Started yesterday. I'm on macOS 14.",Hardware,Docking Station,Question,Medium,Medium,Closed,Security,macOS 14,Cleaned internal fans. Verified with user that issue is fixed.,2025-09-22,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00346,Printer problem: not turning on,The Printer has been not turning on for the past few hours. OS: Windows 11. Please help.,Hardware,Printer,Service Request,Critical,Critical,Open,IT Operations,Windows 11,,2025-07-25,"1. Open Printer
+2. Attempt normal operation
+3. Observe: not turning on"
+ITS-00347,SSO SSO login loop,Issue with SSO: SSO login loop. This is affecting my work. Running on Windows 11.,Account,SSO,Question,Low,Low,Closed,Security,Windows 11,Granted appropriate permissions. Verified with user that issue is fixed.,2025-04-20,"1. Open SSO
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00348,Load Balancer memory exhaustion on app server,Issue with Load Balancer: memory exhaustion on app server. This is affecting my work. Running on Ubuntu 22.04.,Incident,Load Balancer,Incident,Low,Low,Resolved,DevOps,Ubuntu 22.04,Blocked IP and reviewed access logs. Verified with user that issue is fixed.,2025-06-05,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00349,[Account] Active Directory - SSO login loop,Issue with Active Directory: SSO login loop. This is affecting my work. Running on macOS 14.,Account,Active Directory,Bug,Medium,Medium,Closed,Network Engineering,macOS 14,Fixed SSO federation config. Verified with user that issue is fixed.,2025-07-12,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00350,[Hardware] Keyboard - blue screen of death,My Keyboard is blue screen of death. I've been experiencing this since this morning. Environment: Windows 11.,Hardware,Keyboard,Service Request,Low,Low,In Progress,Security,Windows 11,,2025-08-27,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: blue screen of death"
+ITS-00351,Office 365 problem: update failed,Urgent: Office 365 - update failed. Multiple users reporting similar issues. Environment is Chrome OS.,Software,Office 365,Question,Medium,Medium,Resolved,IT Operations,Chrome OS,Reset user profile. Verified with user that issue is fixed.,2025-11-15,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: update failed"
+ITS-00352,Office 365 problem: corrupted installation,Urgent: Office 365 - corrupted installation. Multiple users reporting similar issues. Environment is Windows 10.,Software,Office 365,Bug,Medium,Medium,Closed,DevOps,Windows 10,Reset user profile. Verified with user that issue is fixed.,2025-09-17,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: corrupted installation"
+ITS-00353,SAP problem: error code 0x80070005,My SAP is error code 0x80070005. I've been experiencing this since this morning. Environment: Chrome OS.,Software,SAP,Question,Critical,Critical,Closed,Help Desk,Chrome OS,Rolled back to previous version. Verified with user that issue is fixed.,2025-11-28,"1. Open SAP
+2. Attempt normal operation
+3. Observe: error code 0x80070005"
+ITS-00354,Mouse no display output,"Hi, I need help. Mouse keeps no display output. Started yesterday. I'm on Windows 11.",Hardware,Mouse,Service Request,High,High,Closed,DevOps,Windows 11,Replaced battery. Verified with user that issue is fixed.,2025-08-02,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: no display output"
+ITS-00355,[Account] Active Directory - email forwarding setup,My Active Directory is email forwarding setup. I've been experiencing this since this morning. Environment: Windows 11.,Account,Active Directory,Bug,High,High,Resolved,Security,Windows 11,Created new account with standard template. Verified with user that issue is fixed.,2025-09-27,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00356,[Software] Antivirus - not responding,The Antivirus has been not responding for the past few hours. OS: Windows 10. Please help.,Software,Antivirus,Service Request,High,High,In Progress,IT Operations,Windows 10,,2025-09-08,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: not responding"
+ITS-00357,Email Server degraded performance across region,Urgent: Email Server - degraded performance across region. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Incident,Email Server,Incident,Low,Low,In Progress,Network Engineering,Ubuntu 22.04,,2025-09-18,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00358,WiFi problem: proxy authentication error,"Hi, I need help. WiFi keeps proxy authentication error. Started yesterday. I'm on Chrome OS.",Network,WiFi,Service Request,Low,Low,Resolved,Help Desk,Chrome OS,Replaced network cable. Verified with user that issue is fixed.,2025-01-14,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00359,Firewall problem: VPN connection drops,The Firewall has been VPN connection drops for the past few hours. OS: macOS 14. Please help.,Network,Firewall,Bug,Low,Low,Open,Help Desk,macOS 14,,2025-03-15,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: VPN connection drops"
+ITS-00360,VPN proxy authentication error,Issue with VPN: proxy authentication error. This is affecting my work. Running on Windows 10.,Network,VPN,Service Request,Critical,Critical,In Progress,Security,Windows 10,,2025-01-09,"1. Open VPN
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00361,Docking Station cracked screen,Urgent: Docking Station - cracked screen. Multiple users reporting similar issues. Environment is macOS 14.,Hardware,Docking Station,Question,High,High,Open,DevOps,macOS 14,,2025-08-13,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: cracked screen"
+ITS-00362,Desktop blue screen of death,Issue with Desktop: blue screen of death. This is affecting my work. Running on Ubuntu 22.04.,Hardware,Desktop,Bug,Medium,Medium,Resolved,DevOps,Ubuntu 22.04,Performed hardware diagnostic. Verified with user that issue is fixed.,2025-01-12,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: blue screen of death"
+ITS-00363,Office 365 problem: not responding,My Office 365 is not responding. I've been experiencing this since this morning. Environment: Chrome OS.,Software,Office 365,Service Request,High,High,Closed,Help Desk,Chrome OS,Cleared cache and temp files. Verified with user that issue is fixed.,2025-08-10,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: not responding"
+ITS-00364,Firewall packet loss,Issue with Firewall: packet loss. This is affecting my work. Running on Windows 10.,Network,Firewall,Bug,Low,Low,In Progress,Security,Windows 10,,2025-04-08,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00365,Web App problem: failover did not trigger,"Hi, I need help. Web App keeps failover did not trigger. Started yesterday. I'm on Windows 11.",Incident,Web App,Incident,Medium,Medium,Open,Security,Windows 11,,2025-07-26,"1. Open Web App
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00366,Proxy problem: intermittent disconnections,My Proxy is intermittent disconnections. I've been experiencing this since this morning. Environment: macOS 14.,Network,Proxy,Bug,Low,Low,In Progress,Help Desk,macOS 14,,2025-07-25,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00367,Proxy cannot access internal resources,Urgent: Proxy - cannot access internal resources. Multiple users reporting similar issues. Environment is Windows 11.,Network,Proxy,Service Request,Medium,Medium,In Progress,Help Desk,Windows 11,,2025-04-20,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00368,Keyboard keyboard keys stuck,"Hi, I need help. Keyboard keeps keyboard keys stuck. Started yesterday. I'm on Windows 10.",Hardware,Keyboard,Question,Medium,Medium,In Progress,DevOps,Windows 10,,2025-06-20,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: keyboard keys stuck"
+ITS-00369,Database SSL certificate expired,The Database has been SSL certificate expired for the past few hours. OS: Windows 11. Please help.,Incident,Database,Incident,Medium,Medium,Resolved,DevOps,Windows 11,Freed disk space and set alerts. Verified with user that issue is fixed.,2025-06-01,"1. Open Database
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00370,[Incident] API Gateway - data sync failure between systems,The API Gateway has been data sync failure between systems for the past few hours. OS: Chrome OS. Please help.,Incident,API Gateway,Incident,Low,Low,Closed,Help Desk,Chrome OS,Restarted affected services. Verified with user that issue is fixed.,2025-06-10,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00371,Mouse problem: freezing randomly,"Hi, I need help. Mouse keeps freezing randomly. Started yesterday. I'm on Chrome OS.",Hardware,Mouse,Service Request,Low,Low,Closed,Network Engineering,Chrome OS,Updated device drivers. Verified with user that issue is fixed.,2025-11-17,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: freezing randomly"
+ITS-00372,[Hardware] Keyboard - battery not charging,My Keyboard is battery not charging. I've been experiencing this since this morning. Environment: Ubuntu 22.04.,Hardware,Keyboard,Service Request,Medium,Medium,In Progress,DevOps,Ubuntu 22.04,,2025-09-20,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: battery not charging"
+ITS-00373,SSO problem: account deactivation request,The SSO has been account deactivation request for the past few hours. OS: macOS 14. Please help.,Account,SSO,Bug,Medium,Medium,Closed,Help Desk,macOS 14,Unlocked account in AD. Verified with user that issue is fixed.,2025-06-11,"1. Open SSO
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00374,VPN slow loading,Issue with VPN: slow loading. This is affecting my work. Running on Chrome OS.,Software,VPN,Question,Low,Low,Closed,Security,Chrome OS,Applied latest patch. Verified with user that issue is fixed.,2025-12-24,"1. Open VPN
+2. Attempt normal operation
+3. Observe: slow loading"
+ITS-00375,API Gateway SSL certificate expired,"Hi, I need help. API Gateway keeps SSL certificate expired. Started yesterday. I'm on Windows 11.",Incident,API Gateway,Incident,Medium,Medium,Open,Network Engineering,Windows 11,,2025-11-03,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00376,API Gateway data sync failure between systems,Issue with API Gateway: data sync failure between systems. This is affecting my work. Running on Windows 10.,Incident,API Gateway,Incident,Medium,Medium,In Progress,DevOps,Windows 10,,2025-09-21,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00377,Email Server disk space critical on production server,"Hi, I need help. Email Server keeps disk space critical on production server. Started yesterday. I'm on Windows 10.",Incident,Email Server,Incident,Low,Low,Open,Network Engineering,Windows 10,,2025-10-25,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: disk space critical on production server"
+ITS-00378,SSO problem: SSO login loop,Urgent: SSO - SSO login loop. Multiple users reporting similar issues. Environment is Windows 10.,Account,SSO,Question,Medium,Medium,Open,Help Desk,Windows 10,,2025-11-02,"1. Open SSO
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00379,Firewall problem: network drive not mapping,"Hi, I need help. Firewall keeps network drive not mapping. Started yesterday. I'm on Windows 10.",Network,Firewall,Service Request,Medium,Medium,Closed,Network Engineering,Windows 10,Updated VPN client. Verified with user that issue is fixed.,2025-12-03,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: network drive not mapping"
+ITS-00380,SAP error code 0x80070005,Issue with SAP: error code 0x80070005. This is affecting my work. Running on Ubuntu 22.04.,Software,SAP,Bug,Low,Low,Closed,IT Operations,Ubuntu 22.04,Cleared cache and temp files. Verified with user that issue is fixed.,2025-02-25,"1. Open SAP
+2. Attempt normal operation
+3. Observe: error code 0x80070005"
+ITS-00381,[Software] Salesforce - update failed,The Salesforce has been update failed for the past few hours. OS: Windows 10. Please help.,Software,Salesforce,Bug,Medium,Medium,In Progress,Security,Windows 10,,2025-04-09,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: update failed"
+ITS-00382,[Network] Proxy - VPN connection drops,Issue with Proxy: VPN connection drops. This is affecting my work. Running on Chrome OS.,Network,Proxy,Question,Medium,Medium,In Progress,DevOps,Chrome OS,,2025-09-21,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: VPN connection drops"
+ITS-00383,[Incident] Database - data sync failure between systems,Urgent: Database - data sync failure between systems. Multiple users reporting similar issues. Environment is Windows 10.,Incident,Database,Incident,Low,Low,Open,Help Desk,Windows 10,,2025-01-15,"1. Open Database
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00384,Mouse problem: overheating,Issue with Mouse: overheating. This is affecting my work. Running on macOS 14.,Hardware,Mouse,Question,High,High,Resolved,DevOps,macOS 14,Replaced faulty component. Verified with user that issue is fixed.,2025-04-23,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: overheating"
+ITS-00385,Outlook compatibility issue,"Hi, I need help. Outlook keeps compatibility issue. Started yesterday. I'm on macOS 14.",Software,Outlook,Service Request,Low,Low,Closed,Help Desk,macOS 14,Reinstalled application. Verified with user that issue is fixed.,2025-09-01,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: compatibility issue"
+ITS-00386,Password cannot access shared mailbox,My Password is cannot access shared mailbox. I've been experiencing this since this morning. Environment: macOS 14.,Account,Password,Service Request,Medium,Medium,Open,Security,macOS 14,,2025-07-27,"1. Open Password
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00387,DNS problem: DNS resolution failure,"Hi, I need help. DNS keeps DNS resolution failure. Started yesterday. I'm on Windows 11.",Network,DNS,Service Request,Medium,Medium,Resolved,DevOps,Windows 11,Flushed DNS cache. Verified with user that issue is fixed.,2025-06-26,"1. Open DNS
+2. Attempt normal operation
+3. Observe: DNS resolution failure"
+ITS-00388,Keyboard blue screen of death,The Keyboard has been blue screen of death for the past few hours. OS: Windows 10. Please help.,Hardware,Keyboard,Bug,Medium,Medium,Resolved,IT Operations,Windows 10,Cleaned internal fans. Verified with user that issue is fixed.,2025-12-16,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: blue screen of death"
+ITS-00389,Desktop problem: overheating,My Desktop is overheating. I've been experiencing this since this morning. Environment: macOS 14.,Hardware,Desktop,Service Request,Medium,Medium,In Progress,DevOps,macOS 14,,2025-08-10,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: overheating"
+ITS-00390,Monitor no display output,Urgent: Monitor - no display output. Multiple users reporting similar issues. Environment is Windows 10.,Hardware,Monitor,Bug,Medium,Medium,Resolved,Help Desk,Windows 10,Performed hardware diagnostic. Verified with user that issue is fixed.,2025-12-23,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: no display output"
+ITS-00391,Docking Station problem: slow performance,Issue with Docking Station: slow performance. This is affecting my work. Running on macOS 14.,Hardware,Docking Station,Bug,Medium,Medium,Resolved,Network Engineering,macOS 14,Ordered replacement unit. Verified with user that issue is fixed.,2025-02-17,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: slow performance"
+ITS-00392,Mouse no display output,"Hi, I need help. Mouse keeps no display output. Started yesterday. I'm on Windows 10.",Hardware,Mouse,Bug,Medium,Medium,In Progress,DevOps,Windows 10,,2025-03-26,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: no display output"
+ITS-00393,VPN problem: proxy authentication error,The VPN has been proxy authentication error for the past few hours. OS: Windows 11. Please help.,Network,VPN,Question,Medium,Medium,Closed,Help Desk,Windows 11,Flushed DNS cache. Verified with user that issue is fixed.,2025-04-28,"1. Open VPN
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00394,VPN problem: plugin not working,My VPN is plugin not working. I've been experiencing this since this morning. Environment: Windows 11.,Software,VPN,Bug,High,High,In Progress,DevOps,Windows 11,,2025-08-20,"1. Open VPN
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00395,VPN cannot reach specific websites,My VPN is cannot reach specific websites. I've been experiencing this since this morning. Environment: Windows 10.,Network,VPN,Bug,Medium,Medium,Resolved,DevOps,Windows 10,Updated WiFi driver. Verified with user that issue is fixed.,2025-04-24,"1. Open VPN
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00396,[Hardware] Mouse - keyboard keys stuck,Urgent: Mouse - keyboard keys stuck. Multiple users reporting similar issues. Environment is Windows 11.,Hardware,Mouse,Service Request,High,High,Open,Network Engineering,Windows 11,,2025-11-17,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: keyboard keys stuck"
+ITS-00397,Monitor problem: overheating,The Monitor has been overheating for the past few hours. OS: Windows 10. Please help.,Hardware,Monitor,Service Request,Medium,Medium,Resolved,Security,Windows 10,Replaced faulty component. Verified with user that issue is fixed.,2025-06-16,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: overheating"
+ITS-00398,Password email forwarding setup,Issue with Password: email forwarding setup. This is affecting my work. Running on macOS 14.,Account,Password,Bug,Low,Low,Resolved,DevOps,macOS 14,Fixed SSO federation config. Verified with user that issue is fixed.,2025-02-23,"1. Open Password
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00399,Proxy IP conflict,The Proxy has been IP conflict for the past few hours. OS: Ubuntu 22.04. Please help.,Network,Proxy,Bug,Medium,Medium,Closed,IT Operations,Ubuntu 22.04,Updated WiFi driver. Verified with user that issue is fixed.,2025-07-27,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: IP conflict"
+ITS-00400,[Software] Office 365 - error code 0x80070005,"Hi, I need help. Office 365 keeps error code 0x80070005. Started yesterday. I'm on macOS 14.",Software,Office 365,Service Request,Medium,Medium,Resolved,Security,macOS 14,Rolled back to previous version. Verified with user that issue is fixed.,2025-11-27,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: error code 0x80070005"
+ITS-00401,[Hardware] Keyboard - not turning on,Urgent: Keyboard - not turning on. Multiple users reporting similar issues. Environment is macOS 14.,Hardware,Keyboard,Service Request,Medium,Medium,Closed,Network Engineering,macOS 14,Updated BIOS firmware. Verified with user that issue is fixed.,2025-05-18,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: not turning on"
+ITS-00402,[Hardware] Printer - battery not charging,The Printer has been battery not charging for the past few hours. OS: macOS 14. Please help.,Hardware,Printer,Service Request,High,High,In Progress,IT Operations,macOS 14,,2025-09-01,"1. Open Printer
+2. Attempt normal operation
+3. Observe: battery not charging"
+ITS-00403,Antivirus crashing on startup,The Antivirus has been crashing on startup for the past few hours. OS: Windows 10. Please help.,Software,Antivirus,Service Request,Low,Low,In Progress,Network Engineering,Windows 10,,2025-10-24,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: crashing on startup"
+ITS-00404,Database data sync failure between systems,"Hi, I need help. Database keeps data sync failure between systems. Started yesterday. I'm on Chrome OS.",Incident,Database,Incident,Low,Low,In Progress,Security,Chrome OS,,2025-04-04,"1. Open Database
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00405,[Network] Proxy - cannot access internal resources,The Proxy has been cannot access internal resources for the past few hours. OS: Windows 11. Please help.,Network,Proxy,Bug,Medium,Medium,In Progress,Security,Windows 11,,2025-05-08,"1. Open Proxy
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00406,SAP not responding,Issue with SAP: not responding. This is affecting my work. Running on Chrome OS.,Software,SAP,Service Request,Critical,Critical,Resolved,Network Engineering,Chrome OS,Cleared cache and temp files. Verified with user that issue is fixed.,2025-07-12,"1. Open SAP
+2. Attempt normal operation
+3. Observe: not responding"
+ITS-00407,Load Balancer backup job failed overnight,Urgent: Load Balancer - backup job failed overnight. Multiple users reporting similar issues. Environment is Windows 11.,Incident,Load Balancer,Incident,Medium,Medium,Resolved,Security,Windows 11,Re-ran backup with increased timeout. Verified with user that issue is fixed.,2025-05-09,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00408,[Software] Outlook - memory leak causing slowdown,The Outlook has been memory leak causing slowdown for the past few hours. OS: Windows 10. Please help.,Software,Outlook,Question,Medium,Medium,In Progress,Security,Windows 10,,2025-02-07,"1. Open Outlook
+2. Attempt normal operation
+3. Observe: memory leak causing slowdown"
+ITS-00409,SSO problem: permission denied,Issue with SSO: permission denied. This is affecting my work. Running on Windows 10.,Account,SSO,Question,Medium,Medium,In Progress,DevOps,Windows 10,,2025-06-15,"1. Open SSO
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00410,[Network] Ethernet - intermittent disconnections,Issue with Ethernet: intermittent disconnections. This is affecting my work. Running on Windows 11.,Network,Ethernet,Question,Medium,Medium,Resolved,Network Engineering,Windows 11,Reconfigured proxy settings. Verified with user that issue is fixed.,2025-11-12,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00411,[Account] MFA - email forwarding setup,Issue with MFA: email forwarding setup. This is affecting my work. Running on Windows 10.,Account,MFA,Bug,Low,Low,Closed,Security,Windows 10,Updated group memberships. Verified with user that issue is fixed.,2025-12-10,"1. Open MFA
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00412,Active Directory problem: permission denied,My Active Directory is permission denied. I've been experiencing this since this morning. Environment: Windows 10.,Account,Active Directory,Bug,Medium,Medium,Closed,Help Desk,Windows 10,Unlocked account in AD. Verified with user that issue is fixed.,2025-10-20,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00413,Keyboard problem: blue screen of death,Issue with Keyboard: blue screen of death. This is affecting my work. Running on Chrome OS.,Hardware,Keyboard,Question,Medium,Medium,In Progress,IT Operations,Chrome OS,,2025-12-14,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: blue screen of death"
+ITS-00414,WiFi problem: network drive not mapping,The WiFi has been network drive not mapping for the past few hours. OS: Windows 10. Please help.,Network,WiFi,Question,Medium,Medium,Resolved,DevOps,Windows 10,Updated VPN client. Verified with user that issue is fixed.,2025-10-22,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: network drive not mapping"
+ITS-00415,[Hardware] Docking Station - USB ports not working,Issue with Docking Station: USB ports not working. This is affecting my work. Running on Windows 11.,Hardware,Docking Station,Question,High,High,Open,IT Operations,Windows 11,,2025-09-11,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: USB ports not working"
+ITS-00416,[Hardware] Monitor - not connecting to docking station,Urgent: Monitor - not connecting to docking station. Multiple users reporting similar issues. Environment is Windows 11.,Hardware,Monitor,Bug,Medium,Medium,In Progress,Security,Windows 11,,2025-09-11,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: not connecting to docking station"
+ITS-00417,[Software] Salesforce - error code 0x80070005,The Salesforce has been error code 0x80070005 for the past few hours. OS: Ubuntu 22.04. Please help.,Software,Salesforce,Question,Medium,Medium,Closed,Network Engineering,Ubuntu 22.04,Rolled back to previous version. Verified with user that issue is fixed.,2025-06-07,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: error code 0x80070005"
+ITS-00418,VPN intermittent disconnections,"Hi, I need help. VPN keeps intermittent disconnections. Started yesterday. I'm on Ubuntu 22.04.",Network,VPN,Bug,High,High,Closed,Network Engineering,Ubuntu 22.04,Replaced network cable. Verified with user that issue is fixed.,2025-07-25,"1. Open VPN
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00419,MFA problem: account deactivation request,Issue with MFA: account deactivation request. This is affecting my work. Running on macOS 14.,Account,MFA,Question,Medium,Medium,Resolved,Help Desk,macOS 14,Granted appropriate permissions. Verified with user that issue is fixed.,2025-08-04,"1. Open MFA
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00420,Email Server failover did not trigger,Issue with Email Server: failover did not trigger. This is affecting my work. Running on Windows 11.,Incident,Email Server,Incident,Low,Low,Open,DevOps,Windows 11,,2025-01-01,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00421,Database backup job failed overnight,"Hi, I need help. Database keeps backup job failed overnight. Started yesterday. I'm on Windows 11.",Incident,Database,Incident,Low,Low,Resolved,Security,Windows 11,Restarted affected services. Verified with user that issue is fixed.,2025-05-10,"1. Open Database
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00422,Storage problem: memory exhaustion on app server,Urgent: Storage - memory exhaustion on app server. Multiple users reporting similar issues. Environment is Chrome OS.,Incident,Storage,Incident,Medium,Medium,Closed,Security,Chrome OS,Blocked IP and reviewed access logs. Verified with user that issue is fixed.,2025-11-09,"1. Open Storage
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00423,[Account] Email - account locked out,My Email is account locked out. I've been experiencing this since this morning. Environment: Windows 11.,Account,Email,Question,Low,Low,In Progress,IT Operations,Windows 11,,2025-09-19,"1. Open Email
+2. Attempt normal operation
+3. Observe: account locked out"
+ITS-00424,Laptop problem: overheating,"Hi, I need help. Laptop keeps overheating. Started yesterday. I'm on Windows 10.",Hardware,Laptop,Service Request,Medium,Medium,In Progress,IT Operations,Windows 10,,2025-05-11,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: overheating"
+ITS-00425,[Software] Antivirus - compatibility issue,"Hi, I need help. Antivirus keeps compatibility issue. Started yesterday. I'm on Windows 11.",Software,Antivirus,Question,Low,Low,Closed,Security,Windows 11,Applied latest patch. Verified with user that issue is fixed.,2025-08-11,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: compatibility issue"
+ITS-00426,Web App problem: scheduled maintenance overran window,"Hi, I need help. Web App keeps scheduled maintenance overran window. Started yesterday. I'm on Windows 10.",Incident,Web App,Incident,Low,Low,Open,Help Desk,Windows 10,,2025-02-19,"1. Open Web App
+2. Attempt normal operation
+3. Observe: scheduled maintenance overran window"
+ITS-00427,Firewall proxy authentication error,My Firewall is proxy authentication error. I've been experiencing this since this morning. Environment: Windows 10.,Network,Firewall,Bug,Medium,Medium,In Progress,Security,Windows 10,,2025-10-08,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00428,Ethernet slow internet speed,My Ethernet is slow internet speed. I've been experiencing this since this morning. Environment: Windows 11.,Network,Ethernet,Bug,Critical,Critical,Resolved,Security,Windows 11,Reconfigured proxy settings. Verified with user that issue is fixed.,2025-05-03,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: slow internet speed"
+ITS-00429,Load Balancer problem: scheduled maintenance overran window,Urgent: Load Balancer - scheduled maintenance overran window. Multiple users reporting similar issues. Environment is Chrome OS.,Incident,Load Balancer,Incident,Low,Low,Closed,Help Desk,Chrome OS,Blocked IP and reviewed access logs. Verified with user that issue is fixed.,2025-12-20,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: scheduled maintenance overran window"
+ITS-00430,DNS problem: network drive not mapping,The DNS has been network drive not mapping for the past few hours. OS: Windows 10. Please help.,Network,DNS,Question,Low,Low,Open,Network Engineering,Windows 10,,2025-05-12,"1. Open DNS
+2. Attempt normal operation
+3. Observe: network drive not mapping"
+ITS-00431,Office 365 corrupted installation,The Office 365 has been corrupted installation for the past few hours. OS: Windows 11. Please help.,Software,Office 365,Bug,High,High,Open,IT Operations,Windows 11,,2025-10-12,"1. Open Office 365
+2. Attempt normal operation
+3. Observe: corrupted installation"
+ITS-00432,[Network] Ethernet - cannot connect to WiFi,"Hi, I need help. Ethernet keeps cannot connect to WiFi. Started yesterday. I'm on Windows 10.",Network,Ethernet,Service Request,Medium,Medium,Open,Security,Windows 10,,2025-04-20,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: cannot connect to WiFi"
+ITS-00433,Email problem: email forwarding setup,My Email is email forwarding setup. I've been experiencing this since this morning. Environment: Chrome OS.,Account,Email,Question,Low,Low,Open,Help Desk,Chrome OS,,2025-08-18,"1. Open Email
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00434,[Software] Windows - missing features after update,My Windows is missing features after update. I've been experiencing this since this morning. Environment: Windows 11.,Software,Windows,Service Request,Low,Low,Closed,IT Operations,Windows 11,Reset user profile. Verified with user that issue is fixed.,2025-06-28,"1. Open Windows
+2. Attempt normal operation
+3. Observe: missing features after update"
+ITS-00435,WiFi problem: packet loss,"Hi, I need help. WiFi keeps packet loss. Started yesterday. I'm on Chrome OS.",Network,WiFi,Bug,Medium,Medium,In Progress,IT Operations,Chrome OS,,2025-01-04,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00436,[Software] Windows - memory leak causing slowdown,Issue with Windows: memory leak causing slowdown. This is affecting my work. Running on Windows 10.,Software,Windows,Service Request,Medium,Medium,Closed,Help Desk,Windows 10,Cleared cache and temp files. Verified with user that issue is fixed.,2025-08-17,"1. Open Windows
+2. Attempt normal operation
+3. Observe: memory leak causing slowdown"
+ITS-00437,VPN IP conflict,The VPN has been IP conflict for the past few hours. OS: macOS 14. Please help.,Network,VPN,Question,Medium,Medium,Open,DevOps,macOS 14,,2025-03-21,"1. Open VPN
+2. Attempt normal operation
+3. Observe: IP conflict"
+ITS-00438,WiFi cannot connect to WiFi,My WiFi is cannot connect to WiFi. I've been experiencing this since this morning. Environment: Windows 11.,Network,WiFi,Bug,Medium,Medium,Resolved,Network Engineering,Windows 11,Replaced network cable. Verified with user that issue is fixed.,2025-09-22,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: cannot connect to WiFi"
+ITS-00439,[Network] DNS - intermittent disconnections,Urgent: DNS - intermittent disconnections. Multiple users reporting similar issues. Environment is Windows 11.,Network,DNS,Question,Medium,Medium,Resolved,Security,Windows 11,Added firewall rule exception. Verified with user that issue is fixed.,2025-07-03,"1. Open DNS
+2. Attempt normal operation
+3. Observe: intermittent disconnections"
+ITS-00440,VPN IP conflict,"Hi, I need help. VPN keeps IP conflict. Started yesterday. I'm on Windows 11.",Network,VPN,Service Request,High,High,Resolved,IT Operations,Windows 11,Flushed DNS cache. Verified with user that issue is fixed.,2025-03-23,"1. Open VPN
+2. Attempt normal operation
+3. Observe: IP conflict"
+ITS-00441,Ethernet problem: packet loss,My Ethernet is packet loss. I've been experiencing this since this morning. Environment: Windows 10.,Network,Ethernet,Service Request,Low,Low,Closed,Network Engineering,Windows 10,Reset network adapter. Verified with user that issue is fixed.,2025-06-25,"1. Open Ethernet
+2. Attempt normal operation
+3. Observe: packet loss"
+ITS-00442,[Incident] API Gateway - SSL certificate expired,Issue with API Gateway: SSL certificate expired. This is affecting my work. Running on macOS 14.,Incident,API Gateway,Incident,Medium,Medium,In Progress,Network Engineering,macOS 14,,2025-04-13,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00443,Database unauthorized access attempt detected,Urgent: Database - unauthorized access attempt detected. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Incident,Database,Incident,Medium,Medium,Resolved,Help Desk,Ubuntu 22.04,Blocked IP and reviewed access logs. Verified with user that issue is fixed.,2025-03-28,"1. Open Database
+2. Attempt normal operation
+3. Observe: unauthorized access attempt detected"
+ITS-00444,Salesforce plugin not working,Issue with Salesforce: plugin not working. This is affecting my work. Running on Windows 10.,Software,Salesforce,Bug,Medium,Medium,Resolved,Help Desk,Windows 10,Cleared cache and temp files. Verified with user that issue is fixed.,2025-12-11,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00445,[Incident] Load Balancer - degraded performance across region,My Load Balancer is degraded performance across region. I've been experiencing this since this morning. Environment: Chrome OS.,Incident,Load Balancer,Incident,Medium,Medium,In Progress,Security,Chrome OS,,2025-01-25,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00446,[Hardware] Keyboard - keyboard keys stuck,Issue with Keyboard: keyboard keys stuck. This is affecting my work. Running on Ubuntu 22.04.,Hardware,Keyboard,Question,Medium,Medium,Closed,Help Desk,Ubuntu 22.04,Cleaned internal fans. Verified with user that issue is fixed.,2025-09-06,"1. Open Keyboard
+2. Attempt normal operation
+3. Observe: keyboard keys stuck"
+ITS-00447,[Network] Firewall - cannot connect to WiFi,"Hi, I need help. Firewall keeps cannot connect to WiFi. Started yesterday. I'm on Chrome OS.",Network,Firewall,Service Request,Medium,Medium,In Progress,IT Operations,Chrome OS,,2025-10-11,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot connect to WiFi"
+ITS-00448,[Incident] Email Server - scheduled maintenance overran window,Issue with Email Server: scheduled maintenance overran window. This is affecting my work. Running on macOS 14.,Incident,Email Server,Incident,Medium,Medium,Resolved,Help Desk,macOS 14,Restarted affected services. Verified with user that issue is fixed.,2025-09-23,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: scheduled maintenance overran window"
+ITS-00449,Storage problem: unauthorized access attempt detected,The Storage has been unauthorized access attempt detected for the past few hours. OS: macOS 14. Please help.,Incident,Storage,Incident,Low,Low,Closed,IT Operations,macOS 14,Restarted affected services. Verified with user that issue is fixed.,2025-05-19,"1. Open Storage
+2. Attempt normal operation
+3. Observe: unauthorized access attempt detected"
+ITS-00450,[Software] VPN - update failed,"Hi, I need help. VPN keeps update failed. Started yesterday. I'm on Ubuntu 22.04.",Software,VPN,Service Request,Low,Low,In Progress,Help Desk,Ubuntu 22.04,,2025-09-21,"1. Open VPN
+2. Attempt normal operation
+3. Observe: update failed"
+ITS-00451,Email problem: email forwarding setup,Issue with Email: email forwarding setup. This is affecting my work. Running on Windows 11.,Account,Email,Bug,High,High,Open,DevOps,Windows 11,,2025-02-10,"1. Open Email
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00452,VPN IP conflict,Issue with VPN: IP conflict. This is affecting my work. Running on Windows 11.,Network,VPN,Service Request,Low,Low,Open,Help Desk,Windows 11,,2025-07-27,"1. Open VPN
+2. Attempt normal operation
+3. Observe: IP conflict"
+ITS-00453,[Account] Email - MFA not working,The Email has been MFA not working for the past few hours. OS: macOS 14. Please help.,Account,Email,Service Request,Medium,Medium,Closed,Security,macOS 14,Updated group memberships. Verified with user that issue is fixed.,2025-08-17,"1. Open Email
+2. Attempt normal operation
+3. Observe: MFA not working"
+ITS-00454,[Software] Antivirus - slow loading,Issue with Antivirus: slow loading. This is affecting my work. Running on Ubuntu 22.04.,Software,Antivirus,Service Request,Low,Low,Closed,Help Desk,Ubuntu 22.04,Cleared cache and temp files. Verified with user that issue is fixed.,2025-02-23,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: slow loading"
+ITS-00455,Active Directory SSO login loop,Urgent: Active Directory - SSO login loop. Multiple users reporting similar issues. Environment is Windows 10.,Account,Active Directory,Service Request,Medium,Medium,Closed,DevOps,Windows 10,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-03-23,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: SSO login loop"
+ITS-00456,[Hardware] Laptop - fan making loud noise,My Laptop is fan making loud noise. I've been experiencing this since this morning. Environment: Chrome OS.,Hardware,Laptop,Question,Medium,Medium,Resolved,Security,Chrome OS,Reseated RAM modules. Verified with user that issue is fixed.,2025-10-12,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00457,[Incident] Storage - memory exhaustion on app server,Issue with Storage: memory exhaustion on app server. This is affecting my work. Running on Chrome OS.,Incident,Storage,Incident,Low,Low,In Progress,Network Engineering,Chrome OS,,2025-01-27,"1. Open Storage
+2. Attempt normal operation
+3. Observe: memory exhaustion on app server"
+ITS-00458,WiFi cannot connect to WiFi,The WiFi has been cannot connect to WiFi for the past few hours. OS: Ubuntu 22.04. Please help.,Network,WiFi,Bug,Low,Low,Resolved,Security,Ubuntu 22.04,Updated VPN client. Verified with user that issue is fixed.,2025-12-19,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: cannot connect to WiFi"
+ITS-00459,[Software] Windows - not responding,Issue with Windows: not responding. This is affecting my work. Running on Windows 10.,Software,Windows,Bug,High,High,Closed,Network Engineering,Windows 10,Rolled back to previous version. Verified with user that issue is fixed.,2025-07-15,"1. Open Windows
+2. Attempt normal operation
+3. Observe: not responding"
+ITS-00460,[Hardware] Laptop - screen flickering,Urgent: Laptop - screen flickering. Multiple users reporting similar issues. Environment is macOS 14.,Hardware,Laptop,Service Request,Low,Low,In Progress,IT Operations,macOS 14,,2025-01-28,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: screen flickering"
+ITS-00461,[Account] Password - cannot access shared mailbox,Urgent: Password - cannot access shared mailbox. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Account,Password,Question,Critical,Critical,Resolved,DevOps,Ubuntu 22.04,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-12-15,"1. Open Password
+2. Attempt normal operation
+3. Observe: cannot access shared mailbox"
+ITS-00462,Monitor fan making loud noise,Urgent: Monitor - fan making loud noise. Multiple users reporting similar issues. Environment is Ubuntu 22.04.,Hardware,Monitor,Bug,High,High,Closed,Network Engineering,Ubuntu 22.04,Performed hardware diagnostic. Verified with user that issue is fixed.,2025-02-22,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00463,Docking Station fan making loud noise,The Docking Station has been fan making loud noise for the past few hours. OS: Windows 10. Please help.,Hardware,Docking Station,Question,Medium,Medium,Closed,Network Engineering,Windows 10,Updated device drivers. Verified with user that issue is fixed.,2025-07-15,"1. Open Docking Station
+2. Attempt normal operation
+3. Observe: fan making loud noise"
+ITS-00464,API Gateway problem: SSL certificate expired,Issue with API Gateway: SSL certificate expired. This is affecting my work. Running on Ubuntu 22.04.,Incident,API Gateway,Incident,Medium,Medium,Closed,Help Desk,Ubuntu 22.04,Freed disk space and set alerts. Verified with user that issue is fixed.,2025-06-22,"1. Open API Gateway
+2. Attempt normal operation
+3. Observe: SSL certificate expired"
+ITS-00465,VPN cannot reach specific websites,Urgent: VPN - cannot reach specific websites. Multiple users reporting similar issues. Environment is Chrome OS.,Network,VPN,Bug,Medium,Medium,In Progress,Network Engineering,Chrome OS,,2025-05-26,"1. Open VPN
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00466,[Hardware] Desktop - slow performance,"Hi, I need help. Desktop keeps slow performance. Started yesterday. I'm on macOS 14.",Hardware,Desktop,Service Request,Medium,Medium,Closed,DevOps,macOS 14,Replaced battery. Verified with user that issue is fixed.,2025-02-05,"1. Open Desktop
+2. Attempt normal operation
+3. Observe: slow performance"
+ITS-00467,VPN proxy authentication error,My VPN is proxy authentication error. I've been experiencing this since this morning. Environment: Chrome OS.,Network,VPN,Bug,Medium,Medium,Resolved,Help Desk,Chrome OS,Reset network adapter. Verified with user that issue is fixed.,2025-09-24,"1. Open VPN
+2. Attempt normal operation
+3. Observe: proxy authentication error"
+ITS-00468,[Software] Salesforce - cannot login,Issue with Salesforce: cannot login. This is affecting my work. Running on macOS 14.,Software,Salesforce,Service Request,Low,Low,Open,Security,macOS 14,,2025-09-26,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: cannot login"
+ITS-00469,WiFi problem: IP conflict,"Hi, I need help. WiFi keeps IP conflict. Started yesterday. I'm on macOS 14.",Network,WiFi,Bug,Low,Low,Closed,IT Operations,macOS 14,Reset network adapter. Verified with user that issue is fixed.,2025-09-20,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: IP conflict"
+ITS-00470,Mouse problem: screen flickering,"Hi, I need help. Mouse keeps screen flickering. Started yesterday. I'm on Windows 10.",Hardware,Mouse,Question,Low,Low,Closed,IT Operations,Windows 10,Ordered replacement unit. Verified with user that issue is fixed.,2025-08-28,"1. Open Mouse
+2. Attempt normal operation
+3. Observe: screen flickering"
+ITS-00471,[Incident] Storage - data sync failure between systems,The Storage has been data sync failure between systems for the past few hours. OS: Windows 10. Please help.,Incident,Storage,Incident,Medium,Medium,Closed,Security,Windows 10,Performed manual failover. Verified with user that issue is fixed.,2025-09-16,"1. Open Storage
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00472,[Incident] Database - backup job failed overnight,The Database has been backup job failed overnight for the past few hours. OS: Windows 10. Please help.,Incident,Database,Incident,High,High,Closed,DevOps,Windows 10,Scaled up server resources. Verified with user that issue is fixed.,2025-04-16,"1. Open Database
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00473,[Account] Email - permission denied,"Hi, I need help. Email keeps permission denied. Started yesterday. I'm on Ubuntu 22.04.",Account,Email,Service Request,High,High,Resolved,Security,Ubuntu 22.04,Re-enrolled MFA device. Verified with user that issue is fixed.,2025-01-02,"1. Open Email
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00474,[Account] Email - MFA not working,Urgent: Email - MFA not working. Multiple users reporting similar issues. Environment is Chrome OS.,Account,Email,Bug,High,High,Closed,IT Operations,Chrome OS,Fixed SSO federation config. Verified with user that issue is fixed.,2025-03-21,"1. Open Email
+2. Attempt normal operation
+3. Observe: MFA not working"
+ITS-00475,Email Server backup job failed overnight,The Email Server has been backup job failed overnight for the past few hours. OS: Windows 10. Please help.,Incident,Email Server,Incident,High,High,Resolved,IT Operations,Windows 10,Restarted affected services. Verified with user that issue is fixed.,2025-11-07,"1. Open Email Server
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00476,Salesforce problem: plugin not working,"Hi, I need help. Salesforce keeps plugin not working. Started yesterday. I'm on macOS 14.",Software,Salesforce,Question,High,High,Resolved,Help Desk,macOS 14,Applied latest patch. Verified with user that issue is fixed.,2025-10-21,"1. Open Salesforce
+2. Attempt normal operation
+3. Observe: plugin not working"
+ITS-00477,[Account] MFA - permission denied,The MFA has been permission denied for the past few hours. OS: macOS 14. Please help.,Account,MFA,Bug,High,High,In Progress,Network Engineering,macOS 14,,2025-05-06,"1. Open MFA
+2. Attempt normal operation
+3. Observe: permission denied"
+ITS-00478,SAP problem: corrupted installation,My SAP is corrupted installation. I've been experiencing this since this morning. Environment: Windows 10.,Software,SAP,Service Request,Critical,Critical,Open,DevOps,Windows 10,,2025-02-22,"1. Open SAP
+2. Attempt normal operation
+3. Observe: corrupted installation"
+ITS-00479,Web App degraded performance across region,Urgent: Web App - degraded performance across region. Multiple users reporting similar issues. Environment is Chrome OS.,Incident,Web App,Incident,Medium,Medium,Resolved,Security,Chrome OS,Freed disk space and set alerts. Verified with user that issue is fixed.,2025-05-12,"1. Open Web App
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00480,Load Balancer problem: failover did not trigger,"Hi, I need help. Load Balancer keeps failover did not trigger. Started yesterday. I'm on Chrome OS.",Incident,Load Balancer,Incident,High,High,Open,Help Desk,Chrome OS,,2025-06-16,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: failover did not trigger"
+ITS-00481,Load Balancer degraded performance across region,Issue with Load Balancer: degraded performance across region. This is affecting my work. Running on Windows 11.,Incident,Load Balancer,Incident,Medium,Medium,Closed,Security,Windows 11,Blocked IP and reviewed access logs. Verified with user that issue is fixed.,2025-05-13,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: degraded performance across region"
+ITS-00482,[Account] SSO - password expired,My SSO is password expired. I've been experiencing this since this morning. Environment: Windows 10.,Account,SSO,Question,Medium,Medium,Closed,IT Operations,Windows 10,Updated group memberships. Verified with user that issue is fixed.,2025-06-18,"1. Open SSO
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00483,Load Balancer disk space critical on production server,Issue with Load Balancer: disk space critical on production server. This is affecting my work. Running on Ubuntu 22.04.,Incident,Load Balancer,Incident,Medium,Medium,In Progress,Network Engineering,Ubuntu 22.04,,2025-09-06,"1. Open Load Balancer
+2. Attempt normal operation
+3. Observe: disk space critical on production server"
+ITS-00484,[Incident] Storage - backup job failed overnight,Urgent: Storage - backup job failed overnight. Multiple users reporting similar issues. Environment is Windows 11.,Incident,Storage,Incident,Critical,Critical,Closed,Help Desk,Windows 11,Applied emergency patch. Verified with user that issue is fixed.,2025-05-14,"1. Open Storage
+2. Attempt normal operation
+3. Observe: backup job failed overnight"
+ITS-00485,WiFi cannot access internal resources,My WiFi is cannot access internal resources. I've been experiencing this since this morning. Environment: Windows 10.,Network,WiFi,Service Request,High,High,Open,DevOps,Windows 10,,2025-09-17,"1. Open WiFi
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00486,SSO password expired,The SSO has been password expired for the past few hours. OS: macOS 14. Please help.,Account,SSO,Bug,Medium,Medium,Resolved,Network Engineering,macOS 14,Updated group memberships. Verified with user that issue is fixed.,2025-11-03,"1. Open SSO
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00487,Monitor slow performance,Issue with Monitor: slow performance. This is affecting my work. Running on Chrome OS.,Hardware,Monitor,Bug,High,High,In Progress,Network Engineering,Chrome OS,,2025-06-26,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: slow performance"
+ITS-00488,Laptop problem: slow performance,"Hi, I need help. Laptop keeps slow performance. Started yesterday. I'm on Chrome OS.",Hardware,Laptop,Bug,Medium,Medium,Resolved,Help Desk,Chrome OS,Updated BIOS firmware. Verified with user that issue is fixed.,2025-08-16,"1. Open Laptop
+2. Attempt normal operation
+3. Observe: slow performance"
+ITS-00489,Monitor problem: screen flickering,Urgent: Monitor - screen flickering. Multiple users reporting similar issues. Environment is Windows 10.,Hardware,Monitor,Bug,Medium,Medium,Closed,DevOps,Windows 10,Ordered replacement unit. Verified with user that issue is fixed.,2025-07-24,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: screen flickering"
+ITS-00490,Firewall problem: cannot reach specific websites,Issue with Firewall: cannot reach specific websites. This is affecting my work. Running on Ubuntu 22.04.,Network,Firewall,Question,Medium,Medium,In Progress,DevOps,Ubuntu 22.04,,2025-10-13,"1. Open Firewall
+2. Attempt normal operation
+3. Observe: cannot reach specific websites"
+ITS-00491,[Network] VPN - cannot access internal resources,My VPN is cannot access internal resources. I've been experiencing this since this morning. Environment: Windows 10.,Network,VPN,Question,Low,Low,Open,DevOps,Windows 10,,2025-03-21,"1. Open VPN
+2. Attempt normal operation
+3. Observe: cannot access internal resources"
+ITS-00492,[Account] Email - password expired,The Email has been password expired for the past few hours. OS: Windows 10. Please help.,Account,Email,Question,Medium,Medium,Open,Network Engineering,Windows 10,,2025-04-09,"1. Open Email
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00493,[Account] MFA - MFA not working,Issue with MFA: MFA not working. This is affecting my work. Running on Ubuntu 22.04.,Account,MFA,Bug,Medium,Medium,In Progress,IT Operations,Ubuntu 22.04,,2025-03-23,"1. Open MFA
+2. Attempt normal operation
+3. Observe: MFA not working"
+ITS-00494,[Account] Password - account deactivation request,Issue with Password: account deactivation request. This is affecting my work. Running on Windows 11.,Account,Password,Bug,High,High,Closed,IT Operations,Windows 11,Created new account with standard template. Verified with user that issue is fixed.,2025-08-28,"1. Open Password
+2. Attempt normal operation
+3. Observe: account deactivation request"
+ITS-00495,Active Directory email forwarding setup,The Active Directory has been email forwarding setup for the past few hours. OS: Windows 10. Please help.,Account,Active Directory,Service Request,Low,Low,Open,Help Desk,Windows 10,,2025-04-22,"1. Open Active Directory
+2. Attempt normal operation
+3. Observe: email forwarding setup"
+ITS-00496,Database problem: data sync failure between systems,The Database has been data sync failure between systems for the past few hours. OS: Windows 11. Please help.,Incident,Database,Incident,Low,Low,Resolved,Network Engineering,Windows 11,Renewed SSL certificate and redeployed. Verified with user that issue is fixed.,2025-11-26,"1. Open Database
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00497,[Hardware] Monitor - no display output,"Hi, I need help. Monitor keeps no display output. Started yesterday. I'm on Ubuntu 22.04.",Hardware,Monitor,Question,Medium,Medium,Open,DevOps,Ubuntu 22.04,,2025-11-05,"1. Open Monitor
+2. Attempt normal operation
+3. Observe: no display output"
+ITS-00498,Password problem: password expired,The Password has been password expired for the past few hours. OS: macOS 14. Please help.,Account,Password,Bug,Medium,Medium,In Progress,DevOps,macOS 14,,2025-11-14,"1. Open Password
+2. Attempt normal operation
+3. Observe: password expired"
+ITS-00499,Database data sync failure between systems,The Database has been data sync failure between systems for the past few hours. OS: Windows 10. Please help.,Incident,Database,Incident,Medium,Medium,Resolved,Security,Windows 10,Scaled up server resources. Verified with user that issue is fixed.,2025-06-21,"1. Open Database
+2. Attempt normal operation
+3. Observe: data sync failure between systems"
+ITS-00500,Antivirus plugin not working,Issue with Antivirus: plugin not working. This is affecting my work. Running on Ubuntu 22.04.,Software,Antivirus,Question,Low,Low,In Progress,Network Engineering,Ubuntu 22.04,,2025-03-17,"1. Open Antivirus
+2. Attempt normal operation
+3. Observe: plugin not working"

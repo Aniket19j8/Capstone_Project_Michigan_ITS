@@ -1,0 +1,31 @@
+{
+  "total_tickets": 500,
+  "sources": {
+    "synthetic": 500
+  },
+  "categories": {
+    "Incident": 108,
+    "Network": 105,
+    "Account": 98,
+    "Software": 95,
+    "Hardware": 94
+  },
+  "severities": {
+    "Medium": 247,
+    "Low": 141,
+    "High": 87,
+    "Critical": 25
+  },
+  "statuses": {
+    "In Progress": 133,
+    "Closed": 127,
+    "Open": 126,
+    "Resolved": 114
+  },
+  "avg_title_length": 38.3,
+  "avg_description_length": 100.9,
+  "avg_quality_score": 1.0,
+  "tickets_with_resolution": 241,
+  "tickets_with_error_codes": 16,
+  "embedding_text_avg_length": 214.1
+}
