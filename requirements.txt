@@ -1,36 +1,41 @@
-# Core ML & Embeddings
-sentence-transformers>=2.7.0
-transformers>=4.40.0
+# Core retrieval and embeddings
+chromadb>=1.5.1
+sentence-transformers>=5.2.0
+transformers>=4.41.0
 torch>=2.2.0
-
-# Vector Store & Retrieval
-chromadb>=0.5.0
-faiss-cpu>=1.8.0
 rank_bm25>=0.2.2
+faiss-cpu>=1.8.0
+huggingface_hub>=0.23.0
+datasets>=2.19.0
+onnxruntime>=1.14.1
 
-# LLM Orchestration
+# ASR and LLM clients
+faster-whisper>=1.0.0
+ctranslate2>=4.4.0
+requests>=2.32.0
+python-dotenv>=1.0.0
+
+# Data processing and evaluation
+pandas>=2.2.0
+numpy>=1.26.0
+scikit-learn>=1.5.0
+matplotlib>=3.9.0
+seaborn>=0.13.0
+tqdm>=4.66.0
+jsonlines>=4.0.0
+
+# CLI, app, and APIs
+typer>=0.12.0
+rich>=13.7.0
+pydantic>=2.7.0
+streamlit>=1.36.0
+fastapi>=0.111.0
+uvicorn>=0.30.0
+
+# Optional orchestration libraries used in project workflows
 langchain>=0.2.0
 langchain-community>=0.2.0
 langchain-huggingface>=0.0.3
 
-# Data Processing
-pandas>=2.2.0
-numpy>=1.26.0
-datasets>=2.19.0
-huggingface_hub>=0.23.0
-
-# API & Serving
-fastapi>=0.111.0
-uvicorn>=0.30.0
-pydantic>=2.7.0
-
-# Evaluation
-scikit-learn>=1.5.0
-matplotlib>=3.9.0
-seaborn>=0.13.0
-
-# Utilities
-tqdm>=4.66.0
-python-dotenv>=1.0.0
-requests>=2.32.0
-jsonlines>=4.0.0
+# Development and tests
+pytest>=8.0.0
