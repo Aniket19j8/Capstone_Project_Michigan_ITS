@@ -19,32 +19,97 @@ Usage:
 import os
 import json
 import argparse
+import sys
 import pandas as pd
 from pathlib import Path
 from tqdm import tqdm
 
 RAW_DIR = Path("./data/raw")
 PROCESSED_DIR = Path("./data/processed")
+# its_ticket80.csv is the newer name; its_tickets_80k.csv is the old one.
+_MAJOR_CANDIDATES = (
+    PROCESSED_DIR / "its_ticket80.csv",
+    PROCESSED_DIR / "its_tickets_80k.csv",
+)
+
+
+def default_major_its_csv_path() -> Path:
+    """Pick the first file that exists, or the default path if none do."""
+    for p in _MAJOR_CANDIDATES:
+        if p.exists():
+            return p
+    return _MAJOR_CANDIDATES[-1]
+
+
+MAJOR_TICKETS_PATH = default_major_its_csv_path()
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# ──────────────────────────────────────────────
-# D1: GitBugs Dataset (Primary - duplicate detection)
-# ──────────────────────────────────────────────
+def _configure_stdout_utf8():
+    """Avoid UnicodeEncodeError on Windows terminals with legacy encodings."""
+    try:
+        if hasattr(sys.stdout, "reconfigure"):
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+
+# D0: major ITS export (the big ticket CSV you drop in data/processed/)
+def register_major_its_dataset(path: Path = MAJOR_TICKETS_PATH):
+    """Check the CSV, count rows, write major_its_dataset_manifest.json for step 02. No download."""
+    print("\n[D0] Registering major ITS tickets dataset...")
+    if not path.exists():
+        print(f"  ⚠ Major dataset not found at: {path}")
+        print("  Place the CSV there, or pass a different path with --major-path.")
+        return False
+
+    # Sample only; 02 does the full pass.
+    sample = pd.read_csv(path, nrows=500)
+    columns = list(sample.columns)
+    required = {"ticket_id", "title", "description", "category", "component", "status"}
+    optional = {"resolution", "resolution_clean", "external_source", "language", "tags"}
+    missing_required = sorted(required - set(columns))
+
+    # Line count without loading the whole file.
+    with open(path, "rb") as f:
+        row_count = max(sum(1 for _ in f) - 1, 0)
+
+    profile = {
+        "dataset_name": "major_its",
+        "path": str(path),
+        "filename": path.name,
+        "row_count": row_count,
+        "columns": columns,
+        "missing_required_columns": missing_required,
+        "available_optional_columns": sorted(optional & set(columns)),
+        "sample_category_counts": sample.get("category", pd.Series(dtype=str)).fillna("").value_counts().head(20).to_dict(),
+        "sample_component_counts": sample.get("component", pd.Series(dtype=str)).fillna("").value_counts().head(20).to_dict(),
+        "sample_status_counts": sample.get("status", pd.Series(dtype=str)).fillna("").value_counts().head(20).to_dict(),
+        "registered_for_step_02": True,
+    }
+
+    manifest_path = PROCESSED_DIR / "major_its_dataset_manifest.json"
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(profile, f, indent=2)
+
+    print(f"  Rows: {row_count:,}")
+    print(f"  Columns: {len(columns)}")
+    if missing_required:
+        print(f"  ⚠ Missing required columns: {missing_required}")
+    else:
+        print("  Required columns: OK")
+    print(f"  Manifest: {manifest_path}")
+    return not missing_required
+
+
+# D1: GitBugs (duplicate labels) — HuggingFace
 def download_gitbugs():
-    """
-    GitBugs: Bug reports from multiple trackers with duplicate detection splits.
-    Source: HuggingFace datasets
-    """
     print("\n[D1] Downloading GitBugs Dataset...")
     from datasets import load_dataset
 
-    # Try loading from HuggingFace - adjust dataset name as needed
-    # Common GitBugs sources:
-    # Option A: Direct HuggingFace dataset
     try:
-        ds = load_dataset("logpai/GitBugs", trust_remote_code=True)
+        ds = load_dataset("logpai/GitBugs")
         print(f"  Loaded GitBugs: {ds}")
         for split_name, split_data in ds.items():
             df = split_data.to_pandas()
@@ -55,15 +120,6 @@ def download_gitbugs():
     except Exception as e:
         print(f"  HuggingFace load failed: {e}")
 
-    # Option B: If GitBugs isn't on HF, use Mozilla/Eclipse bug datasets
-    # These are the most common open bug-report duplicate datasets
-    print("  Trying alternative bug report datasets...")
-    alt_datasets = [
-        ("SemEval2CLS/semeval2016-task1", "Bug report similarity"),
-        # Add more alternatives as needed
-    ]
-
-    # Option C: Manual download instructions
     print("""
   ╔══════════════════════════════════════════════════════════════╗
   ║  MANUAL DOWNLOAD NEEDED FOR GITBUGS                        ║
@@ -83,23 +139,13 @@ def download_gitbugs():
     return False
 
 
-# ──────────────────────────────────────────────
-# D2: Apache Jira Exports (Rich metadata)
-# ──────────────────────────────────────────────
+# D2: Apache Jira
 def download_jira():
-    """
-    Apache Jira: Public Jira exports from Apache projects.
-    Rich metadata: summary, description, priority, component, resolution, comments.
-    """
     print("\n[D2] Downloading Apache Jira Exports...")
 
     try:
-        # Apache publishes JIRA data exports - commonly available on Zenodo
-        # Alternatively, use the Apache JIRA REST API
         from datasets import load_dataset
 
-        # Try common HF datasets with Jira/issue tracking data
-        # Adjust dataset name based on what's available
         candidates = [
             "apache-jira-bugs",
             "jirasec/jira-issues",
@@ -107,7 +153,7 @@ def download_jira():
 
         for ds_name in candidates:
             try:
-                ds = load_dataset(ds_name, trust_remote_code=True)
+                ds = load_dataset(ds_name)
                 df = ds["train"].to_pandas() if "train" in ds else list(ds.values())[0].to_pandas()
                 out_path = RAW_DIR / "jira_issues.csv"
                 df.to_csv(out_path, index=False)
@@ -118,7 +164,6 @@ def download_jira():
     except:
         pass
 
-    # Fallback: Download via Apache JIRA REST API
     print("  Downloading from Apache JIRA REST API...")
     generate_jira_api_script()
     print("""
@@ -134,9 +179,9 @@ def download_jira():
 
 
 def generate_jira_api_script():
-    """Generate a script to fetch Apache JIRA issues via REST API."""
+    """Writes scripts/fetch_jira.py for the public Jira REST search API."""
     script = '''"""
-Fetch Apache JIRA Issues via REST API (No auth needed for public projects)
+Pull Apache Jira issues (public projects, no auth).
 """
 import requests
 import pandas as pd
@@ -149,13 +194,12 @@ OUTPUT_DIR = Path("./data/raw")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 PROJECTS = ["SPARK", "KAFKA", "HADOOP", "CASSANDRA", "FLINK"]
-MAX_PER_PROJECT = 500  # Adjust up to 1000
+MAX_PER_PROJECT = 500
 
 def fetch_project_issues(project, max_results=500):
-    """Fetch issues from an Apache JIRA project."""
     all_issues = []
     start_at = 0
-    batch_size = 50  # JIRA API max per request
+    batch_size = 50
 
     print(f"  Fetching {project}...")
     while start_at < max_results:
@@ -206,7 +250,7 @@ def fetch_project_issues(project, max_results=500):
 
             start_at += len(issues)
             print(f"    {project}: {start_at} issues fetched...")
-            time.sleep(0.5)  # Rate limit
+            time.sleep(0.5)
 
         except Exception as e:
             print(f"    Error at {start_at}: {e}")
@@ -230,19 +274,13 @@ if __name__ == "__main__":
 '''
     script_path = Path("./scripts/fetch_jira.py")
     script_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(script_path, "w") as f:
+    with open(script_path, "w", encoding="utf-8") as f:
         f.write(script)
     print(f"  Generated: {script_path}")
 
 
-# ──────────────────────────────────────────────
-# D3: GitHub Issues (Supplementary)
-# ──────────────────────────────────────────────
+# D3: GitHub issues (REST; token helps with rate limits)
 def download_github():
-    """
-    GitHub Issues from high-volume repos.
-    Uses GitHub REST API (no auth needed for public repos, but rate-limited).
-    """
     print("\n[D3] Downloading GitHub Issues...")
     generate_github_script()
     print("""
@@ -259,10 +297,8 @@ def download_github():
 
 
 def generate_github_script():
-    """Generate GitHub Issues fetcher script."""
     script = '''"""
-Fetch GitHub Issues from high-volume repos via REST API
-Set GITHUB_TOKEN env var for higher rate limits (5000/hr vs 60/hr)
+Fetch issues from a few big repos. GITHUB_TOKEN = higher rate limit.
 """
 import os
 import requests
@@ -286,7 +322,6 @@ REPOS = [
 MAX_PER_REPO = 300
 
 def fetch_repo_issues(repo, max_issues=300):
-    """Fetch closed issues with labels and comments."""
     all_issues = []
     page = 1
     per_page = 100
@@ -313,7 +348,7 @@ def fetch_repo_issues(repo, max_issues=300):
                 break
 
             for issue in issues:
-                if issue.get("pull_request"):  # Skip PRs
+                if issue.get("pull_request"):
                     continue
                 all_issues.append({
                     "repo": repo,
@@ -352,29 +387,44 @@ if __name__ == "__main__":
     print(f"\\nTotal: {len(df)} issues saved to {out_path}")
 '''
     script_path = Path("./scripts/fetch_github_issues.py")
-    with open(script_path, "w") as f:
+    with open(script_path, "w", encoding="utf-8") as f:
         f.write(script)
     print(f"  Generated: {script_path}")
 
 
-# ──────────────────────────────────────────────
-# D4: Quora Duplicate Pairs (Validation)
-# ──────────────────────────────────────────────
+# D4: Quora pairs (for duplicate / embedding sanity checks)
 def download_quora():
-    """
-    Quora Question Pairs - for embedding validation and duplicate detection benchmarking.
-    """
+    # HF "quora" often nests both questions in one column; flatten to text1, text2.
     print("\n[D4] Downloading Quora Duplicate Pairs...")
     try:
         from datasets import load_dataset
         ds = load_dataset("quora", split="train")
         df = ds.to_pandas()
 
-        # Sample 10k pairs for validation
+        if "questions" in df.columns:
+            df["text1"] = df["questions"].apply(
+                lambda q: q[0]["text"] if isinstance(q, list) and len(q) > 0 else ""
+            )
+            df["text2"] = df["questions"].apply(
+                lambda q: q[1]["text"] if isinstance(q, list) and len(q) > 1 else ""
+            )
+            df = df.drop(columns=["questions"])
+        elif "question1" in df.columns and "question2" in df.columns:
+            df = df.rename(columns={"question1": "text1", "question2": "text2"})
+
+        if "is_duplicate" in df.columns:
+            df["is_duplicate"] = df["is_duplicate"].astype(int)
+
+        df = df[(df["text1"].str.len() > 0) & (df["text2"].str.len() > 0)].reset_index(drop=True)
+
         df_sample = df.sample(n=min(10000, len(df)), random_state=42)
         out_path = RAW_DIR / "quora_duplicates.csv"
         df_sample.to_csv(out_path, index=False)
+
+        dup_count = df_sample["is_duplicate"].sum() if "is_duplicate" in df_sample.columns else "?"
         print(f"  Saved: {len(df_sample)} pairs → {out_path}")
+        print(f"  Columns: {list(df_sample.columns)}")
+        print(f"  Duplicates: {dup_count}/{len(df_sample)} ({dup_count/len(df_sample)*100:.1f}%)" if isinstance(dup_count, int) else "")
         return True
     except Exception as e:
         print(f"  Error: {e}")
@@ -382,14 +432,8 @@ def download_quora():
         return False
 
 
-# ──────────────────────────────────────────────
-# Generate Synthetic IT Tickets (Fallback / Supplement)
-# ──────────────────────────────────────────────
+# Synthetic tickets if you have no real data yet
 def generate_synthetic_tickets(n=500):
-    """
-    Generate synthetic IT support tickets for development and testing.
-    These simulate realistic ticket patterns for ITS development.
-    """
     print(f"\n[Synthetic] Generating {n} synthetic IT tickets...")
     import random
 
@@ -487,7 +531,6 @@ def generate_synthetic_tickets(n=500):
         team = random.choice(teams)
         env = random.choice(environments)
 
-        # Generate natural language description with variation
         templates = [
             f"My {component} is {issue}. I've been experiencing this since this morning. Environment: {env}.",
             f"Issue with {component}: {issue}. This is affecting my work. Running on {env}.",
@@ -515,7 +558,7 @@ def generate_synthetic_tickets(n=500):
             "component": component,
             "issue_type": "Incident" if category == "Incident" else random.choice(["Bug", "Service Request", "Question"]),
             "severity": severity,
-            "priority": severity,  # Simplified: priority = severity
+            "priority": severity,
             "status": status,
             "assigned_team": team,
             "environment": env,
@@ -525,12 +568,10 @@ def generate_synthetic_tickets(n=500):
         }
         tickets.append(ticket)
 
-        # Create deliberate duplicates (~15% of tickets)
         if random.random() < 0.15 and i > 0:
             orig_idx = random.randint(0, len(tickets) - 2)
             orig = tickets[orig_idx]
 
-            # Rephrase the duplicate (different words, same issue)
             dup_templates = [
                 f"Same problem as others - {orig['component']} is {issue}. When will this be fixed?",
                 f"I'm also having trouble with {orig['component']}. It's been {issue} all day on {env}.",
@@ -545,19 +586,16 @@ def generate_synthetic_tickets(n=500):
                 "similarity_type": "semantic"
             })
 
-    # Save tickets
     df_tickets = pd.DataFrame(tickets)
     out_path = PROCESSED_DIR / "synthetic_tickets.csv"
     df_tickets.to_csv(out_path, index=False)
     print(f"  Saved: {len(df_tickets)} tickets → {out_path}")
 
-    # Save duplicate pairs
     df_dups = pd.DataFrame(duplicate_pairs)
     out_path_dups = PROCESSED_DIR / "synthetic_duplicate_pairs.csv"
     df_dups.to_csv(out_path_dups, index=False)
     print(f"  Saved: {len(df_dups)} duplicate pairs → {out_path_dups}")
 
-    # Print stats
     print(f"\n  === Dataset Stats ===")
     print(f"  Total tickets: {len(df_tickets)}")
     print(f"  Categories: {df_tickets['category'].value_counts().to_dict()}")
@@ -568,14 +606,8 @@ def generate_synthetic_tickets(n=500):
     return df_tickets, df_dups
 
 
-# ──────────────────────────────────────────────
-# Knowledge Base Documents (Runbooks & Docs)
-# ──────────────────────────────────────────────
+# Stub runbooks / KB markdown for RAG testing
 def generate_knowledge_base():
-    """
-    Generate sample runbooks, troubleshooting guides, and KB articles.
-    These form the knowledge base that RAG retrieves from.
-    """
     print("\n[KB] Generating Knowledge Base documents...")
 
     kb_dir = Path("./data/knowledge_base")
@@ -798,7 +830,7 @@ All printers support secure print. Documents are held until user authenticates a
 
     for filename, content in documents.items():
         filepath = kb_dir / filename
-        with open(filepath, "w") as f:
+        with open(filepath, "w", encoding="utf-8") as f:
             f.write(content)
         print(f"  Created: {filepath}")
 
@@ -806,25 +838,42 @@ All printers support secure print. Documents are held until user authenticates a
     return list(documents.keys())
 
 
-# ──────────────────────────────────────────────
-# Main
-# ──────────────────────────────────────────────
 if __name__ == "__main__":
+    _configure_stdout_utf8()
+
     parser = argparse.ArgumentParser(description="ITS RAG - Data Download & Preparation")
     parser.add_argument("--all", action="store_true", help="Download all datasets")
-    parser.add_argument("--dataset", choices=["gitbugs", "jira", "github", "quora"], help="Download specific dataset")
+    parser.add_argument(
+        "--dataset",
+        choices=["major", "gitbugs", "jira", "github", "quora"],
+        help="Download/register specific dataset",
+    )
+    parser.add_argument(
+        "--register-major-data",
+        action="store_true",
+        help="Validate/register data/processed/its_tickets_80k.csv without running preprocessing.",
+    )
+    parser.add_argument(
+        "--major-path",
+        default=str(default_major_its_csv_path()),
+        help="Path to the major ITS tickets CSV. Default: data/processed/its_ticket80.csv "
+        "if present, else data/processed/its_tickets_80k.csv",
+    )
     parser.add_argument("--generate-synthetic", action="store_true", help="Generate synthetic tickets")
     parser.add_argument("--generate-kb", action="store_true", help="Generate knowledge base documents")
     parser.add_argument("--synthetic-count", type=int, default=500, help="Number of synthetic tickets")
 
     args = parser.parse_args()
 
-    if args.all or not any([args.dataset, args.generate_synthetic, args.generate_kb]):
-        # Default: generate what we can locally + instructions for API-based datasets
+    if args.register_major_data:
+        register_major_its_dataset(Path(args.major_path))
+
+    if args.all or not any([args.dataset, args.generate_synthetic, args.generate_kb, args.register_major_data]):
         print("=" * 60)
         print("ITS RAG - Complete Data Preparation")
         print("=" * 60)
 
+        register_major_its_dataset(Path(args.major_path))
         download_gitbugs()
         download_jira()
         download_github()
@@ -833,8 +882,13 @@ if __name__ == "__main__":
         generate_knowledge_base()
 
     elif args.dataset:
-        {"gitbugs": download_gitbugs, "jira": download_jira,
-         "github": download_github, "quora": download_quora}[args.dataset]()
+        {
+            "major": lambda: register_major_its_dataset(Path(args.major_path)),
+            "gitbugs": download_gitbugs,
+            "jira": download_jira,
+            "github": download_github,
+            "quora": download_quora,
+        }[args.dataset]()
 
     if args.generate_synthetic:
         generate_synthetic_tickets(args.synthetic_count)

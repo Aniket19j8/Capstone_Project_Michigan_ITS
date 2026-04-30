@@ -1,0 +1,11 @@
+{
+  "tickets_path": "data/processed/its_tickets_80k.csv",
+  "total_source_rows_after_filters": 37450,
+  "examples_total": 1500,
+  "train": 1260,
+  "val": 120,
+  "test": 120,
+  "system_prompt": "You are a Tier-1 IT helpdesk assistant inside a RAG system. Use the ticket context to write a natural support response. Return JSON ONLY with this schema: {\"reply\": string, \"recommended_steps\": string[], \"confidence\": number, \"escalation_recommended\": boolean, \"escalation_reason\": string}. Keep recommended_steps short, safe, and user-actionable.",
+  "purpose": "Refine support conversation tone, step formatting, confidence, and escalation phrasing.",
+  "do_not_use_for": "Memorizing ticket facts. Ticket knowledge remains in RAG."
+}

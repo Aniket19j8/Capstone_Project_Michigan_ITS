@@ -1,0 +1,456 @@
+query,scope,query_idx,base_answer,rag_answer,context_snippet,base_latency_s,rag_latency_s,kb_docs_retrieved,ticket_docs_retrieved,kb_docs_passed_filter,ticket_docs_passed_filter,judge_answer_a_groundedness,judge_answer_a_specificity,judge_answer_a_accuracy,judge_answer_b_groundedness,judge_answer_b_specificity,judge_answer_b_accuracy,judge_which_is_better,judge_hallucination_in_a,judge_hallucination_in_b,judge_reasoning,judge_parse_error,judge_hall.
+How do I fix VPN connection drops?,it,0,"To fix VPN connection drops, try these steps:  
+1. **Check internet stability**: Ensure your connection is strong and restart your router/modem.  
+2. **Switch protocols**: Use IKEv2, WireGuard, or OpenVPN instead of your current protocol.  
+3. **Disable firewall/antivirus**: Temporarily disable secu","To fix VPN connection drops, follow these steps from the troubleshooting runbook:
+
+1. **Check Client Version**: Ensure the VPN client is updated to the latest version (v4.2+).  
+   - Windows: Settings > Apps > VPN Client  
+   - macOS: Applications > VPN Client > About  
+
+2. **Network Diagnostics**: ","[KB Source: runbook_vpn_troubleshooting.md]
+# VPN Troubleshooting Runbook
+
+
+## Symptom: VPN Connection Drops Intermittently
+
+
+### Step 1: Check Client Version
+Ensure the VPN client is updated to the l",44.41,41.57,3,3,1,3,2.0,1.0,3.0,5.0,5.0,5.0,B,False,False,"Answer B provides specific, actionable steps grounded in retrieved context, while Answer A offers generic advice without context-specific details.",,
+My VPN keeps disconnecting every 10 minutes on Windows 11,it,1,"Your VPN disconnections could be caused by:  
+1. **Server timeout**: Check if the VPN server has an idle timeout setting (e.g., 10 minutes). Contact your provider to adjust this.  
+2. **Network instability**: Ensure your internet connection is stable. Test speed and check for interference (e.g., rou",I don't have this information in our knowledge base.,"[Ticket: U-000228 | N/A]
+Title: VPN intermittent disconnections
+Description: Hi, I need help. VPN keeps intermittent disconnections. Started yesterday. I'm on Ubuntu 22.04.
+Category: Network
+Component",54.54,22.19,3,3,0,3,1.0,3.0,3.0,5.0,1.0,1.0,B,True,False,"Answer A fabricates specific steps (registry edits, server timeout) without context, while Answer B truthfully states lack of knowledge.",,
+VPN client version 4.1 is not connecting,it,2,"1. **Check for updates**: Ensure you're using the latest version of the VPN client (4.1 might be outdated).  
+2. **Network issues**: Verify your internet connection is stable. Disable firewalls/antivirus temporarily to rule out blocking.  
+3. **DNS settings**: Try changing DNS to public servers (e.g","The VPN client version 4.1 is outdated. According to the troubleshooting runbook (KB Source: runbook_vpn_troubleshooting.md), the client must be updated to **version 4.2+** to resolve connectivity issues. Check your client version via **Windows Settings > Apps > VPN Client** or **macOS Applications ","[KB Source: runbook_vpn_troubleshooting.md]
+# VPN Troubleshooting Runbook
+
+
+## Symptom: VPN Connection Drops Intermittently
+
+
+### Step 1: Check Client Version
+Ensure the VPN client is updated to the l",41.78,48.6,3,3,1,3,2.0,1.0,3.0,5.0,5.0,5.0,B,True,False,"Answer B is fully grounded in retrieved context, provides specific version-specific steps, and accurately identifies the root cause. Answer A lacks context-specific grounding and includes generic advice that may not address version 4.1 specifically.",,
+What MTU setting should I use for VPN?,it,3,"The optimal MTU for a VPN typically depends on your setup, but here's a general guideline:
+
+1. **Default MTU**: Start with **1500** (standard for most networks).  
+2. **Adjust if needed**: If you experience issues (e.g., packet loss, latency), reduce MTU by **50–100** (e.g., 1450 or 1400) to account",I don't have this information in our knowledge base.,No relevant context found.,84.12,19.39,3,3,0,0,1.0,5.0,3.0,5.0,1.0,5.0,B,True,False,"Answer B is fully grounded and honest about lacking context, while Answer A fabricates specific MTU values and steps without context, making it hallucinated.",,
+How to collect VPN logs for escalation?,it,4,"To collect VPN logs for escalation:  
+1. **Identify the VPN type** (e.g., Cisco AnyConnect, OpenVPN, Azure VPN, etc.).  
+2. **Locate logs**:  
+   - **System logs**: Check `/var/log` (Linux) or Event Viewer (Windows).  
+   - **VPN-specific logs**: Look in the VPN client's configuration directory (e.g",I don't have this information in our knowledge base.,No relevant context found.,71.5,13.98,3,3,0,0,2.0,3.0,3.0,5.0,1.0,5.0,B,True,False,"Answer B is fully grounded and accurate by acknowledging lack of context, while Answer A fabricates specific steps without retrieved context.",,
+"My account is locked out, how do I unlock it?",it,5,"To unlock your account, follow these steps:  
+1. **Verify credentials**: Ensure you're using the correct username and password.  
+2. **Check for lockout policies**: Some systems lock accounts after failed attempts (e.g., 5+ tries). Wait 15–30 minutes for automatic unlock.  
+3. **Contact IT support**","To unlock your account, follow these steps based on the provided runbook:
+
+1. **Verify Identity**: Confirm your identity through employee ID verification, manager confirmation (if remote), or security questions (if configured).  
+2. **Check Lockout Reason**:  
+   - If using **Active Directory**, che","[KB Source: runbook_password_reset.md]
+# Password Reset & Account Lockout Runbook
+
+
+## Symptom: Account Locked Out
+
+
+### Step 1: Verify Identity
+Confirm user identity through:
+- Employee ID verificati",46.71,75.65,3,3,1,3,3.0,2.0,4.0,5.0,5.0,5.0,B,False,False,"Answer B is fully grounded in retrieved IT knowledge (Active Directory, Event Viewer, Event ID 4740) and provides specific organizational procedures, while Answer A offers generic advice without context-specific details.",,
+How to reset MFA enrollment?,it,6,"To reset MFA enrollment, follow these steps based on your service provider:
+
+1. **Google Account**:  
+   - Go to [Google Account Security](https://myaccount.google.com/security).  
+   - Under ""2-Step Verification,"" remove the current method.  
+   - Add a new method (e.g., phone number, app, or backu",I don't have this information in our knowledge base.,"[Ticket: U-000097 | N/A]
+Title: MFA group membership change needed
+Description: Hi, I need help. MFA keeps group membership change needed. Started yesterday. I'm on Windows 10.
+Category: Account
+Compo",75.83,21.05,3,3,0,3,1.0,5.0,3.0,5.0,1.0,5.0,B,True,False,"Answer A fabricates specific steps and URLs not in the retrieved context, while Answer B honestly states lack of knowledge.",,
+What causes account lockout in Active Directory?,it,7,"Account lockouts in Active Directory are typically caused by:  
+1. **Excessive failed login attempts** (e.g., incorrect passwords).  
+2. **Brute force attacks** (systematic password guessing).  
+3. **Misconfigured lockout policies** (e.g., low threshold, short lockout duration).  
+4. **Password expi","The following causes are listed in the knowledge base for Active Directory account lockouts:
+
+- **Multiple failed login attempts**: Typically 5+ failures within 30 minutes  
+- **Cached credentials**: Old password stored on mobile devices or mapped drives  
+- **Service account**: Applications using e","[KB Source: runbook_password_reset.md]
+# Password Reset & Account Lockout Runbook
+
+
+## Symptom: Account Locked Out
+
+
+### Step 1: Verify Identity
+Confirm user identity through:
+- Employee ID verificati",58.26,30.12,3,3,1,3,3.0,3.0,4.0,5.0,5.0,5.0,B,False,False,"Answer B is fully grounded in retrieved context with specific details, while Answer A lacks context-specific grounding but remains generally accurate.",,
+How to verify user identity for password reset?,it,8,"To verify user identity for password reset:  
+1. **Security Questions**: Use pre-set questions/answers (e.g., ""What's your mother's maiden name?"").  
+2. **Email/Phone Verification**: Send a reset link or code via email/SMS.  
+3. **Multi-Factor Authentication (MFA)**: Require a second factor (e.g., a","To verify user identity for password reset, follow these steps from the provided knowledge base:
+
+1. **Employee ID verification**  
+2. **Manager confirmation** (if the user is remote)  
+3. **Security questions** (if configured)  
+
+These steps are outlined in the ""Verify Identity"" section of the Pass","[KB Source: runbook_password_reset.md]
+# Password Reset & Account Lockout Runbook
+
+
+## Symptom: Account Locked Out
+
+
+### Step 1: Verify Identity
+Confirm user identity through:
+- Employee ID verificati",54.28,25.74,3,3,1,0,2.0,2.0,4.0,5.0,5.0,5.0,B,False,False,"Answer B is fully grounded in retrieved context and provides org-specific steps, while Answer A lacks specific citations and is more generic.",,
+How do I enable self-service password reset?,it,9,"To enable self-service password reset, follow these steps based on your platform:
+
+### **Microsoft 365 (Azure AD):**
+1. Go to **Microsoft 365 Admin Center** > **Users** > **Active Users**.
+2. Select a user, click **Edit**, then navigate to the **Password Reset** section.
+3. Enable **Self-service pas",I don't have this information in our knowledge base.,"[KB Source: runbook_password_reset.md]
+# Password Reset & Account Lockout Runbook
+
+
+## Symptom: Account Locked Out
+
+
+### Step 1: Verify Identity
+Confirm user identity through:
+- Employee ID verificati",76.08,18.66,3,3,1,0,,,,,,,,,,,True,
+Outlook is not syncing my emails,it,10,"1. **Check Internet Connection**: Ensure your device is connected to the internet.  
+2. **Restart Outlook**: Close and reopen the app (or reinstall if needed).  
+3. **Verify Account Settings**: Confirm your email account is correctly configured in Outlook (check server settings for Exchange/IMAP/POP","Based on the provided context, here are the steps to troubleshoot Outlook not syncing emails:
+
+### **Step 1: Quick Checks**
+1. **Verify internet connectivity** (ensure your device is connected to the internet).  
+2. **Check Microsoft 365 service health**: [https://status.office365.com](https://statu","[KB Source: runbook_email_issues.md]
+# Email / Outlook Troubleshooting Runbook
+
+
+## Symptom: Outlook Not Syncing / Cannot Send or Receive
+
+
+### Step 1: Quick Checks
+1. Verify internet connectivity
+2. ",65.52,77.89,3,3,1,3,2.0,3.0,4.0,5.0,5.0,5.0,B,False,False,"Answer B is fully grounded in retrieved context with specific steps and URLs, while Answer A lacks context-specific details and is more generic.",,
+How to clear Outlook cache?,it,11,"To clear Outlook cache:
+
+1. **Disable Cached Exchange Mode**:
+   - Open Outlook → File → Account Settings → Account Settings.
+   - Select your account → Click ""Change"" → Uncheck ""Use Cached Exchange Mode"".
+   - Restart Outlook. This will clear the cache and reconnect to the server.
+
+2. **Delete the ","To clear the Outlook cache, follow these steps:  
+1. Close Outlook.  
+2. Delete files in the folder located at `%localappdata%\Microsoft\Outlook\RoamCache\`.  
+
+This step is documented in the email troubleshooting runbook under ""Client-Side Fixes.""","[KB Source: runbook_email_issues.md]
+# Email / Outlook Troubleshooting Runbook
+
+
+## Symptom: Outlook Not Syncing / Cannot Send or Receive
+
+
+### Step 1: Quick Checks
+1. Verify internet connectivity
+2. ",68.22,26.59,3,3,1,0,1.0,4.0,4.0,5.0,3.0,3.0,B,True,False,"Answer B is fully grounded with cited context, while Answer A lacks grounding and may hallucinate steps without context.",,
+Shared mailbox not showing in Outlook,it,12,"To resolve a shared mailbox not showing in Outlook:  
+
+1. **Add the Shared Mailbox**:  
+   - Go to **People** > **Add Contact** > **Shared Mailbox**.  
+   - Enter the mailbox name and click **Add**.  
+
+2. **Check Navigation Pane**:  
+   - Ensure the shared mailbox appears under **Shared Folders** in",I don't have this information in our knowledge base.,"[Ticket: ITS-00072 | Email cannot access shared mailbox]
+Title: Email cannot access shared mailbox
+Description: My Email is cannot access shared mailbox. I've been experiencing this since this morning",75.52,28.97,3,3,0,3,2.0,4.0,3.0,5.0,1.0,5.0,B,True,False,"Answer B is fully grounded and accurate by admitting lack of knowledge, while Answer A fabricates specific steps (e.g., 'Add Contact' for shared mailboxes) not in the context",,
+What is the mailbox size quota?,it,13,"The mailbox size quota is the maximum storage limit allocated for an email account (e.g., Microsoft 365, Google Workspace). Default limits vary by provider (e.g., 5 GB for Microsoft 365, 30 GB for Google Workspace), but administrators can adjust these quotas. Exceeding the limit may prevent sending/",I don't have this information in our knowledge base.,No relevant context found.,25.8,10.27,3,3,0,0,3.0,5.0,4.0,5.0,1.0,5.0,B,True,False,"Answer A fabricates specific provider limits without context, while Answer B truthfully states lack of knowledge in retrieved context.",,
+How to check Microsoft 365 service health?,it,14,"To check Microsoft 365 service health:  
+1. **Microsoft 365 Admin Center**: Sign in as an admin, navigate to **Service health** under ""Settings"" > ""Service status.""  
+2. **Microsoft Status Page**: Visit [https://status.microsoft.com](https://status.microsoft.com) for real-time updates on service out","To check Microsoft 365 service health, visit the official status page at [https://status.office365.com](https://status.office365.com). This is explicitly mentioned in the troubleshooting runbook for email/Outlook issues. 
+
+Source: [KB Source: runbook_email_issues.md](runbook_email_issues.md)","[KB Source: runbook_email_issues.md]
+# Email / Outlook Troubleshooting Runbook
+
+
+## Symptom: Outlook Not Syncing / Cannot Send or Receive
+
+
+### Step 1: Quick Checks
+1. Verify internet connectivity
+2. ",40.65,23.24,3,3,1,0,3.0,4.0,3.0,5.0,2.0,4.0,A,True,False,Answer A provides multiple methods but incorrectly cites the Microsoft Status Page URL (status.microsoft.com vs. correct status.office365.com). Answer B correctly cites the status.office365.com URL from retrieved context but lacks specificity.,,
+Laptop showing blue screen IRQL_NOT_LESS_OR_EQUAL,it,15,"The **IRQL_NOT_LESS_OR_EQUAL** blue screen typically indicates a driver or hardware issue. Here's how to resolve it:
+
+1. **Check for Driver Updates**:  
+   - Go to **Device Manager** (right-click Start > Device Manager).  
+   - Look for devices with a yellow exclamation mark (e.g., network adapters,",I don't have this information in our knowledge base.,"[KB Source: runbook_hardware_laptop.md]
+# Laptop Hardware Troubleshooting Runbook
+
+
+## Symptom: Laptop Not Turning On / Blue Screen / Overheating
+
+
+### Not Turning On
+1. Perform hard reset: Remove pow",53.1,33.79,3,3,1,1,,,,,,,,,,,True,
+My laptop won't turn on after hard reset,it,16,"1. **Check Power Source**: Ensure the charger is properly connected and the laptop is plugged in.  
+2. **Charge Battery**: Let it charge for 30 minutes to an hour before attempting to power on.  
+3. **Try Power Button**: Hold the power button for 1-2 minutes to force a shutdown, then try again.  
+4.","Based on the provided context, if your laptop still won't turn on after a hard reset, follow these steps from the **Laptop Hardware Troubleshooting Runbook**:
+
+1. **Try with only AC power** (remove the battery if it is removable).  
+2. **Check the power adapter LED indicator** for any errors.  
+3. I","[KB Source: runbook_hardware_laptop.md]
+# Laptop Hardware Troubleshooting Runbook
+
+
+## Symptom: Laptop Not Turning On / Blue Screen / Overheating
+
+
+### Not Turning On
+1. Perform hard reset: Remove pow",38.8,36.46,3,3,1,3,2.0,3.0,4.0,5.0,5.0,5.0,B,False,False,"Answer B is fully grounded in retrieved context, provides specific actionable steps from a runbook, and is accurate. Answer A is generic and lacks specific references.",,
+How to fix overheating laptop?,it,17,"To fix an overheating laptop:  
+1. **Clean vents**: Use compressed air to remove dust from vents and fans.  
+2. **Close background apps**: Reduce CPU load by closing unused programs.  
+3. **Check power settings**: Set to ""High Performance"" (Windows) or adjust CPU governor (Linux).  
+4. **Use a cooli",I don't have this information in our knowledge base.,"[KB Source: runbook_hardware_laptop.md]
+# Laptop Hardware Troubleshooting Runbook
+
+
+## Symptom: Laptop Not Turning On / Blue Screen / Overheating
+
+
+### Not Turning On
+1. Perform hard reset: Remove pow",52.72,45.07,3,3,1,3,,,,,,,,,,,True,
+What does KERNEL_DATA_INPAGE_ERROR mean?,it,18,"The **KERNEL_DATA_INPAGE_ERROR** (BSOD error code 0x00000017) occurs when Windows fails to load data from the hard drive into memory (RAM), typically due to hardware or software issues.  
+
+### Common Causes:  
+1. **Hard Drive Failure**: Bad sectors, corrupted files, or failing drives.  
+2. **RAM Iss",I don't have this information in our knowledge base.,No relevant context found.,58.83,10.86,3,3,0,0,,,,,,,,,,,True,
+How to run Windows Memory Diagnostic?,it,19,"To run Windows Memory Diagnostic:  
+1. Press **Windows + S**, type **""Windows Memory Diagnostic""**, and select the tool from the search results.  
+2. Choose **""Restart now and check for problems""** to run the test immediately or **""Restart later and check for problems""** to schedule it.  
+3. The too",I don't have this information in our knowledge base.,No relevant context found.,40.56,18.25,3,3,0,0,,,,,,,,,,,True,
+Software installation failed with permission error,it,20,"To resolve a permission error during software installation:  
+
+1. **Run the installer as Administrator**:  
+   - Right-click the installer and select **""Run as administrator""** (Windows).  
+   - On macOS, use **sudo** (e.g., `sudo ./installer.command`) if prompted.  
+
+2. **Check installation directo","The software installation failed due to insufficient permissions. The solution is to request local admin elevation.  
+
+**Source**: [KB Source: runbook_software_installation.md](runbook_software_installation.md) #SoftwareInstallation&LicenseTroubleshooting/InstallationFailures/1. Error: Insufficient ","[KB Source: runbook_software_installation.md]
+# Software Installation & License Troubleshooting
+
+
+## Standard Software Catalog
+All approved software is available through the Company Software Center.
+
+",39.96,21.91,3,3,1,3,2.0,3.0,4.0,5.0,2.0,4.0,B,True,False,"Answer B is fully grounded in retrieved context and cites a source, while Answer A fabricates specific steps without context.",,
+Product activation failed for Office 365,it,21,"If Office 365 activation fails, try these steps:  
+1. **Verify the product key**: Ensure it's correct and not expired.  
+2. **Check internet connectivity**: Ensure your device is online.  
+3. **Sign in with the correct Microsoft account**: Use the account linked to the license.  
+4. **Uninstall conf",I don't have this information in our knowledge base.,"[Ticket: ITS-00351 | Office 365 problem: update failed]
+Title: Office 365 problem: update failed
+Description: Urgent: Office 365 - update failed. Multiple users reporting similar issues. Environment i",40.62,18.24,3,3,0,3,,,,,,,,,,,True,
+How to get Adobe Creative Cloud license?,it,22,"To get an Adobe Creative Cloud license:  
+1. **Visit Adobe's official website** (creativecloud.adobe.com).  
+2. **Choose a plan** (single app, suite, or annual subscription).  
+3. **Pay via credit card or other accepted methods**.  
+4. **Create an Adobe ID** (if you don’t already have one).  
+5. **D",I don't have this information in our knowledge base.,No relevant context found.,30.49,9.17,3,3,0,0,,,,,,,,,,,True,
+Error: disk space insufficient for installation,it,23,"To resolve the ""disk space insufficient"" error during installation:  
+1. **Check available space**: Ensure the target drive has at least 20-30 GB free (varies by OS).  
+2. **Free up space**: Delete temporary files, uninstall unused programs, and clear caches.  
+3. **Verify partitions**: Ensure the i","The error ""disk space insufficient for installation"" requires ensuring there is at least **2GB of free disk space** available. If the disk is full, help the user **clear temporary files** to free up space. This is a standard troubleshooting step for software installation failures. 
+
+No specific tick","[KB Source: runbook_software_installation.md]
+# Software Installation & License Troubleshooting
+
+
+## Standard Software Catalog
+All approved software is available through the Company Software Center.
+
+",47.44,31.44,3,3,1,2,1.0,5.0,3.0,5.0,2.0,5.0,B,True,False,"Answer B is fully grounded with a cited source, while Answer A fabricates specific disk space requirements and OS tools without context.",,
+How to fix license limit reached error?,it,24,"To resolve a ""license limit reached"" error:  
+1. **Check usage**: Verify if you've exceeded the licensed seats/devices for the software/service.  
+2. **Remove unused licenses**: Deactivate or remove licenses not in use.  
+3. **Upgrade plan**: Purchase additional licenses or upgrade to a higher-tier ",I don't have this information in our knowledge base.,No relevant context found.,35.87,12.53,3,3,0,0,1.0,1.0,5.0,5.0,1.0,1.0,A,False,False,"Answer A provides actionable steps based on general knowledge, while Answer B is honest but lacks specificity. Answer A is more useful for IT support despite being generic.",,
+Microsoft Teams is running very slow and using too much memory,it,25,"To address slow performance and high memory usage in Microsoft Teams:
+
+1. **Update Teams**: Ensure you're using the latest version (via the Microsoft Teams app store or website).  
+2. **Clear Cache**:  
+   - Close Teams.  
+   - Delete the cache folder:  
+     - **Windows**: `C:\Users\<Username>\AppD","Microsoft Teams' high memory usage and slowdowns are caused by its Electron-based architecture, which can consume 1-2GB+ RAM, especially with many open chats, large files, or background activity. Here’s how to resolve this:
+
+1. **Clear Teams cache** (most effective):  
+   - Close Teams completely (c","[KB Source: kb_article_teams_performance.md]
+# Knowledge Base: Microsoft Teams Performance Issues
+
+
+## Problem
+Users report Teams running slowly, consuming high memory, or causing system lag.
+
+
+## Roo",55.66,50.77,3,3,1,3,4.0,4.0,4.0,5.0,5.0,5.0,B,False,False,"Answer B is more grounded in retrieved context, provides specific actionable steps, and accurately addresses the issue with detailed solutions, while Answer A lacks some specific details but remains generally accurate.",,
+How to clear Teams cache?,it,26,"To clear Microsoft Teams cache:
+
+**Windows:**
+1. Close Teams.
+2. Press `Win + R`, type `%localappdata%\Microsoft\Teams`, and press Enter.
+3. Delete the contents of the `Cache` and `blob` folders (do not delete the main Teams folder).
+4. Restart Teams.
+
+**macOS:**
+1. Close Teams.
+2. Open Finder, go t","To clear Teams cache, follow these steps:  
+1. Close Teams completely (ensure it is fully closed, including checking the system tray).  
+2. Delete the contents of the following folders:  
+   - `%appdata%\Microsoft\Teams\Cache`  
+   - `blob_storage`, `databases`, `GPUCache`, `IndexedDB`, `Local Stora","[KB Source: kb_article_teams_performance.md]
+# Knowledge Base: Microsoft Teams Performance Issues
+
+
+## Problem
+Users report Teams running slowly, consuming high memory, or causing system lag.
+
+
+## Roo",43.46,27.13,3,3,1,0,4.0,4.0,5.0,5.0,5.0,5.0,B,False,False,"Answer B is more grounded with cited sources and specific steps, while Answer A lacks citations but provides accurate general guidance.",,
+Should I upgrade to New Teams?,it,27,"To determine if you should upgrade to the latest version of Microsoft Teams, consider:  
+1. **Current Version**: Check your Teams app version (Settings > About). If it's outdated, upgrading ensures access to new features, security patches, and performance improvements.  
+2. **Needs**: Assess if you ",I don't have this information in our knowledge base.,No relevant context found.,47.79,11.31,3,3,0,0,3.0,4.0,4.0,5.0,1.0,2.0,A,False,False,"Answer A provides actionable, general guidance without fabricating specific details, while Answer B is truthful but overly vague.",,
+Teams GPU hardware acceleration setting,it,28,"To enable GPU hardware acceleration in Microsoft Teams on Windows:
+
+1. **Teams App Settings**:  
+   - Open Teams > Click the profile icon > **Settings** > **General** > Scroll down to **GPU Acceleration** and toggle it **On**.
+
+2. **Windows Graphics Performance**:  
+   - Right-click the Start menu >",I don't have this information in our knowledge base.,No relevant context found.,48.29,11.5,3,3,0,0,1.0,3.0,2.0,5.0,1.0,5.0,B,True,False,"Answer B is fully grounded and accurate by admitting lack of knowledge, while Answer A fabricates specific steps without context.",,
+How to reduce Teams memory usage?,it,29,"To reduce Microsoft Teams memory usage:  
+1. **Close unused chats/threads** and background apps.  
+2. **Clear the cache**:  
+   - Windows: Delete `TeamsCache` folder in `C:\Users$$username]\AppData\Local\Microsoft\Teams`.  
+   - Mac: Remove `Teams` folder in `~/Library/Application Support`.  
+3. **D","To reduce Teams memory usage, follow these steps from the knowledge base:
+
+1. **Clear Teams cache**:
+   - Close Teams completely.
+   - Delete contents of: `%appdata%\Microsoft\Teams\Cache`.
+   - Also clear: `blob_storage`, `databases`, `GPUCache`, `IndexedDB`, `Local Storage`, and `tmp` folders.
+   ","[KB Source: kb_article_teams_performance.md]
+# Knowledge Base: Microsoft Teams Performance Issues
+
+
+## Problem
+Users report Teams running slowly, consuming high memory, or causing system lag.
+
+
+## Roo",45.69,33.72,3,3,1,1,,,,,,,,,,,True,
+"Print jobs stuck in queue, nothing printing",it,30,"1. **Check Printer Status**: Ensure the printer is powered on, connected (USB/network), and not in error mode (e.g., out of paper, low ink).  
+2. **Clear Print Queue**:  
+   - **Windows**: Open ""Settings"" > ""Devices"" > ""Printers & Scanners"" > select the printer > ""Manage"" > ""Cancel All Documents."" R","To resolve print jobs stuck in the queue, follow these steps from the knowledge base:
+
+1. Open **Services** (`services.msc`) → Stop the **Print Spooler** service.  
+2. Delete all files in the folder `C:\Windows\System32\spool\PRINTERS\`.  
+3. Restart the **Print Spooler** service.  
+4. Retry the pri","[KB Source: kb_article_printer_setup.md]
+# Knowledge Base: Network Printer Setup and Common Issues
+
+
+## Setup: Adding a Network Printer
+1. Open Settings → Bluetooth & Devices → Printers & Scanners
+2. ",52.73,34.72,3,3,1,1,2.0,3.0,4.0,5.0,5.0,5.0,B,False,False,"Answer B is fully grounded in retrieved KB context with specific, actionable steps, while Answer A provides generic steps without context-specific details.",,
+How to set up a network printer?,it,31,"To set up a network printer:  
+1. **Connect the printer to your network**: Use Wi-Fi (follow the printer's setup wizard) or Ethernet cable.  
+2. **Install drivers**: Connect the printer to your computer via USB temporarily to install drivers (or download from the manufacturer's website).  
+3. **Add ","To set up a network printer, follow these steps from the provided context:  
+
+1. Open **Settings → Bluetooth & Devices → Printers & Scanners**.  
+2. Click **""Add device""** → Select the printer from the list.  
+3. If the printer is not found: Click **""Add manually""** → Enter the IP address (found on ","[KB Source: kb_article_printer_setup.md]
+# Knowledge Base: Network Printer Setup and Common Issues
+
+
+## Setup: Adding a Network Printer
+1. Open Settings → Bluetooth & Devices → Printers & Scanners
+2. ",37.97,28.59,3,3,1,0,1.0,2.0,3.0,5.0,5.0,5.0,B,True,False,"Answer B is fully grounded in retrieved context with specific org-centric steps, while Answer A fabricates generic steps without context.",,
+Printer showing offline status,it,32,"1. **Check Connection**: Ensure the printer is connected to the same Wi-Fi/Ethernet network as your device.  
+2. **Restart Printer**: Power cycle the printer (turn it off, wait 30 seconds, then on).  
+3. **Check Printer Queue**: Cancel pending print jobs on your computer.  
+4. **Verify Status Lights",I don't have this information in our knowledge base.,No relevant context found.,45.04,12.96,3,3,0,0,3.0,3.0,4.0,5.0,1.0,3.0,A,False,False,"Answer A provides actionable steps without fabricating specific details, while Answer B is fully grounded but lacks specificity. A is more useful for IT support despite generic advice.",,
+How does secure print work?,it,33,"Secure print works by requiring users to authenticate before releasing a print job. Here's how it typically functions:
+
+1. **Send Document**: The user sends a document to the printer (e.g., via a computer or mobile device).
+2. **Queue Storage**: The print job is stored securely in the printer's memo",I don't have this information in our knowledge base.,No relevant context found.,46.31,12.14,3,3,0,0,,,,,,,,,,,True,
+Poor print quality from network printer,it,34,"To resolve poor print quality from a network printer:  
+
+1. **Check Connections**: Ensure the printer is properly connected to the network (Wi-Fi or Ethernet).  
+2. **Update Drivers**: Install the latest printer drivers from the manufacturer’s website.  
+3. **Adjust Print Settings**: Verify high-qua","The context mentions that for poor print quality, you should ""Run printer self-cleani"" (the step is cut off). However, no further details or additional steps are provided in the knowledge base. 
+
+For troubleshooting, you might also consider checking paper type, ink/toner levels, or driver updates, b","[KB Source: kb_article_printer_setup.md]
+# Knowledge Base: Network Printer Setup and Common Issues
+
+
+## Setup: Adding a Network Printer
+1. Open Settings → Bluetooth & Devices → Printers & Scanners
+2. ",47.23,31.46,3,3,1,0,1.0,2.0,4.0,5.0,3.0,5.0,B,True,False,"Answer B is fully grounded in the retrieved context and acknowledges limitations, while Answer A fabricates specific steps without context.",,
+How do I set up dual monitors?,it,35,"To set up dual monitors:  
+1. **Connect both monitors** to your computer using HDMI, DisplayPort, or USB-C (ensure your graphics card supports multiple displays).  
+2. **Power on** both monitors.  
+3. **Adjust settings**:  
+   - **Windows**: Go to *Settings > System > Display* > Arrange monitors.  
+",I don't have this information in our knowledge base.,No relevant context found.,32.47,9.86,3,3,0,0,,,,,,,,,,,True,
+My mouse cursor is jumping around,it,36,"Your mouse cursor jumping could be caused by hardware issues, driver problems, or software conflicts. Here's how to troubleshoot:
+
+1. **Check Connections**:  
+   - Ensure the mouse is securely plugged in (for wired) or has sufficient battery (for wireless).  
+   - Try a different USB port or cable.
+",I don't have this information in our knowledge base.,No relevant context found.,48.14,21.72,3,3,0,0,,,,,,,,,,,True,
+WiFi keeps disconnecting in building 3,it,37,"Check if other devices in Building 3 experience the same issue. If so, the problem may be with the building's network infrastructure (e.g., router, signal interference, or overcrowded bandwidth). Try moving closer to the router or reducing physical obstructions. If unresolved, contact IT to inspect ",I don't have this information in our knowledge base.,"[Ticket: U-000343 | N/A]
+Title: WiFi intermittent disconnections
+Description: Hi, I need help. WiFi keeps intermittent disconnections. Started yesterday. I'm on Windows 11.
+Category: Network
+Component",30.77,19.49,3,3,0,3,1.0,3.0,5.0,5.0,1.0,3.0,B,True,False,"Answer B is grounded and honest, while Answer A fabricates steps without context.",,
+How to request a new laptop?,it,38,"To request a new laptop, follow these steps:  
+1. **Check company policy**: Review your organization's IT guidelines for laptop procurement.  
+2. **Contact IT**: Reach out to your IT helpdesk or submit a service ticket (e.g., via a portal like ServiceNow).  
+3. **Fill out a form**: Provide details l",I don't have this information in our knowledge base.,No relevant context found.,25.87,10.58,3,3,0,0,2.0,3.0,5.0,5.0,1.0,3.0,A,True,False,"Answer A provides actionable steps but fabricates specific examples (e.g., ServiceNow) without context, making it hallucinated. Answer B is fully grounded but lacks specificity.",,
+Can I install personal software on work computer?,it,39,"Typically, installing personal software on a work computer is restricted without IT approval. Companies often have policies to ensure security, compliance, and resource management. Always check with your IT department before installing any software to avoid violating company rules or introducing ris",I don't have this information in our knowledge base.,No relevant context found.,28.01,14.84,3,3,0,0,3.0,5.0,5.0,5.0,1.0,3.0,A,False,,"Answer A provides actionable steps (check IT) and is accurate, while B is truthful but lacks specificity. A is more helpful for IT support.",,False
+What is the SLA for critical tickets?,it,40,"The SLA for critical tickets is typically a **1-hour response time**. Resolution times may vary depending on the complexity of the issue, but the priority ensures rapid attention. Always confirm with your specific service provider for exact terms.",I don't have this information in our knowledge base.,No relevant context found.,17.7,9.84,3,3,0,0,1.0,3.0,3.0,5.0,1.0,5.0,B,True,False,"Answer B is fully grounded and accurate by stating lack of knowledge, while Answer A fabricates specific SLA details without context.",,
+How to escalate a ticket to Tier 2?,it,41,"To escalate a ticket to Tier 2:  
+1. **Use the ticketing system**: Locate the ""escalate"" or ""forward"" option in your helpdesk tool (e.g., ServiceNow, Zendesk).  
+2. **Contact Tier 2 directly**: Reach out to the Tier 2 support team via email, chat, or phone with the ticket ID and details.  
+3. **Forw",I don't have this information in our knowledge base.,No relevant context found.,22.16,9.96,3,3,0,0,1.0,3.0,3.0,5.0,1.0,3.0,B,True,False,"Answer B is fully grounded by acknowledging lack of context, while Answer A fabricates specific tools and steps without context, making it hallucinated.",,
+What are the working hours for help desk?,it,42,"The help desk typically operates from **9:00 AM to 5:00 PM, Monday through Friday**, unless otherwise specified. For urgent issues outside these hours, check if 24/7 support is available through your organization's policies.",I don't have this information in our knowledge base.,No relevant context found.,16.2,12.33,3,3,0,0,1.0,1.0,1.0,5.0,1.0,3.0,B,True,False,"Answer B is fully grounded and honest about lacking context, while Answer A fabricates specific hours without context.",,
+How to submit a facilities request?,it,43,"To submit a facilities request:  
+1. **Access the portal**: Log in to your organization’s facilities management portal (e.g., ServiceNow, Jira, or a custom platform).  
+2. **Fill out the form**: Provide details like location, request type (maintenance, repairs, etc.), urgency, and description.  
+3. ",I don't have this information in our knowledge base.,No relevant context found.,33.7,10.78,3,3,0,0,,,,,,,,,,,True,
+What antivirus software do we use?,it,44,"We use **Microsoft Defender Antivirus** as our standard antivirus solution. It is built into Windows 10 and later versions. If your organization uses a different software (e.g., Bitdefender, Kaspersky, etc.), please consult your IT department for confirmation.",I don't have this information in our knowledge base.,"[Ticket: ITS-00454 | [Software] Antivirus - slow loading]
+Title: [Software] Antivirus - slow loading
+Description: Issue with Antivirus: slow loading. This is affecting my work. Running on Ubuntu 22.04",22.9,18.26,3,3,0,3,2.0,3.0,3.0,5.0,1.0,3.0,B,True,False,"Answer A fabricates specific antivirus examples (Bitdefender, Kaspersky) without context, while Answer B honestly states lack of knowledge.",,
+How to make pasta carbonara?,oos,45,"**Pasta Carbonara**  
+**Ingredients**:  
+- 400g pasta (preferably spaghetti or rigatoni)  
+- 200g guanciale (or pancetta/bacon)  
+- 2 large eggs  
+- 1 cup grated pecorino Romano  
+- Freshly ground black pepper  
+
+**Steps**:  
+1. **Cook pasta**: Boil in salted water until al dente. Drain, reserving 1",I don't have this information in our knowledge base.,No relevant context found.,47.25,9.75,3,3,0,0,1.0,5.0,1.0,5.0,1.0,5.0,B,True,False,"Answer B correctly refuses non-IT questions, while Answer A hallucinates cooking instructions for an IT support context.",,
+What's the weather today?,oos,46,I can't access real-time weather data. Check a weather website or app for the latest forecast in your area! ☀️🌧️,I don't have this information in our knowledge base.,No relevant context found.,9.9,9.93,3,3,0,0,5.0,3.0,3.0,5.0,1.0,5.0,B,False,False,"Answer B correctly refuses non-IT questions with grounded KB response, while Answer A provides helpful but non-IT-specific advice",,
+Tell me about quantum computing,oos,47,"Quantum computing leverages **qubits** (quantum bits) instead of classical bits. Unlike classical bits (0 or 1), qubits can exist in **superposition**, representing both 0 and 1 simultaneously. This allows quantum computers to process vast amounts of data in parallel. Additionally, **entanglement** ",I don't have this information in our knowledge base.,No relevant context found.,34.01,12.29,3,3,0,0,1.0,5.0,1.0,5.0,1.0,5.0,B,True,False,"Answer B correctly refuses to answer non-IT questions, while Answer A provides accurate but irrelevant quantum computing details, which is inappropriate for an IT support context.",,
+How to file taxes in Arizona?,oos,48,"To file taxes in Arizona:  
+1. **Determine residency**: Arizona residents must file both federal (IRS) and state taxes. Non-residents may only need to file state taxes if they earned income in Arizona.  
+2. **Gather documents**: Collect W-2s, 1099s, and other income records.  
+3. **Choose a method**",I don't have this information in our knowledge base.,No relevant context found.,57.9,10.69,3,3,0,0,1.0,5.0,1.0,5.0,1.0,5.0,B,False,False,"Answer B correctly refuses non-IT questions, while Answer A provides accurate but irrelevant information for an IT support system.",,
+What's the capital of France?,oos,49,The capital of France is Paris.,I don't have this information in our knowledge base.,No relevant context found.,12.83,12.95,3,3,0,0,1.0,5.0,1.0,5.0,1.0,5.0,B,True,False,"Answer A provides a correct general fact but answers a non-IT question, which is inappropriate for an IT support system. Answer B correctly refuses to answer non-IT questions, aligning with IT support protocols.",,

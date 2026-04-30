@@ -85,6 +85,7 @@ def llm_generate(prompt, system="", temperature=0.1, max_tokens=2048):
                 "prompt": prompt,
                 "system": system,
                 "stream": False,
+                "think": False,
                 "options": {
                     "temperature": temperature,
                     "num_predict": max_tokens
@@ -92,7 +93,11 @@ def llm_generate(prompt, system="", temperature=0.1, max_tokens=2048):
             },
             timeout=180
         )
-        return resp.json().get("response", "").strip()
+        import re
+        raw = resp.json().get("response", "").strip()
+        # Strip thinking blocks emitted by reasoning models (e.g. qwen3)
+        raw = re.sub(r"<think>.*?</think>", "", raw, flags=re.DOTALL).strip()
+        return raw
     except Exception as e:
         return f"⚠️ LLM Error: {e}. Make sure Ollama is running."
 
@@ -203,11 +208,9 @@ if st.button("🚀 Submit & Analyze"):
             st.write(f"Found {len(kb_results)} KB articles ({t2-t1:.2f}s)")
 
             # Step 3: Generate Resolution
-            prompt = f"""
-You are an expert IT support agent.
+            prompt = f"""You are an IT support agent. Based on the context below, give the user clear steps to resolve their issue.
 
-User Ticket:
-{ticket_input}
+User Ticket: {ticket_input}
 
 Similar Tickets:
 {format_ticket_context(similar_tickets)}
@@ -215,15 +218,17 @@ Similar Tickets:
 Knowledge Base:
 {format_kb_context(kb_results)}
 
-Generate:
-1. Issue Summary
-2. Likely Root Cause
-3. Recommended Steps
-4. Cited Sources
-5. Escalation Path
+Reply with ONLY this — no intro, no reasoning, no commentary:
 
-Use ONLY the provided context.
-"""
+**Steps to resolve:**
+1. <step>
+2. <step>
+3. <step>
+(add more if needed)
+
+**If unresolved:** <one line on who to contact>
+
+Keep every step short and actionable. Use ONLY the provided context."""
 
             resolution = llm_generate(prompt)
             t3 = time.time()

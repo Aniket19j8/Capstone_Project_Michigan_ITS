@@ -1,0 +1,32 @@
+{
+  "mode": "mock",
+  "top_k": 5,
+  "v2": {
+    "n_queries": 12,
+    "n_it": 10,
+    "n_oos": 2,
+    "ok_rate": 1.0,
+    "retrieval_latency_ms_mean": 116.7,
+    "retrieval_latency_ms_p50": 124.35,
+    "retrieval_latency_ms_p95": 137.6,
+    "kb_results_mean": 2.5,
+    "kb_grounding_rate_it": 1.0,
+    "oos_refusal_proxy": 1.0
+  },
+  "baselines": {
+    "research_local": {
+      "label": "Research local\n(Ollama Qwen3-4B + Chroma + BM25 + rerank)",
+      "retrieval_latency_ms_mean": 596.0,
+      "retrieval_latency_ms_p95": 920.0,
+      "kb_grounding_rate": 0.44,
+      "hallucination_rate_it": 0.045
+    },
+    "research_baseline_t1": {
+      "label": "Research T1\n(Status 1 local prototype)",
+      "retrieval_latency_ms_mean": 6500.0,
+      "retrieval_latency_ms_p95": 9000.0,
+      "kb_grounding_rate": 0.35,
+      "hallucination_rate_it": 0.1
+    }
+  }
+}

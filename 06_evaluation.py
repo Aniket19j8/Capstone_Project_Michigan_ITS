@@ -11,6 +11,8 @@ Usage:
 
 import json
 import argparse
+import importlib.util
+import sys
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -23,6 +25,26 @@ import matplotlib.pyplot as plt
 PROCESSED_DIR = Path("./data/processed")
 EVAL_DIR = Path("./evaluation")
 EVAL_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _configure_stdout_utf8():
+    """Avoid UnicodeEncodeError on Windows terminals with legacy encodings."""
+    try:
+        if hasattr(sys.stdout, "reconfigure"):
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+
+def _load_hybrid_retriever_class():
+    """Load HybridRetriever from 04_hybrid_retrieval.py (numeric filename)."""
+    retriever_path = Path(__file__).parent / "04_hybrid_retrieval.py"
+    spec = importlib.util.spec_from_file_location("hybrid_retrieval_engine", retriever_path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Failed to load spec from {retriever_path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.HybridRetriever
 
 
 # ── Retrieval Metrics ──
@@ -179,7 +201,7 @@ def run_ablation_study():
     3. Hybrid (Dense + BM25 + RRF)
     4. Hybrid + Cross-Encoder Reranking
     """
-    from hybrid_retrieval_engine import HybridRetriever
+    HybridRetriever = _load_hybrid_retriever_class()
 
     print("\n" + "=" * 60)
     print("ABLATION STUDY: Retrieval Method Comparison")
@@ -243,6 +265,8 @@ def run_ablation_study():
 
 # ── Main ──
 if __name__ == "__main__":
+    _configure_stdout_utf8()
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--all", action="store_true")
     parser.add_argument("--retrieval", action="store_true")
@@ -257,13 +281,27 @@ if __name__ == "__main__":
         print("\n[Dedup Evaluation]")
         pairs_path = PROCESSED_DIR / "synthetic_duplicate_pairs.csv"
         if pairs_path.exists():
-            embedder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-            # Build evaluation pairs from synthetic data
-            tickets = pd.read_csv(PROCESSED_DIR / "synthetic_tickets.csv")
+            # Use the same OllamaEmbedder as the rest of the pipeline
+            import importlib.util as _ilu
+            _spec = _ilu.spec_from_file_location(
+                "hybrid_retrieval_engine",
+                Path(__file__).parent / "04_hybrid_retrieval.py",
+            )
+            _mod = _ilu.module_from_spec(_spec)
+            _spec.loader.exec_module(_mod)
+            embedder = _mod.OllamaEmbedder("qwen3:0.6b")
+
             pairs = pd.read_csv(pairs_path)
-            # This needs ticket text joined in - implement based on your data structure
-            print("  Load your duplicate pairs and run evaluate_dedup_threshold()")
+            tickets = pd.read_csv(PROCESSED_DIR / "all_tickets.csv").fillna("")
+            id_to_text = dict(zip(tickets["unified_id"], tickets["embedding_text"]))
+            pairs["text1"] = pairs["id1"].map(id_to_text).fillna("")
+            pairs["text2"] = pairs["id2"].map(id_to_text).fillna("")
+            pairs = pairs[(pairs["text1"].str.len() > 5) & (pairs["text2"].str.len() > 5)]
+            if len(pairs) > 0:
+                evaluate_dedup_threshold(embedder, pairs)
+            else:
+                print("  ⚠ Pairs file exists but no matching texts found in all_tickets.csv")
         else:
-            print("  No duplicate pairs found. Run 01_download_data.py --generate-synthetic")
+            print("  No duplicate pairs found at", pairs_path)
 
     print("\n✅ Evaluation complete! Results in ./evaluation/")

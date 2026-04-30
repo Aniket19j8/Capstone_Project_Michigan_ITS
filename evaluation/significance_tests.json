@@ -1,0 +1,26 @@
+{
+  "Hybrid_Rerank vs Dense_Only": {
+    "n": 500,
+    "mean_diff_hybrid_minus_other": 0.968,
+    "cohens_d": 7.722672160989514,
+    "paired_t_p_value": 0.0,
+    "paired_t_statistic": 115.62202198138176,
+    "wilcoxon_p_value": 7.858182764091587e-107
+  },
+  "Hybrid_Rerank vs BM25_Only": {
+    "n": 500,
+    "mean_diff_hybrid_minus_other": -0.02400000000000002,
+    "cohens_d": -0.22154450391087305,
+    "paired_t_p_value": 0.0005015380498680158,
+    "paired_t_statistic": -3.5029261772521973,
+    "wilcoxon_p_value": 0.2949882221949989
+  },
+  "Hybrid_Rerank vs Hybrid_NoRerank": {
+    "n": 500,
+    "mean_diff_hybrid_minus_other": 0.946,
+    "cohens_d": 5.8316642019454905,
+    "paired_t_p_value": 5.374725964182367e-252,
+    "paired_t_statistic": 67.13355475343388,
+    "wilcoxon_p_value": 6.661317202999539e-100
+  }
+}

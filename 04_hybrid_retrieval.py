@@ -14,11 +14,12 @@ Usage:
 
 import json
 import argparse
+import requests
 import numpy as np
 from pathlib import Path
 from typing import List, Dict, Tuple, Optional
 
-from sentence_transformers import SentenceTransformer, CrossEncoder
+from sentence_transformers import CrossEncoder
 from rank_bm25 import BM25Okapi
 import chromadb
 import re
@@ -27,7 +28,7 @@ import re
 # ──────────────────────────────────────────────
 # Configuration
 # ──────────────────────────────────────────────
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+EMBEDDING_MODEL = "qwen3:0.6b"
 RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 CHROMA_PERSIST_DIR = "./data/chroma_db"
 PROCESSED_DIR = Path("./data/processed")
@@ -67,6 +68,40 @@ def tokenize_for_bm25(text):
 
 
 # ──────────────────────────────────────────────
+# Ollama Embedder (replaces SentenceTransformer)
+# ──────────────────────────────────────────────
+class OllamaEmbedder:
+    """Wraps Ollama /api/embed to match the SentenceTransformer .encode() interface."""
+
+    def __init__(self, model: str = "qwen3:0.6b", base_url: str = "http://localhost:11434"):
+        self.model = model
+        self.base_url = base_url.rstrip("/")
+        self._session = requests.Session()  # reuse TCP connections across calls
+        probe = self._embed_batch(["ping"])
+        self._dim = len(probe[0])
+
+    def get_sentence_embedding_dimension(self) -> int:
+        return self._dim
+
+    def encode(self, texts, batch_size: int = 128, show_progress_bar: bool = False) -> np.ndarray:
+        if isinstance(texts, str):
+            texts = [texts]
+        all_embs: List[List[float]] = []
+        for i in range(0, len(texts), batch_size):
+            all_embs.extend(self._embed_batch(texts[i : i + batch_size]))
+        return np.array(all_embs)
+
+    def _embed_batch(self, texts: List[str]) -> List[List[float]]:
+        resp = self._session.post(
+            f"{self.base_url}/api/embed",
+            json={"model": self.model, "input": texts},
+            timeout=120,
+        )
+        resp.raise_for_status()
+        return resp.json()["embeddings"]
+
+
+# ──────────────────────────────────────────────
 # Hybrid Retriever Class
 # ──────────────────────────────────────────────
 class HybridRetriever:
@@ -80,7 +115,7 @@ class HybridRetriever:
 
         # Load embedding model
         print("  Loading embedding model...")
-        self.embedder = SentenceTransformer(EMBEDDING_MODEL)
+        self.embedder = OllamaEmbedder(EMBEDDING_MODEL)
 
         # Load cross-encoder reranker
         if load_reranker:
@@ -108,7 +143,7 @@ class HybridRetriever:
         self.bm25 = BM25Okapi(self.bm25_corpus)
 
         print(f"  BM25 index: {len(self.bm25_corpus)} documents")
-        print("  ✅ Retriever ready!\n")
+        print("  [OK] Retriever ready!\n")
 
     # ── Dense Search ──
     def dense_search(self, query: str, top_k: int = DENSE_TOP_K,

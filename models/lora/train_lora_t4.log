@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/Capstone_Project_Team_Michigan-feature-its-michigan-2026/13_train_lora.py", line 178, in <module>
+    main()
+  File "/content/drive/MyDrive/Capstone_Project_Team_Michigan-feature-its-michigan-2026/13_train_lora.py", line 62, in main
+    from peft import LoraConfig, prepare_model_for_kbit_training
+  File "/usr/local/lib/python3.12/dist-packages/peft/__init__.py", line 22, in <module>
+    from .auto import (
+  File "/usr/local/lib/python3.12/dist-packages/peft/auto.py", line 21, in <module>
+    from transformers import (
+  File "/usr/local/lib/python3.12/dist-packages/transformers/__init__.py", line 27, in <module>
+    from . import dependency_versions_check
+  File "/usr/local/lib/python3.12/dist-packages/transformers/dependency_versions_check.py", line 16, in <module>
+    from .utils.versions import require_version, require_version_core
+  File "/usr/local/lib/python3.12/dist-packages/transformers/utils/__init__.py", line 24, in <module>
+    from .auto_docstring import (
+  File "/usr/local/lib/python3.12/dist-packages/transformers/utils/auto_docstring.py", line 30, in <module>
+    from .generic import ModelOutput
+  File "/usr/local/lib/python3.12/dist-packages/transformers/utils/generic.py", line 51, in <module>
+    import torch  # noqa: F401
+    ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/__init__.py", line 442, in <module>
+    from torch._C import *  # noqa: F403
+    ^^^^^^^^^^^^^^^^^^^^^^
+ImportError: /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch_cuda.so: undefined symbol: ncclCommWindowDeregister

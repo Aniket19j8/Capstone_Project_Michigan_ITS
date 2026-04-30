@@ -20,10 +20,13 @@ Usage:
 
 import json
 import argparse
+import re
 import requests
-from typing import List, Dict, Optional
+from typing import Any, Dict, List, Optional
 from pathlib import Path
 import importlib.util
+
+import pandas as pd
 
 # Import retrievers from 04_hybrid_retrieval.py (filename starts with a digit)
 _retriever_path = Path(__file__).parent / "04_hybrid_retrieval.py"
@@ -42,10 +45,46 @@ CombinedRetriever = _retriever_module.CombinedRetriever
 # ──────────────────────────────────────────────
 OLLAMA_URL = "http://localhost:11434/api/generate"
 OLLAMA_CHAT_URL = "http://localhost:11434/api/chat"
-MODEL_NAME = "qwen3:8b"  # Change to llama3.1:8b, mistral:7b, etc.
+MODEL_NAME = "qwen3:8b"
+MIN_RERANK_SCORE = -2.0
 
 TICKET_COLLECTION = "its_tickets"
 KB_COLLECTION = "its_knowledge_base"
+
+
+# ──────────────────────────────────────────────
+# Shared helpers
+# ──────────────────────────────────────────────
+def strip_thinking_tokens(text: str) -> str:
+    if not isinstance(text, str):
+        return ""
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL | re.IGNORECASE).strip()
+
+
+def safe_text(value: Any, limit: int) -> str:
+    text = str(value or "").strip()
+    text = re.sub(r"\s+", " ", text)
+    return text[:limit]
+
+
+def is_relevant(doc: Dict[str, Any]) -> bool:
+    score = doc.get("rerank_score", None)
+    return score is None or float(score) >= MIN_RERANK_SCORE
+
+
+def extract_json_object(text: str) -> Dict[str, Any] | None:
+    cleaned = strip_thinking_tokens(text)
+    decoder = json.JSONDecoder()
+    for start, ch in enumerate(cleaned):
+        if ch != "{":
+            continue
+        try:
+            obj, _ = decoder.raw_decode(cleaned[start:])
+            if isinstance(obj, dict):
+                return obj
+        except Exception:
+            continue
+    return None
 
 
 # ──────────────────────────────────────────────
@@ -61,12 +100,13 @@ class OllamaLLM:
 
     def generate(self, prompt: str, temperature: float = 0.1,
                  max_tokens: int = 2048, system: str = "") -> str:
-        """Generate text from a prompt."""
+        """Generate text from a prompt without exposing thinking tokens."""
         payload = {
             "model": self.model,
             "prompt": prompt,
             "system": system,
             "stream": False,
+            "think": False,
             "options": {
                 "temperature": temperature,
                 "num_predict": max_tokens,
@@ -75,24 +115,29 @@ class OllamaLLM:
         try:
             resp = requests.post(self.generate_url, json=payload, timeout=120)
             resp.raise_for_status()
-            return resp.json().get("response", "").strip()
+            data = resp.json()
+            return strip_thinking_tokens(data.get("response", ""))
         except requests.exceptions.ConnectionError:
             return "[ERROR] Cannot connect to Ollama. Make sure it's running: `ollama serve`"
         except Exception as e:
             return f"[ERROR] LLM generation failed: {e}"
 
-    def chat(self, messages: List[Dict], temperature: float = 0.1) -> str:
-        """Chat-style generation."""
+    def chat(self, messages: List[Dict], temperature: float = 0.1,
+             max_tokens: int = 1024, json_mode: bool = False) -> str:
+        """Chat-style generation without returning model reasoning."""
         payload = {
             "model": self.model,
             "messages": messages,
             "stream": False,
-            "options": {"temperature": temperature}
+            "think": False,
+            "options": {"temperature": temperature, "num_predict": max_tokens},
         }
+        if json_mode:
+            payload["format"] = "json"
         try:
             resp = requests.post(self.chat_url, json=payload, timeout=120)
             resp.raise_for_status()
-            return resp.json().get("message", {}).get("content", "").strip()
+            return strip_thinking_tokens(resp.json().get("message", {}).get("content", ""))
         except requests.exceptions.ConnectionError:
             return "[ERROR] Cannot connect to Ollama. Make sure it's running: `ollama serve`"
         except Exception as e:
@@ -102,30 +147,46 @@ class OllamaLLM:
 # ──────────────────────────────────────────────
 # Prompt Templates
 # ──────────────────────────────────────────────
-RESOLUTION_BLUEPRINT_PROMPT = """You are an expert IT support agent. Based on the user's ticket and the retrieved context below, generate a Resolution Blueprint.
+RESOLUTION_BLUEPRINT_JSON_PROMPT = """You are an IT helpdesk assistant writing a concise one-page resolution blueprint for ticket handlers.
 
-## User's Ticket
+Ticket:
 {ticket_text}
 
-## Similar Historical Tickets (resolved)
+Relevant historical tickets:
 {similar_tickets}
 
-## Relevant Knowledge Base Articles
+Relevant knowledge base:
 {kb_context}
 
-## Instructions
-Generate a Resolution Blueprint with these sections:
-1. **Issue Summary**: One-line summary of the problem
-2. **Root Cause Analysis**: Most likely root cause based on similar tickets
-3. **Recommended Steps**: Step-by-step resolution guide (numbered)
-4. **Cited Sources**: Which historical tickets or KB articles support each recommendation
-5. **Escalation Path**: If these steps don't work, who to escalate to and what info to provide
+Return ONLY valid JSON with this exact schema:
+{{
+  "recommended_actions": [
+    "short action step",
+    "short action step",
+    "short action step"
+  ],
+  "similar_tickets": [
+    {{
+      "ticket_id": "ticket id",
+      "component": "component",
+      "status": "status",
+      "summary": "one sentence describing the issue and the recorded resolution used; if no recorded resolution exists, say that explicitly"
+    }}
+  ],
+  "escalate_if": [
+    "condition for escalation and who should handle it"
+  ]
+}}
 
-IMPORTANT:
-- Base your answer ONLY on the provided context. Do not hallucinate solutions.
-- If the context doesn't contain enough information, say so explicitly.
-- Cite sources using [Ticket: ID] or [KB: document name] format.
-- Be specific and actionable. No vague advice.
+Rules:
+- Maximum 4 recommended_actions.
+- Maximum 3 similar_tickets.
+- Maximum 2 escalate_if items.
+- Use ONLY the retrieved evidence.
+- Never reveal reasoning or chain-of-thought.
+- Do not invent commands, resolutions, or policies.
+- If evidence is weak, say the ticket match is partial or the KB is insufficient.
+- JSON only.
 """
 
 KB_QA_PROMPT = """You are a helpful IT knowledge base assistant. Answer the user's question using ONLY the provided context.
@@ -189,14 +250,13 @@ class RAGPipeline:
         print("Initializing ITS RAG Pipeline")
         print("=" * 60)
 
-        # Initialize retrievers
         self.ticket_retriever = HybridRetriever(TICKET_COLLECTION)
         self.kb_retriever = HybridRetriever(KB_COLLECTION)
+        self.ticket_lookup = self._load_ticket_lookup()
 
-        # Initialize LLM
         print("\nInitializing LLM...")
         self.llm = OllamaLLM(model=MODEL_NAME)
-        test = self.llm.generate("Say 'ready' if you're working.", max_tokens=10)
+        test = self.llm.generate("Say ready.", max_tokens=10)
         if "ERROR" in test:
             print(f"  ⚠ LLM not available: {test}")
             print(f"  Run: ollama pull {MODEL_NAME} && ollama serve")
@@ -205,42 +265,151 @@ class RAGPipeline:
 
         print("\n✅ RAG Pipeline initialized!\n")
 
+    def _load_ticket_lookup(self) -> Dict[str, Dict[str, Any]]:
+        lookup: Dict[str, Dict[str, Any]] = {}
+        csv_path = Path(__file__).parent / "data" / "processed" / "all_tickets.csv"
+        if not csv_path.exists():
+            return lookup
+        try:
+            df = pd.read_csv(csv_path).fillna("")
+            for _, row in df.iterrows():
+                rec = row.to_dict()
+                unified_id = str(rec.get("unified_id", "")).strip()
+                ticket_id = str(rec.get("ticket_id", "")).strip()
+                if unified_id:
+                    lookup[unified_id] = rec
+                if ticket_id and ticket_id not in lookup:
+                    lookup[ticket_id] = rec
+        except Exception:
+            return {}
+        return lookup
+
+    def _ticket_record_for_doc(self, doc: Dict[str, Any]) -> Dict[str, Any]:
+        doc_id = str(doc.get("id", "")).strip()
+        ticket_id = str(doc.get("metadata", {}).get("ticket_id", "")).strip()
+        return self.ticket_lookup.get(doc_id) or self.ticket_lookup.get(ticket_id) or {}
+
+    def _filter_results(self, results: List[Dict], limit: int) -> List[Dict]:
+        seen = set()
+        filtered = []
+        for doc in results:
+            doc_id = str(doc.get("id", ""))
+            if doc_id in seen or not is_relevant(doc):
+                continue
+            seen.add(doc_id)
+            filtered.append(doc)
+            if len(filtered) >= limit:
+                break
+        return filtered
+
     def _format_ticket_results(self, results: List[Dict]) -> str:
-        """Format ticket search results as context string."""
         if not results:
-            return "No similar tickets found."
+            return "No sufficiently relevant historical tickets found."
 
         context_parts = []
-        for i, doc in enumerate(results):
+        for i, doc in enumerate(results, start=1):
             meta = doc.get("metadata", {})
-            text = doc.get("text", "")[:500]
-            score = doc.get("rerank_score", doc.get("rrf_score", doc.get("score", 0)))
+            rec = self._ticket_record_for_doc(doc)
+            issue = safe_text(rec.get("title_clean") or meta.get("title") or rec.get("title") or "", 180)
+            desc = safe_text(rec.get("description_clean") or rec.get("description") or doc.get("text", ""), 420)
+            resolution = safe_text(rec.get("resolution_clean") or rec.get("resolution") or "", 220)
             context_parts.append(
-                f"--- Ticket {i+1} [ID: {meta.get('ticket_id', doc['id'])}] "
-                f"(relevance: {score:.3f}) ---\n"
-                f"Title: {meta.get('title', 'N/A')}\n"
-                f"Category: {meta.get('category', 'N/A')} | "
-                f"Severity: {meta.get('severity', 'N/A')} | "
-                f"Status: {meta.get('status', 'N/A')}\n"
-                f"Content: {text}\n"
+                f"Ticket {i}: [{meta.get('ticket_id', rec.get('ticket_id', doc['id']))}]\n"
+                f"Component: {meta.get('component', rec.get('component', 'General'))}\n"
+                f"Status: {meta.get('status', rec.get('status', 'Unknown'))}\n"
+                f"Issue: {issue}\n"
+                f"Evidence: {desc}\n"
+                f"Resolution Used: {resolution if resolution else 'No recorded resolution available in ticket history.'}\n"
             )
         return "\n".join(context_parts)
 
     def _format_kb_results(self, results: List[Dict]) -> str:
-        """Format KB search results as context string."""
         if not results:
-            return "No relevant knowledge base articles found."
+            return "No sufficiently relevant knowledge base articles found."
 
         context_parts = []
-        for i, doc in enumerate(results):
+        for i, doc in enumerate(results, start=1):
             meta = doc.get("metadata", {})
-            text = doc.get("text", "")[:800]
+            text = safe_text(doc.get("text", ""), 800)
             context_parts.append(
-                f"--- KB Article {i+1} [Source: {meta.get('source_file', meta.get('doc_title', 'N/A'))}] ---\n"
+                f"KB {i}: [{meta.get('source_file', meta.get('doc_title', 'N/A'))}]\n"
                 f"Section: {meta.get('section', 'N/A')}\n"
-                f"Content:\n{text}\n"
+                f"Content: {text}\n"
             )
         return "\n".join(context_parts)
+
+    def _normalize_blueprint(self, data: Dict[str, Any], similar_tickets: List[Dict]) -> Dict[str, Any]:
+        actions = data.get("recommended_actions", [])
+        if isinstance(actions, str):
+            actions = [actions]
+        actions = [safe_text(x, 220) for x in actions if str(x).strip()][:4]
+
+        similar = data.get("similar_tickets", [])
+        if isinstance(similar, str):
+            similar = [similar]
+
+        normalized_similar = []
+        for item in similar[:3]:
+            if isinstance(item, dict):
+                normalized_similar.append({
+                    "ticket_id": safe_text(item.get("ticket_id", ""), 50),
+                    "component": safe_text(item.get("component", "General"), 60),
+                    "status": safe_text(item.get("status", "Unknown"), 40),
+                    "summary": safe_text(item.get("summary", ""), 260),
+                })
+            elif str(item).strip():
+                normalized_similar.append({
+                    "ticket_id": "",
+                    "component": "General",
+                    "status": "Unknown",
+                    "summary": safe_text(item, 260),
+                })
+
+        if not normalized_similar:
+            for doc in similar_tickets[:3]:
+                meta = doc.get("metadata", {})
+                rec = self._ticket_record_for_doc(doc)
+                issue = safe_text(rec.get("title_clean") or meta.get("title") or rec.get("title") or doc.get("text", ""), 90)
+                resolution = safe_text(rec.get("resolution_clean") or rec.get("resolution") or "No recorded resolution available.", 170)
+                normalized_similar.append({
+                    "ticket_id": safe_text(meta.get("ticket_id") or rec.get("ticket_id") or doc.get("id"), 50),
+                    "component": safe_text(meta.get("component") or rec.get("component") or "General", 60),
+                    "status": safe_text(meta.get("status") or rec.get("status") or "Unknown", 40),
+                    "summary": safe_text(f"{issue}. Resolution used: {resolution}", 260),
+                })
+
+        escalate_if = data.get("escalate_if", [])
+        if isinstance(escalate_if, str):
+            escalate_if = [escalate_if]
+        escalate_if = [safe_text(x, 220) for x in escalate_if if str(x).strip()][:2]
+
+        if not actions:
+            actions = ["No confident KB-backed action was found. Review the closest ticket history before making changes."]
+        if not escalate_if:
+            escalate_if = ["The symptom cannot be matched to the retrieved KB guidance or the issue persists after the documented steps."]
+
+        return {
+            "recommended_actions": actions,
+            "similar_tickets": normalized_similar,
+            "escalate_if": escalate_if,
+        }
+
+    def _render_blueprint(self, data: Dict[str, Any]) -> str:
+        lines = ["## Resolution Blueprint", "", "**Recommended Actions**"]
+        for idx, action in enumerate(data["recommended_actions"], start=1):
+            lines.append(f"{idx}. {action}")
+
+        lines.extend(["", "**From Similar Tickets**"])
+        for item in data["similar_tickets"]:
+            lines.append(
+                f"- [{item.get('ticket_id') or 'N/A'}] ({item.get('component') or 'General'} · "
+                f"{item.get('status') or 'Unknown'}): {item.get('summary') or 'No summary available.'}"
+            )
+
+        lines.extend(["", "**Escalate If**"])
+        for item in data["escalate_if"]:
+            lines.append(f"- {item}")
+        return "\n".join(lines).strip()
 
     # ── Resolution Blueprint Generation ──
     def generate_resolution(self, ticket_text: str,
@@ -249,29 +418,54 @@ class RAGPipeline:
                             verbose: bool = False) -> Dict:
         """
         Generate a Resolution Blueprint for a ticket.
-        Retrieves similar tickets + KB articles → LLM generates resolution.
+        Retrieves similar tickets + KB articles → LLM generates structured output.
         """
         if verbose:
-            print(f"  Retrieving similar tickets...")
-        similar_tickets = self.ticket_retriever.search(ticket_text, top_k=ticket_top_k)
+            print("  Retrieving similar tickets...")
+        similar_tickets = self._filter_results(
+            self.ticket_retriever.search(ticket_text, top_k=ticket_top_k),
+            limit=ticket_top_k,
+        )
 
         if verbose:
-            print(f"  Retrieving KB articles...")
-        kb_results = self.kb_retriever.search(ticket_text, top_k=kb_top_k)
+            print("  Retrieving KB articles...")
+        kb_results = self._filter_results(
+            self.kb_retriever.search(ticket_text, top_k=kb_top_k),
+            limit=kb_top_k,
+        )
 
-        # Assemble prompt
-        prompt = RESOLUTION_BLUEPRINT_PROMPT.format(
+        prompt = RESOLUTION_BLUEPRINT_JSON_PROMPT.format(
             ticket_text=ticket_text,
             similar_tickets=self._format_ticket_results(similar_tickets),
             kb_context=self._format_kb_results(kb_results),
         )
 
         if verbose:
-            print(f"  Generating resolution with LLM...")
-        response = self.llm.generate(prompt, temperature=0.1)
+            print("  Generating structured blueprint with LLM...")
+        raw_response = self.llm.chat(
+            [
+                {
+                    "role": "system",
+                    "content": (
+                        "You are an IT helpdesk assistant. Never reveal reasoning or chain-of-thought. "
+                        "Return JSON only. Use only retrieved evidence."
+                    ),
+                },
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.1,
+            max_tokens=700,
+            json_mode=True,
+        )
+
+        parsed = extract_json_object(raw_response)
+        if parsed is None:
+            parsed = {"recommended_actions": [self._format_kb_results(kb_results)[:220]]}
+        response = self._render_blueprint(self._normalize_blueprint(parsed, similar_tickets))
 
         return {
             "resolution": response,
+            "raw_resolution": raw_response,
             "similar_tickets": similar_tickets,
             "kb_articles": kb_results,
             "ticket_text": ticket_text,
@@ -280,10 +474,9 @@ class RAGPipeline:
     # ── Knowledge Base Q&A ──
     def answer_question(self, query: str, top_k: int = 5,
                         verbose: bool = False) -> Dict:
-        """Answer a question using the knowledge base."""
         if verbose:
-            print(f"  Retrieving from KB...")
-        kb_results = self.kb_retriever.search(query, top_k=top_k)
+            print("  Retrieving from KB...")
+        kb_results = self._filter_results(self.kb_retriever.search(query, top_k=top_k), limit=top_k)
 
         prompt = KB_QA_PROMPT.format(
             query=query,
@@ -291,7 +484,7 @@ class RAGPipeline:
         )
 
         if verbose:
-            print(f"  Generating answer...")
+            print("  Generating answer...")
         response = self.llm.generate(prompt, temperature=0.1)
 
         return {
@@ -304,10 +497,9 @@ class RAGPipeline:
     def check_duplicate(self, new_ticket_text: str,
                         top_k: int = 5,
                         verbose: bool = False) -> Dict:
-        """Check if a ticket is a duplicate of existing tickets."""
         if verbose:
-            print(f"  Searching for similar tickets...")
-        similar = self.ticket_retriever.search(new_ticket_text, top_k=top_k)
+            print("  Searching for similar tickets...")
+        similar = self._filter_results(self.ticket_retriever.search(new_ticket_text, top_k=top_k), limit=top_k)
 
         prompt = DUPLICATE_CHECK_PROMPT.format(
             new_ticket=new_ticket_text,
@@ -315,19 +507,12 @@ class RAGPipeline:
         )
 
         if verbose:
-            print(f"  Analyzing with LLM...")
+            print("  Analyzing with LLM...")
         response = self.llm.generate(prompt, temperature=0.0)
 
-        # Try to parse JSON response
         try:
-            # Extract JSON from response
-            import re
-            json_match = re.search(r'\{.*\}', response, re.DOTALL)
-            if json_match:
-                verdict = json.loads(json_match.group())
-            else:
-                verdict = {"raw_response": response}
-        except:
+            verdict = extract_json_object(response) or {"raw_response": response}
+        except Exception:
             verdict = {"raw_response": response}
 
         return {
@@ -339,15 +524,16 @@ class RAGPipeline:
     # ── Find Similar Tickets (no LLM) ──
     def find_similar(self, query: str, top_k: int = 5,
                      filters: Optional[Dict] = None) -> List[Dict]:
-        """Pure retrieval - find similar tickets without LLM."""
-        return self.ticket_retriever.search(query, top_k=top_k, filters=filters)
+        return self._filter_results(
+            self.ticket_retriever.search(query, top_k=top_k, filters=filters),
+            limit=top_k,
+        )
 
 
 # ──────────────────────────────────────────────
 # Pretty Printing
 # ──────────────────────────────────────────────
 def print_resolution(result: Dict):
-    """Pretty print a resolution blueprint."""
     print("\n" + "═" * 60)
     print("  RESOLUTION BLUEPRINT")
     print("═" * 60)
@@ -360,7 +546,6 @@ def print_resolution(result: Dict):
 
 
 def print_answer(result: Dict):
-    """Pretty print a KB answer."""
     print("\n" + "═" * 60)
     print(f"  Q: {result['query']}")
     print("═" * 60)
@@ -369,7 +554,6 @@ def print_answer(result: Dict):
 
 
 def print_duplicate_check(result: Dict):
-    """Pretty print duplicate check results."""
     print("\n" + "═" * 60)
     print("  DUPLICATE CHECK")
     print("═" * 60)
@@ -388,7 +572,6 @@ def print_duplicate_check(result: Dict):
 # Interactive Mode
 # ──────────────────────────────────────────────
 def interactive_mode():
-    """Interactive RAG pipeline."""
     rag = RAGPipeline()
 
     print("\n" + "=" * 60)
@@ -435,7 +618,6 @@ def interactive_mode():
                       f"{meta.get('severity', '')} | {meta.get('category', '')}")
 
         else:
-            # Default: treat as resolution request
             result = rag.generate_resolution(user_input, verbose=True)
             print_resolution(result)
 

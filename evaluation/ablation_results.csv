@@ -1,0 +1,12 @@
+query,type,Dense Only_top1,Dense Only_score,BM25 Only_top1,BM25 Only_score,Hybrid (no rerank)_top1,Hybrid (no rerank)_score,Hybrid + Rerank_top1,Hybrid + Rerank_score
+VPN keeps disconnecting every few minute,semantic,VPN intermittent disconnections,0.8015,Title: [Software] VPN - update,5.2067,VPN intermittent disconnections,0.016,Title: VPN intermittent discon,4.3266
+error 0x80070005 permission denied,keyword,[Account] SSO - permission denied,0.5287,Title: Password permission den,11.8407,[Account] SSO - permission denied,0.0098,Email problem: permission denied,0.1655
+laptop overheating and fan is loud,semantic,Laptop problem: overheating,0.7252,Title: Laptop fan making loud ,15.025,Laptop problem: overheating,0.0098,[Hardware] Laptop - fan making loud,6.3916
+BSOD KERNEL_DATA_INPAGE_ERROR,keyword,Desktop blue screen of death,0.38,Title: Database problem: data ,5.6282,Desktop blue screen of death,0.0098,Title: SAP problem: error code,-10.2564
+Outlook not syncing emails after update,mixed,Outlook not syncing properly,0.7315,Title: Outlook problem: update,11.0941,Outlook problem: crashing on startu,0.0142,Outlook not syncing properly,3.9903
+account locked out MFA not working,mixed,MFA account locked out,0.8067,Title: MFA problem: account lo,18.1236,MFA account locked out,0.0098,Title: MFA problem: account lo,6.4928
+Teams slow high memory usage,semantic,[Software] Teams - memory leak caus,0.7508,Title: Teams memory leak causi,12.0859,[Incident] Storage - memory exhaust,0.0151,Title: [Software] Teams - memo,4.2731
+printer queue stuck cannot print,mixed,Printer keyboard keys stuck,0.5859,"Title: Printer not turning on
+",6.2745,Printer keyboard keys stuck,0.0098,Printer keyboard keys stuck,0.9534
+new hire account setup Active Directory,keyword,[Account] Active Directory - new hi,0.7549,Title: Active Directory proble,27.9346,Email new hire needs account setup,0.0153,Title: Active Directory new hi,8.9851
+WiFi intermittent disconnections buildin,mixed,WiFi problem: intermittent disconne,0.7629,Title: WiFi intermittent disco,17.1735,VPN intermittent disconnections,0.0145,WiFi intermittent disconnections,2.4863

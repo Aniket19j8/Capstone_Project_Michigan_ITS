@@ -1,0 +1,34 @@
+{
+  "mode": "mock",
+  "v2": {
+    "n_turns": 8,
+    "ok_rate": 1.0,
+    "turn_latency_ms_mean": 909.9625,
+    "turn_latency_ms_p50": 1041.6999999999998,
+    "turn_latency_ms_p95": 1478.6599999999999,
+    "route_distribution": {
+      "ticket_created": 2,
+      "self_resolution": 3,
+      "follow_up": 1,
+      "blocked": 2
+    },
+    "kb_citation_rate_self_resolution": 1.0,
+    "ticket_creation_success_rate": 1.0,
+    "guardrail_trigger_precision": 1.0,
+    "false_block_rate_on_benign": 0.0
+  },
+  "baselines": {
+    "research_local_status1": {
+      "label": "Research T1\nlocal Ollama Qwen3-4B",
+      "turn_latency_ms_mean": 6500.0,
+      "kb_citation_rate": 0.35,
+      "blocked_rate_on_injection": 0.0
+    },
+    "research_local_status2": {
+      "label": "Research T2\nQwen3-0.6B emb + vLLM",
+      "turn_latency_ms_mean": 2200.0,
+      "kb_citation_rate": 0.45,
+      "blocked_rate_on_injection": 0.0
+    }
+  }
+}

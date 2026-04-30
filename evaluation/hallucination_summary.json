@@ -1,0 +1,19 @@
+{
+  "n_total": 50,
+  "n_it": 45,
+  "n_oos": 5,
+  "base_hallucination_rate_it": 0.6060606060606061,
+  "rag_hallucination_rate_it": 0.0,
+  "base_quality_means": {
+    "judge_answer_a_groundedness": 1.9393939393939394,
+    "judge_answer_a_specificity": 3.121212121212121,
+    "judge_answer_a_accuracy": 3.606060606060606
+  },
+  "rag_quality_means": {
+    "judge_answer_b_groundedness": 5.0,
+    "judge_answer_b_specificity": 2.5454545454545454,
+    "judge_answer_b_accuracy": 4.121212121212121
+  },
+  "head_to_head_a_wins": 6,
+  "head_to_head_b_wins": 27
+}

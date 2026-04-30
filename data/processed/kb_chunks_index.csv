@@ -3,9 +3,9 @@ KB-00000,"# Knowledge Base: Network Printer Setup and Common Issues
 
 
 ## Setup: Adding a Network Printer
-1. Open Settings → Bluetooth & Devices → Printers & Scanners
-2. Click ""Add device"" → Select printer from list
-3. If not found: Click ""Add manually"" → Enter IP address (see printer label)
+1. Open Settings â†’ Bluetooth & Devices â†’ Printers & Scanners
+2. Click ""Add device"" â†’ Select printer from list
+3. If not found: Click ""Add manually"" â†’ Enter IP address (see printer label)
 4. Install driver from Company Software Center if prompted
 
 
@@ -13,7 +13,7 @@ KB-00000,"# Knowledge Base: Network Printer Setup and Common Issues
 
 
 ### Print Jobs Stuck in Queue
-1. Open Services (services.msc) → Stop ""Print Spooler""
+1. Open Services (services.msc) â†’ Stop ""Print Spooler""
 2. Delete files in `C:\Windows\System32\spool\PRINTERS\`
 3. Restart Print Spooler service
 4. Retry print job
@@ -34,7 +34,7 @@ KB-00000,"# Knowledge Base: Network Printer Setup and Common Issues
 
 
 ## Secure Print
-All printers support secure print. Documents are held until user authenticates at the printer with their badge. Enable via: Print → Properties → Secure Print → Enter PIN.",kb_article_printer_setup,Kb Article Printer Setup,kb_article,Kb Article Printer Setup,0,kb_article_printer_setup.md
+All printers support secure print. Documents are held until user authenticates at the printer with their badge. Enable via: Print â†’ Properties â†’ Secure Print â†’ Enter PIN.",kb_article_printer_setup,Kb Article Printer Setup,kb_article,Kb Article Printer Setup,0,kb_article_printer_setup.md
 KB-00001,"# Knowledge Base: Microsoft Teams Performance Issues
 
 
@@ -56,13 +56,13 @@ Common triggers: many open chats, large files in channels, background activity.
 
 2. **Reduce memory usage**:
    - Close unused chats and channels
-   - Disable GPU hardware acceleration: Settings → General → Uncheck ""Disable GPU hardware acceleration""
+   - Disable GPU hardware acceleration: Settings â†’ General â†’ Uncheck ""Disable GPU hardware acceleration""
    - Reduce notification frequency
-   - Limit Teams startup: Settings → General → Uncheck ""Auto-start Teams""
+   - Limit Teams startup: Settings â†’ General â†’ Uncheck ""Auto-start Teams""
 
 3. **New Teams app** (recommended):
    - Upgrade to ""New Teams"" (Microsoft Teams 2.0) which uses 50% less memory
-   - Available through Settings → ""Try the new Teams"" toggle
+   - Available through Settings â†’ ""Try the new Teams"" toggle
 
 
 ## Prevention
@@ -82,10 +82,10 @@ KB-00002,"# Email / Outlook Troubleshooting Runbook
 
 
 ### Step 2: Client-Side Fixes
-- **Clear Outlook cache**: Close Outlook → Delete files in `%localappdata%\Microsoft\Outlook\RoamCache\`
-- **Repair Office**: Settings → Apps → Microsoft 365 → Modify → Quick Repair
-- **Recreate profile**: Control Panel → Mail → Show Profiles → Add new profile
-- **Disable add-ins**: File → Options → Add-ins → Manage COM Add-ins → Uncheck all
+- **Clear Outlook cache**: Close Outlook â†’ Delete files in `%localappdata%\Microsoft\Outlook\RoamCache\`
+- **Repair Office**: Settings â†’ Apps â†’ Microsoft 365 â†’ Modify â†’ Quick Repair
+- **Recreate profile**: Control Panel â†’ Mail â†’ Show Profiles â†’ Add new profile
+- **Disable add-ins**: File â†’ Options â†’ Add-ins â†’ Manage COM Add-ins â†’ Uncheck all
 
 
 ### Step 3: Server-Side Checks
@@ -112,17 +112,17 @@ KB-00003,"# Laptop Hardware Troubleshooting Runbook
 2. Try with only AC power (remove battery if removable)
 3. Check power adapter LED indicator
 4. Try external monitor to rule out display failure
-5. If no POST: Likely motherboard or RAM failure → Escalate to hardware depot
+5. If no POST: Likely motherboard or RAM failure â†’ Escalate to hardware depot
 
 
 ### Blue Screen of Death (BSOD)
 1. Note the stop code (e.g., IRQL_NOT_LESS_OR_EQUAL, PAGE_FAULT_IN_NONPAGED_AREA)
-2. Check Event Viewer → Windows Logs → System for critical errors
+2. Check Event Viewer â†’ Windows Logs â†’ System for critical errors
 3. Common fixes by stop code:
-   - **IRQL_NOT_LESS_OR_EQUAL**: Driver issue → Update/rollback recent drivers
-   - **CRITICAL_PROCESS_DIED**: System file corruption → Run `sfc /scannow`
-   - **MEMORY_MANAGEMENT**: RAM issue → Run Windows Memory Diagnostic
-   - **KERNEL_DATA_INPAGE_ERROR**: Disk issue → Run `chkdsk /f /r`
+   - **IRQL_NOT_LESS_OR_EQUAL**: Driver issue â†’ Update/rollback recent drivers
+   - **CRITICAL_PROCESS_DIED**: System file corruption â†’ Run `sfc /scannow`
+   - **MEMORY_MANAGEMENT**: RAM issue â†’ Run Windows Memory Diagnostic
+   - **KERNEL_DATA_INPAGE_ERROR**: Disk issue â†’ Run `chkdsk /f /r`
 4. If recurring: Check for recent Windows updates, driver changes
 
 
@@ -150,7 +150,7 @@ Confirm user identity through:
 
 ### Step 2: Check Lockout Reason
 1. Open Active Directory Users and Computers
-2. Find user account → Properties → Account tab
+2. Find user account â†’ Properties â†’ Account tab
 3. Check ""Account is locked out"" checkbox
 4. Review Event Viewer on domain controller for Event ID 4740
 
@@ -163,7 +163,7 @@ Confirm user identity through:
 
 
 ### Step 3: Unlock Account
-1. In AD: Right-click user → Unlock Account
+1. In AD: Right-click user â†’ Unlock Account
 2. If password expired: Reset password, require change at next login
 3. If MFA issue: Reset MFA enrollment in Azure AD / Okta admin portal
 
@@ -182,8 +182,8 @@ All approved software is available through the Company Software Center.
 
 
 ### Installation Failures
-1. **Error: Insufficient permissions**: User needs local admin → Submit elevation request
-2. **Error: Disk space**: Need minimum 2GB free → Help user clear temp files
+1. **Error: Insufficient permissions**: User needs local admin â†’ Submit elevation request
+2. **Error: Disk space**: Need minimum 2GB free â†’ Help user clear temp files
 3. **Error: Compatibility**: Check system requirements against user's hardware
 4. **Error: Network timeout**: Switch to wired connection, retry during off-peak
 

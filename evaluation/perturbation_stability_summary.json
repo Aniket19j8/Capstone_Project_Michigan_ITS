@@ -1,0 +1,20 @@
+{
+  "BM25_Only": {
+    "jaccard_top10_mean": 0.9483249691484985,
+    "jaccard_top10_median": 1.0,
+    "latency_ms_mean": 859.6696,
+    "latency_ms_p95": 1122.0599999999997
+  },
+  "Dense_Only": {
+    "jaccard_top10_mean": 0.5969580970714872,
+    "jaccard_top10_median": 0.6153846153846154,
+    "latency_ms_mean": 40.6992,
+    "latency_ms_p95": 52.605
+  },
+  "Hybrid_NoRerank": {
+    "jaccard_top10_mean": 0.6307842003885348,
+    "jaccard_top10_median": 0.6666666666666666,
+    "latency_ms_mean": 908.6934,
+    "latency_ms_p95": 1171.9599999999998
+  }
+}

@@ -1,41 +1,34 @@
-# Core retrieval and embeddings
+# ── Core retrieval (no local embedding model — Ollama handles embeddings) ──
 chromadb>=1.5.1
-sentence-transformers>=5.2.0
-transformers>=4.41.0
-torch>=2.2.0
+pysqlite3-binary>=0.5.0   # Chroma needs SQLite >= 3.35; HPC/older Pythons often need this (03 patches sqlite3 on import)
+sentence-transformers>=5.1.0   # 5.2+ needs Python 3.10+; 5.1.x is last for 3.9 (CrossEncoder in 04+)
+transformers>=4.41.0            # CrossEncoder dependency
+torch>=2.2.0                    # CrossEncoder dependency
 rank_bm25>=0.2.2
-faiss-cpu>=1.8.0
 huggingface_hub>=0.23.0
-datasets>=2.19.0
-onnxruntime>=1.14.1
 
-# ASR and LLM clients
-faster-whisper>=1.0.0
-ctranslate2>=4.4.0
+# ── HTTP / API ──
 requests>=2.32.0
+fastapi>=0.111.0
+uvicorn>=0.30.0
+pydantic>=2.7.0
 python-dotenv>=1.0.0
 
-# Data processing and evaluation
+# ── Data processing & evaluation ──
 pandas>=2.2.0
 numpy>=1.26.0
 scikit-learn>=1.5.0
 matplotlib>=3.9.0
-seaborn>=0.13.0
 tqdm>=4.66.0
-jsonlines>=4.0.0
 
-# CLI, app, and APIs
+# ── Database ──
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.9          # PostgreSQL driver (used on AWS RDS)
+
+# ── AWS ──
+boto3>=1.34.0                   # S3 upload of results from pipeline runs
+
+# ── CLI & misc ──
 typer>=0.12.0
 rich>=13.7.0
-pydantic>=2.7.0
-streamlit>=1.36.0
-fastapi>=0.111.0
-uvicorn>=0.30.0
-
-# Optional orchestration libraries used in project workflows
-langchain>=0.2.0
-langchain-community>=0.2.0
-langchain-huggingface>=0.0.3
-
-# Development and tests
-pytest>=8.0.0
+jsonlines>=4.0.0

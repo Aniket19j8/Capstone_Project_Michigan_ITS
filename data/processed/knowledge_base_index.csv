@@ -2,15 +2,15 @@ doc_id,title,content,doc_type,source_file,char_count,word_count
 kb_article_printer_setup,Knowledge Base: Network Printer Setup and Common Issues,"# Knowledge Base: Network Printer Setup and Common Issues
 
 ## Setup: Adding a Network Printer
-1. Open Settings → Bluetooth & Devices → Printers & Scanners
-2. Click ""Add device"" → Select printer from list
-3. If not found: Click ""Add manually"" → Enter IP address (see printer label)
+1. Open Settings â†’ Bluetooth & Devices â†’ Printers & Scanners
+2. Click ""Add device"" â†’ Select printer from list
+3. If not found: Click ""Add manually"" â†’ Enter IP address (see printer label)
 4. Install driver from Company Software Center if prompted
 
 ## Common Issues
 
 ### Print Jobs Stuck in Queue
-1. Open Services (services.msc) → Stop ""Print Spooler""
+1. Open Services (services.msc) â†’ Stop ""Print Spooler""
 2. Delete files in `C:\Windows\System32\spool\PRINTERS\`
 3. Restart Print Spooler service
 4. Retry print job
@@ -28,8 +28,8 @@ kb_article_printer_setup,Knowledge Base: Network Printer Setup and Common Issues
 4. If persistent: Submit maintenance request to Facilities
 
 ## Secure Print
-All printers support secure print. Documents are held until user authenticates at the printer with their badge. Enable via: Print → Properties → Secure Print → Enter PIN.
-",kb_article,kb_article_printer_setup.md,1156,185
+All printers support secure print. Documents are held until user authenticates at the printer with their badge. Enable via: Print â†’ Properties â†’ Secure Print â†’ Enter PIN.
+",kb_article,kb_article_printer_setup.md,1172,185
 kb_article_teams_performance,Knowledge Base: Microsoft Teams Performance Issues,"# Knowledge Base: Microsoft Teams Performance Issues
 
 ## Problem
@@ -48,19 +48,19 @@ Common triggers: many open chats, large files in channels, background activity.
 
 2. **Reduce memory usage**:
    - Close unused chats and channels
-   - Disable GPU hardware acceleration: Settings → General → Uncheck ""Disable GPU hardware acceleration""
+   - Disable GPU hardware acceleration: Settings â†’ General â†’ Uncheck ""Disable GPU hardware acceleration""
    - Reduce notification frequency
-   - Limit Teams startup: Settings → General → Uncheck ""Auto-start Teams""
+   - Limit Teams startup: Settings â†’ General â†’ Uncheck ""Auto-start Teams""
 
 3. **New Teams app** (recommended):
    - Upgrade to ""New Teams"" (Microsoft Teams 2.0) which uses 50% less memory
-   - Available through Settings → ""Try the new Teams"" toggle
+   - Available through Settings â†’ ""Try the new Teams"" toggle
 
 ## Prevention
 - Regularly clear cache (monthly)
 - Keep Teams updated to latest version
 - Report persistent issues to vendor management for tracking
-",kb_article,kb_article_teams_performance.md,1203,169
+",kb_article,kb_article_teams_performance.md,1213,169
 runbook_email_issues,Email / Outlook Troubleshooting Runbook,"# Email / Outlook Troubleshooting Runbook
 
 ## Symptom: Outlook Not Syncing / Cannot Send or Receive
@@ -71,10 +71,10 @@ runbook_email_issues,Email / Outlook Troubleshooting Runbook,"# Email / Outlook 
 3. Try Outlook Web App (OWA) - if OWA works, issue is client-side
 
 ### Step 2: Client-Side Fixes
-- **Clear Outlook cache**: Close Outlook → Delete files in `%localappdata%\Microsoft\Outlook\RoamCache\`
-- **Repair Office**: Settings → Apps → Microsoft 365 → Modify → Quick Repair
-- **Recreate profile**: Control Panel → Mail → Show Profiles → Add new profile
-- **Disable add-ins**: File → Options → Add-ins → Manage COM Add-ins → Uncheck all
+- **Clear Outlook cache**: Close Outlook â†’ Delete files in `%localappdata%\Microsoft\Outlook\RoamCache\`
+- **Repair Office**: Settings â†’ Apps â†’ Microsoft 365 â†’ Modify â†’ Quick Repair
+- **Recreate profile**: Control Panel â†’ Mail â†’ Show Profiles â†’ Add new profile
+- **Disable add-ins**: File â†’ Options â†’ Add-ins â†’ Manage COM Add-ins â†’ Uncheck all
 
 ### Step 3: Server-Side Checks
 - Check mailbox size (quota: 50GB for standard, 100GB for executives)
@@ -88,7 +88,7 @@ runbook_email_issues,Email / Outlook Troubleshooting Runbook,"# Email / Outlook 
 - Check auto-mapping is enabled in Exchange
 
 **Resolution time target: 20 minutes for client issues, 1 hour for server issues**
-",runbook,runbook_email_issues.md,1168,187
+",runbook,runbook_email_issues.md,1192,187
 runbook_hardware_laptop,Laptop Hardware Troubleshooting Runbook,"# Laptop Hardware Troubleshooting Runbook
 
 ## Symptom: Laptop Not Turning On / Blue Screen / Overheating
@@ -98,16 +98,16 @@ runbook_hardware_laptop,Laptop Hardware Troubleshooting Runbook,"# Laptop Hardwa
 2. Try with only AC power (remove battery if removable)
 3. Check power adapter LED indicator
 4. Try external monitor to rule out display failure
-5. If no POST: Likely motherboard or RAM failure → Escalate to hardware depot
+5. If no POST: Likely motherboard or RAM failure â†’ Escalate to hardware depot
 
 ### Blue Screen of Death (BSOD)
 1. Note the stop code (e.g., IRQL_NOT_LESS_OR_EQUAL, PAGE_FAULT_IN_NONPAGED_AREA)
-2. Check Event Viewer → Windows Logs → System for critical errors
+2. Check Event Viewer â†’ Windows Logs â†’ System for critical errors
 3. Common fixes by stop code:
-   - **IRQL_NOT_LESS_OR_EQUAL**: Driver issue → Update/rollback recent drivers
-   - **CRITICAL_PROCESS_DIED**: System file corruption → Run `sfc /scannow`
-   - **MEMORY_MANAGEMENT**: RAM issue → Run Windows Memory Diagnostic
-   - **KERNEL_DATA_INPAGE_ERROR**: Disk issue → Run `chkdsk /f /r`
+   - **IRQL_NOT_LESS_OR_EQUAL**: Driver issue â†’ Update/rollback recent drivers
+   - **CRITICAL_PROCESS_DIED**: System file corruption â†’ Run `sfc /scannow`
+   - **MEMORY_MANAGEMENT**: RAM issue â†’ Run Windows Memory Diagnostic
+   - **KERNEL_DATA_INPAGE_ERROR**: Disk issue â†’ Run `chkdsk /f /r`
 4. If recurring: Check for recent Windows updates, driver changes
 
 ### Overheating
@@ -119,7 +119,7 @@ runbook_hardware_laptop,Laptop Hardware Troubleshooting Runbook,"# Laptop Hardwa
 6. BIOS update may improve thermal management
 
 **Escalation**: Hardware depot for physical repairs. Ship via standard IT logistics process.
-",runbook,runbook_hardware_laptop.md,1376,208
+",runbook,runbook_hardware_laptop.md,1390,208
 runbook_password_reset,Password Reset & Account Lockout Runbook,"# Password Reset & Account Lockout Runbook
 
 ## Symptom: Account Locked Out
@@ -132,7 +132,7 @@ Confirm user identity through:
 
 ### Step 2: Check Lockout Reason
 1. Open Active Directory Users and Computers
-2. Find user account → Properties → Account tab
+2. Find user account â†’ Properties â†’ Account tab
 3. Check ""Account is locked out"" checkbox
 4. Review Event Viewer on domain controller for Event ID 4740
 
@@ -143,7 +143,7 @@ Confirm user identity through:
 - **Brute force attempt**: Check source IP in security logs
 
 ### Step 3: Unlock Account
-1. In AD: Right-click user → Unlock Account
+1. In AD: Right-click user â†’ Unlock Account
 2. If password expired: Reset password, require change at next login
 3. If MFA issue: Reset MFA enrollment in Azure AD / Okta admin portal
 
@@ -153,15 +153,15 @@ Confirm user identity through:
 - Enable self-service password reset if not already active
 
 **Resolution time target: 15 minutes**
-",runbook,runbook_password_reset.md,1202,191
+",runbook,runbook_password_reset.md,1208,191
 runbook_software_installation,Software Installation & License Troubleshooting,"# Software Installation & License Troubleshooting
 
 ## Standard Software Catalog
 All approved software is available through the Company Software Center.
 
 ### Installation Failures
-1. **Error: Insufficient permissions**: User needs local admin → Submit elevation request
-2. **Error: Disk space**: Need minimum 2GB free → Help user clear temp files
+1. **Error: Insufficient permissions**: User needs local admin â†’ Submit elevation request
+2. **Error: Disk space**: Need minimum 2GB free â†’ Help user clear temp files
 3. **Error: Compatibility**: Check system requirements against user's hardware
 4. **Error: Network timeout**: Switch to wired connection, retry during off-peak
 
@@ -176,7 +176,7 @@ All approved software is available through the Company Software Center.
 - **""Subscription expired""**: Verify user's license assignment in admin portal
 
 **Resolution time target: 30 minutes for standard software, 24 hours for specialized**
-",runbook,runbook_software_installation.md,1166,160
+",runbook,runbook_software_installation.md,1170,160
 runbook_vpn_troubleshooting,VPN Troubleshooting Runbook,"# VPN Troubleshooting Runbook
 
 ## Symptom: VPN Connection Drops Intermittently

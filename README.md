@@ -1,29 +1,100 @@
-# ITS RAG Pipeline — Complete Setup & Run Guide
-## Intelligent Ticketing System - Team Michigan, FSE 570
+# ITS RAG Pipeline — Intelligent Ticketing System
+## Team Michigan · FSE 570 · Spring 2026
+
+> **Canonical narrative:** see `CAPSTONE_FINAL_STORY.md` for the full Status 1 → Status 2 → Final story, every evaluation table, and the rubric mapping. This README is the quick-start.
+> **Two deployment stacks live in this repo.** The repo root is the **research stack** (Ollama + Qwen3 + ChromaDB + BM25 + LoRA) used to design and evaluate the system. The folder `ITS-v2-main/` is the **production stack** (FastAPI + LangChain + LangGraph + React + Pinecone + OpenAI) used as the live demo. Both are described below; both are real and runnable.
+> **Primary local interface:** **React frontend + FastAPI backend** in this repo. The legacy Streamlit app (`streamlit_app.py`) is kept as a fallback.
 
 ---
 
-## Quick Start (5 commands to get running)
+## Quick Start
+
+### Option A — Research stack: Full local app (FastAPI + React)
 
 ```bash
-# 1. Install dependencies
+# 1. Install Python dependencies
 pip install -r requirements.txt
 
-# 2. Install & start Ollama with your LLM
-curl -fsSL https://ollama.com/install.sh | sh
-ollama pull qwen3:8b        # or: ollama pull llama3.1:8b
-ollama serve &               # runs in background
+# 2. Start Ollama with the LLM and the embedding model
+ollama pull qwen3:4b          # generation LLM
+ollama pull qwen3:0.6b        # embedding model (1024-d, default)
+ollama serve &
 
-# 3. Download data & generate synthetic tickets + knowledge base
-cd scripts
+# 3. Build data pipeline (first time only)
 python 01_download_data.py --generate-synthetic --generate-kb
-
-# 4. Preprocess & build vector store
 python 02_preprocess_data.py
-python 03_build_vector_store.py
+python 03_build_vector_store.py    # embeds with qwen3:0.6b into ChromaDB
 
-# 5. Run the RAG pipeline
+# 4. Start the FastAPI backend
+uvicorn api:app --reload --port 8000
+
+# 5. In a second terminal — start the React frontend
+cd frontend
+npm install
+npm run dev
+# Opens at http://localhost:5173
+```
+
+### Option D — Production stack (Pinecone + OpenAI + LangGraph)
+
+```bash
+cd ITS-v2-main
+uv sync                                # or: pip install -e .
+cp .env.example .env                   # set OPENAI_API_KEY + PINECONE_API_KEY
+uv run python scripts/ingest_kb.py
+uv run python scripts/ingest_tickets.py --csv ../data/processed/all_tickets.csv
+uv run uvicorn app.main:app --reload   # opens http://127.0.0.1:8000
+
+# React UI in dev mode
+cd frontend && npm install && npm run dev
+```
+
+### Option B — CLI (no frontend)
+
+```bash
+# Requires Ollama running with qwen3:8b
+ollama pull qwen3:8b
+ollama serve &
 python 05_rag_pipeline.py
+```
+
+### Option C — Streamlit (legacy)
+
+```bash
+pip install streamlit
+ollama serve &
+streamlit run streamlit_app.py
+# Opens at http://localhost:8501
+```
+
+---
+
+## Architecture
+
+```
+User Browser (React + Vite, :5173)
+        │  HTTP (fetch)
+        ▼
+FastAPI Backend (api.py, :8000)
+        │  loads modules dynamically
+        ├─► 04_hybrid_retrieval.py   ← Dense + BM25 + RRF + Cross-encoder
+        ├─► ChromaDB (data/chroma_db/)
+        └─► Ollama qwen3:4b (:11434)
+
+Query pipeline per request:
+  description
+    → Embed (Ollama qwen3:0.6b, 1024-dim)        # see Embedding Ablation Table 1
+    → Dense search (ChromaDB cosine, top-20)
+    → BM25 keyword search (rank_bm25, top-20)
+    → RRF fusion (k=60, dense×0.6 + BM25×0.4)
+    → Cross-encoder reranking (ms-marco-MiniLM-L-6-v2, top-5)
+    → Context assembly (tickets + KB articles)
+    → LLM generation (qwen3:4b, T=0.1, 900 tokens)
+    → Structured JSON → Resolution Blueprint
+
+Embedding model is configurable via the env var ITS_EMBEDDING_MODEL.
+all-MiniLM-L6-v2 (384-d) remains a CPU-friendly fallback; the production
+default is Qwen3-0.6B per the embedding ablation in CAPSTONE_FINAL_STORY.md §9.
 ```
 
 ---
@@ -31,114 +102,150 @@ python 05_rag_pipeline.py
 ## Project Structure
 
 ```
-its_rag/
-├── requirements.txt              # All Python dependencies
+Capstone_Project_Team_Michigan/
+├── api.py                        # FastAPI backend (primary backend)
+├── streamlit_app.py              # Streamlit app (legacy UI)
+├── requirements.txt              # Python dependencies
 ├── README.md                     # This file
-├── configs/
-│   └── config.env                # All configurable parameters
-├── scripts/
-│   ├── config_loader.py          # Config utility
-│   ├── 01_download_data.py       # Data download + synthetic generation
-│   ├── 02_preprocess_data.py     # Clean, normalize, merge all datasets
-│   ├── 03_build_vector_store.py  # Embed → ChromaDB + BM25 index
-│   ├── 04_hybrid_retrieval.py    # Hybrid retrieval engine (the core)
-│   ├── 05_rag_pipeline.py        # Full RAG: retrieval → LLM → response
-│   ├── 06_evaluation.py          # Metrics, ablation, threshold optimization
-│   ├── fetch_jira.py             # (generated) Apache JIRA API fetcher
-│   └── fetch_github_issues.py    # (generated) GitHub Issues fetcher
+├── SETUP.md                      # Setup instructions
+├── ITS_RAG_Complete_Documentation.md  # Full technical docs
+│
+├── frontend/                     # React + TypeScript + Vite UI
+│   ├── src/
+│   │   ├── App.tsx               # Main app component
+│   │   ├── api.ts                # API client (calls FastAPI)
+│   │   ├── types.ts              # TypeScript interfaces
+│   │   ├── components/
+│   │   │   ├── ResultPanel.tsx   # Displays resolution + tickets
+│   │   │   ├── Sidebar.tsx       # System status sidebar
+│   │   │   ├── TopBar.tsx        # Navigation bar
+│   │   │   ├── NeuralBg.tsx      # Animated background
+│   │   │   └── CursorGlow.tsx    # Cursor effect
+│   │   └── hooks/
+│   └── package.json
+│
+├── 01_download_data.py           # Data download + synthetic generation
+├── 02_preprocess_data.py         # Clean, normalize, merge datasets
+├── 03_build_vector_store.py      # Embed → ChromaDB + BM25 index
+├── 04_hybrid_retrieval.py        # Hybrid retrieval engine (core)
+├── 05_rag_pipeline.py            # CLI RAG pipeline
+├── 06_evaluation.py              # Metrics, ablation, threshold optimization
+├── 07_run_500_eval.py            # 500-query batch evaluation
+├── 08_hallucination_comparison.py # RAG vs Base LLM hallucination study
+├── 09_latency_benchmark.py       # Latency benchmarking
+├── 10_dedup_threshold.py         # Dedup threshold optimization
+│
 ├── data/
 │   ├── raw/                      # Downloaded datasets
 │   ├── processed/                # Cleaned & merged data
-│   ├── knowledge_base/           # Runbooks & KB articles (.md files)
+│   │   ├── all_tickets.csv       # Master ticket dataset (500 tickets)
+│   │   ├── synthetic_tickets.csv
+│   │   ├── bm25_corpus_tickets.json
+│   │   └── bm25_corpus_kb.json
+│   ├── knowledge_base/           # 7 runbooks (.md files)
 │   └── chroma_db/                # ChromaDB persistent storage
-└── evaluation/                   # Eval results, plots, ablation
+│
+├── evaluation/                   # Eval results, plots, ablation
+├── scripts/                      # Helper scripts
+└── tests/                        # Test suite
 ```
 
 ---
 
-## Step-by-Step Guide
+## API Reference
 
-### Step 1: Data Collection
+The FastAPI backend exposes two endpoints. Interactive docs at `http://localhost:8000/docs`.
 
-```bash
-# Generate synthetic tickets (500) + knowledge base (7 runbooks)
-python 01_download_data.py --generate-synthetic --generate-kb
+### `GET /api/status`
 
-# Fetch real Apache JIRA tickets (needs internet)
-python scripts/fetch_jira.py
+Returns system health — retriever readiness, ticket/KB counts, LLM connectivity.
 
-# Fetch GitHub Issues (needs internet, optionally set GITHUB_TOKEN)
-export GITHUB_TOKEN=ghp_your_token
-python scripts/fetch_github_issues.py
+```json
+{
+  "retriever_ready": true,
+  "retriever_error": null,
+  "ticket_count": 500,
+  "kb_count": 7,
+  "llm_ready": true,
+  "llm_model": "qwen3:4b"
+}
 ```
 
-**What you get:**
+### `POST /api/analyze`
+
+Runs the full RAG pipeline for a ticket description.
+
+**Request:**
+```json
+{
+  "description": "My VPN keeps disconnecting every 10 minutes on Windows 11",
+  "top_k_tickets": 3,
+  "top_k_kb": 3,
+  "use_reranking": true
+}
+```
+
+**Response:**
+```json
+{
+  "resolution": "## Resolution Blueprint\n**Problem** ...",
+  "similar_tickets": [ { "ticket_id": "ITS-00042", "title": "...", "score": 7.23, ... } ],
+  "kb_articles":     [ { "source_file": "runbook_vpn_troubleshooting.md", "score": 4.1, ... } ],
+  "timings": { "tickets_s": 0.18, "kb_s": 0.12, "llm_s": 4.3, "total_s": 4.6 },
+  "counts":  { "tickets": 3, "kb": 2 }
+}
+```
+
+---
+
+## Step-by-Step Data Pipeline
+
+### Step 1 — Data Collection
+
+```bash
+python 01_download_data.py --generate-synthetic --generate-kb
+```
+
+Produces:
 - `data/processed/synthetic_tickets.csv` — 500 IT tickets across 5 categories
 - `data/processed/synthetic_duplicate_pairs.csv` — ~75 labeled duplicate pairs
 - `data/knowledge_base/*.md` — 7 runbooks (VPN, password, email, hardware, software, Teams, printer)
-- `data/raw/jira_issues.csv` — Real Apache JIRA tickets (if fetched)
-- `data/raw/github_issues.csv` — Real GitHub issues (if fetched)
 
-### Step 2: Preprocessing
+### Step 2 — Preprocessing
 
 ```bash
 python 02_preprocess_data.py
 ```
 
-**What it does:**
-- Cleans text (removes URLs, paths, normalizes whitespace)
-- Extracts error codes from descriptions
-- Computes quality scores per ticket
-- Creates `embedding_text` field (optimized for semantic search)
-- Merges all sources into `all_tickets.csv`
-- Generates `data_stats.json` with full statistics
+Cleans text, extracts error codes, builds `embedding_text`, merges into `all_tickets.csv`.
 
-### Step 3: Build Vector Store
+### Step 3 — Build Vector Store
 
 ```bash
 python 03_build_vector_store.py          # Build
 python 03_build_vector_store.py --reset  # Rebuild from scratch
 ```
 
-**What it does:**
-- Loads `all-MiniLM-L6-v2` embedding model (384 dimensions)
-- Embeds all tickets → ChromaDB `its_tickets` collection
-- Chunks KB documents (section-aware, 450 tokens, 50 overlap)
-- Embeds KB chunks → ChromaDB `its_knowledge_base` collection
-- Builds BM25 tokenized corpus for keyword search
-- Runs verification queries to confirm everything works
+Embeds tickets + KB documents into ChromaDB. Builds BM25 index.
 
-### Step 4: Hybrid Retrieval
+### Step 4 — Hybrid Retrieval (standalone test)
 
 ```bash
-# Interactive search
-python 04_hybrid_retrieval.py
-
-# Single query
 python 04_hybrid_retrieval.py --query "VPN keeps dropping"
-
-# Ablation comparison (dense vs BM25 vs hybrid vs hybrid+rerank)
-python 04_hybrid_retrieval.py --evaluate
+python 04_hybrid_retrieval.py --evaluate   # 4-method ablation
 ```
 
-**Pipeline: Query → Dense (ChromaDB) + BM25 → RRF Fusion → Cross-Encoder Rerank → Top-K**
-
-### Step 5: RAG Pipeline
+### Step 5 — RAG Pipeline (CLI)
 
 ```bash
-# Interactive mode
 python 05_rag_pipeline.py
-
-# Commands in interactive mode:
-#   /resolve My VPN keeps disconnecting    → Resolution Blueprint
-#   /ask How do I reset a password?         → KB Q&A
-#   /dedup Outlook not syncing emails       → Duplicate check
-#   /similar laptop overheating             → Find similar tickets
+# /resolve My VPN keeps disconnecting   → Resolution Blueprint
+# /ask How do I reset a password?       → KB Q&A
+# /dedup Outlook not syncing emails     → Duplicate check
+# /similar laptop overheating           → Find similar tickets
 ```
 
-**Requires Ollama running:** `ollama serve`
-
-### Step 6: Evaluation
+### Step 6 — Evaluation
 
 ```bash
 python 06_evaluation.py --ablation   # Compare retrieval methods
@@ -146,7 +253,71 @@ python 06_evaluation.py --dedup      # Threshold optimization
 python 06_evaluation.py --all        # Everything
 ```
 
-**Outputs:** `evaluation/ablation_results.csv`, `evaluation/dedup_threshold_analysis.png`
+### Step 8 — Hallucination Comparison
+
+```bash
+python 08_hallucination_comparison.py
+python 08_hallucination_comparison.py --model qwen3:4b
+python 08_hallucination_comparison.py --num-queries 20   # quick test
+```
+
+Outputs: `evaluation/hallucination_comparison.csv`, `evaluation/hallucination_summary.json`, `evaluation/hallucination_chart.png`
+
+### Step 15 — Visualize all evaluation CSVs into PNG charts
+
+```bash
+python 15_visualize_evaluations.py
+# or only certain charts:
+python 15_visualize_evaluations.py --only retrieval hallucination dedup stability
+```
+
+Generates 8 presentation-ready PNGs from the CSVs already in `evaluation/`:
+
+```
+evaluation/retrieval_comparison_chart.png
+evaluation/hallucination_chart.png
+evaluation/dedup_threshold_chart.png
+evaluation/perturbation_stability_chart.png
+evaluation/ablation_top1_chart.png
+evaluation/embedding_ablation_chart.png
+evaluation/dataset_distributions_chart.png
+evaluation/kpi_dashboard_chart.png
+```
+
+### Step 16 — Advanced statistical metrics
+
+```bash
+python 16_advanced_metrics.py --bootstrap 2000
+```
+
+Adds bootstrap 95% CIs for Recall@k / MRR per method, paired t-test +
+Wilcoxon signed-rank vs Hybrid_Rerank with Cohen's d, per-category and
+per-severity breakdowns, latency P50 / P95 / P99, dedup cost-quality
+Pareto, and a composite chart. Outputs:
+
+```
+evaluation/advanced_metrics.json
+evaluation/significance_tests.json
+evaluation/per_category_breakdown.csv
+evaluation/per_severity_breakdown.csv
+evaluation/cost_pareto.csv
+evaluation/advanced_metrics_chart.png
+```
+
+### Production stack — ITS v2 evaluations
+
+```bash
+# from the ITS-v2-main/ folder
+python scripts/eval_v2_retrieval.py --mode mock   # or --mode live with API keys
+python scripts/eval_v2_agent.py     --mode mock   # or --mode live with API keys
+```
+
+Outputs land in `ITS-v2-main/evaluation_v2/`:
+
+```
+v2_retrieval.csv / .json / _chart.png   # latency + KB grounding vs research baselines
+v2_agent.csv     / .json / _chart.png   # turn latency, citation rate, guardrails, route distribution
+```
 
 ---
 
@@ -154,22 +325,33 @@ python 06_evaluation.py --all        # Everything
 
 | Component | Choice | Why |
 |-----------|--------|-----|
-| LLM | Qwen3-8B via Ollama | Best JSON extraction + multi-turn at 8B size |
-| Embeddings | all-MiniLM-L6-v2 | Fast, 384-dim, proven for semantic search |
-| Vector DB | ChromaDB | Persistent, easy Python API, cosine similarity |
-| Keyword Search | BM25 (rank_bm25) | Catches exact error codes, IDs |
-| Fusion | Reciprocal Rank Fusion | Standard method, no tuning needed |
-| Reranker | ms-marco-MiniLM-L-6-v2 | Cross-encoder, high precision, fast |
-| Chunking | Recursive, 450 tokens | 85-90% recall in benchmarks |
-| Orchestration | Direct Python (can add LangChain) | Simpler for MVP |
+| LLM (research API) | qwen3:4b via Ollama | Faster inference for REST responses |
+| LLM (research CLI) | qwen3:8b via Ollama | Higher quality for interactive sessions |
+| LLM (production)   | OpenAI chat (configurable) | Lower TTFB, structured-output API |
+| Embeddings (research, default) | **Qwen3-0.6B (1024-d) via Ollama / vLLM** | Best on Embedding Ablation Table 1 |
+| Embeddings (research, fallback) | all-MiniLM-L6-v2 (384-d) | CPU-only environments |
+| Embeddings (production) | OpenAI embeddings (configurable) | Faster online latency under concurrency |
+| Vector DB (research) | ChromaDB | Persistent, easy Python API, cosine similarity |
+| Vector DB (production) | **Pinecone serverless** (`its-knowledge-base`, `its-tickets`) | Sub-100 ms vector search, metadata filters |
+| Keyword Search | BM25 (rank_bm25) | Catches exact error codes, ticket IDs |
+| Fusion | Reciprocal Rank Fusion (k=60, dense×0.6, BM25×0.4) | Robust to weight changes; tuned in §14 of the story doc |
+| Reranker (research) | ms-marco-MiniLM-L-6-v2 | Cross-encoder, high precision, fast |
+| Reranker (production) | FlashRank via LangChain | No GPU needed in serverless deployment |
+| Agent runtime (production) | LangGraph 3-node ReAct (`guardrail → agent ↔ tools`) | Typed state, checkpointed threads, simpler than 8-node deterministic graph |
+| Chunking | Recursive 450 tokens / 50 overlap; PageIndex section-aware for KB | KB top-1 similarity +0.062 vs flat |
+| Backend | FastAPI + uvicorn | Async, typed, auto-docs at /docs |
+| Frontend | React + TypeScript + Vite | Fast dev, type-safe API integration |
+| Hallucination guard | Confidence-aware fallback + LLM-as-judge eval | Refuses on weak retrieval; cuts hallucination ~10× vs base |
+| LoRA (Phase 6) | PEFT 4-bit nf4, r=8 α=16, all attn+MLP projections | Behavior only (JSON contract, tone, escalation); ticket facts stay in RAG |
 
 ---
 
-## For Status 1 Presentation (March 5)
+## Troubleshooting
 
-Show these working:
-1. **Data stats** — run `02_preprocess_data.py`, show the stats JSON
-2. **Vector search demo** — run `03_build_vector_store.py`, show verification queries
-3. **Hybrid vs Dense comparison** — run `04_hybrid_retrieval.py --evaluate`
-4. **RAG resolution demo** — run `05_rag_pipeline.py`, show a Resolution Blueprint
-5. **Evaluation framework** — show metrics defined in `06_evaluation.py`
+| Symptom | Fix |
+|---------|-----|
+| `503 Retriever not loaded` | Run steps 1-3 first; check `data/chroma_db/` exists |
+| `LLM offline` | Run `ollama serve` and `ollama pull qwen3:4b` |
+| `CORS error in browser` | Make sure API is running on port 8000 |
+| Slow first load | Normal — embedding model + reranker load takes 10-20 s, then cached |
+| Frontend shows no status | Check that `api.py` is running and CORS is enabled (it is by default) |
