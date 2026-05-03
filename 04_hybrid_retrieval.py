@@ -1,15 +1,13 @@
 """
-ITS RAG - Step 4: Hybrid Retrieval Engine
-Implements the complete retrieval pipeline:
-  1. Dense vector search (ChromaDB / cosine similarity)
-  2. BM25 keyword search (exact matches for error codes, IDs)
-  3. Reciprocal Rank Fusion (RRF) to merge results
-  4. Cross-encoder reranking for final precision
+04 — the actual retrieval sandwich: dense + BM25 + RRF + a small cross-encoder.
+
+Chroma gives candidates, BM25 catches ticket ids / error codes, we fuse ranks,
+then rerank so the top-5 isn't lying. Interactive mode is nice for demos.
 
 Usage:
-  python 04_hybrid_retrieval.py                    # Interactive mode
-  python 04_hybrid_retrieval.py --query "VPN drops" # Single query
-  python 04_hybrid_retrieval.py --evaluate          # Run eval suite
+  python 04_hybrid_retrieval.py
+  python 04_hybrid_retrieval.py --query "VPN drops"
+  python 04_hybrid_retrieval.py --evaluate
 """
 
 import json

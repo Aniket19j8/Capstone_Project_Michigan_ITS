@@ -1,5 +1,5 @@
 """
-Model 1 (resolution + confidence) and Model 2 (department) plus escalation heuristics.
+Glue logic: resolution JSON shape, department guess, when to escalate — kept separate from FastAPI on purpose.
 """
 from __future__ import annotations
 

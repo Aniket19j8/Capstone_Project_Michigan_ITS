@@ -1,21 +1,13 @@
 """
-ITS RAG - Step 5: RAG Pipeline (Retrieval-Augmented Generation)
-Connects the hybrid retriever to the LLM for grounded resolution generation.
+05 — wire step 04 to Ollama and get a "Resolution Blueprint" you can show a human.
 
-Features:
-  - Resolution Blueprint generation (Agent Assist)
-  - Grounded answers with citations
-  - Ticket similarity search with context
-  - Knowledge base Q&A
+This is the CLI twin of the FastAPI app; same retriever, same vibe, no browser.
 
-Requires: Ollama running with qwen3:8b (or configured model)
-  ollama pull qwen3:8b
-  ollama serve
+Needs Ollama up (we used qwen3:8b for comfy typing, qwen3:4b for speed).
 
 Usage:
-  python 05_rag_pipeline.py                          # Interactive
+  python 05_rag_pipeline.py
   python 05_rag_pipeline.py --query "VPN keeps dropping"
-  python 05_rag_pipeline.py --mode resolution --ticket-text "My VPN disconnects every 10 minutes"
 """
 
 import json

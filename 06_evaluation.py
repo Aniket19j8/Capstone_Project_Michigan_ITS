@@ -1,11 +1,10 @@
 """
-ITS RAG - Step 6: Evaluation & Benchmarking
-Metrics: Recall@k, Precision@k, MRR, nDCG, Dedup F1, Threshold Optimization
+06 — print the metrics we actually cared about: recall@k, MRR, dedup F1, ablations.
+
+Outputs land in evaluation/ so 15/16 can chart them.
 
 Usage:
   python 06_evaluation.py --all
-  python 06_evaluation.py --retrieval
-  python 06_evaluation.py --dedup
   python 06_evaluation.py --ablation
 """
 

@@ -2,7 +2,7 @@
 
 Conversational IT helpdesk and ticketing system built with FastAPI, LangChain, LangGraph, Pydantic, SQLite, and Pinecone.
 
-> **Where this fits in the project.** The repo root carries the **research stack** (Ollama + Qwen3 + ChromaDB + BM25 + LoRA) used to design and quantify the system. **This folder is the production stack** — the same product, re-platformed for sub-second turn latency by switching the vector store to Pinecone, the embedding+chat to OpenAI, and the agent to LangGraph. See `../CAPSTONE_FINAL_STORY.md` for the canonical narrative and `docs/architecture.md` for the runtime details.
+> **Where this fits in the project.** The repo root is the **research stack** (Ollama + Qwen3 + ChromaDB + BM25 + LoRA) we used to quantify everything. **This folder** is the production-style stack (Pinecone + OpenAI + LangGraph). The **root `README.md`** is the main project overview; `docs/architecture.md` here is the v2 runtime deep dive.
 > **Architecture (today):** a 3-node ReAct agent — `guardrail → agent ↔ tools` — implemented in `app/graph.py`. The five tools are `search_knowledge_base`, `search_existing_tickets`, `analyze_ticket_data`, `vector_search_tickets`, and `create_helpdesk_ticket`. SQLite is the source of truth for tickets, projects, users, and chat messages; Pinecone holds KB and ticket vectors.
 
 ## Quick Start
@@ -122,4 +122,4 @@ The headline v2 storyline (corroborated by `evaluation_v2/v2_agent_summary.json`
 - **Guardrail precision** on prompt-injection prompts is `1.0` (every injection is blocked) with `0.0` false-block rate on benign IT prompts.
 - **Ticket creation** success rate on the explicit-create scenarios is `1.0`.
 
-These are the same charts referenced in `../CAPSTONE_FINAL_STORY.md` §21 and §23.
+These charts line up with the evaluation section in the root `README.md` and our slide deck.

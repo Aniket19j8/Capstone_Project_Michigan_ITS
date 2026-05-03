@@ -1,16 +1,7 @@
 """
-ITS RAG - Script 07: 500-Query Self-Retrieval Evaluation
-=========================================================
-Compatible with: 04_hybrid_retrieval.py (HybridRetriever class)
-Place in project root alongside scripts 01-06.
+07 — self-retrieval torture test: each ticket queries itself, we print recall@k / MRR.
 
-Tests: For each of the 500 tickets, use its embedding_text as query
-       and check if the same ticket appears in top-k retrieval results.
-
-Metrics: Recall@1/3/5/10, MRR, nDCG@5/10, per-category, per-severity
-Outputs: evaluation/500_query_results.csv
-         evaluation/metrics_summary.json
-         evaluation/retrieval_comparison_chart.png
+Writes evaluation/500_query_results.csv (+ summary json + chart when matplotlib happy).
 
 Usage:
   python 07_run_500_eval.py

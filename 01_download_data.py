@@ -1,19 +1,26 @@
 """
-ITS RAG - Step 1: Data Download & Preparation
-Downloads and prepares all datasets for the ITS project.
+Step 1 — get data on disk without surprising network calls.
 
-Datasets:
-  D1: GitBugs Dataset (HuggingFace) - bug reports with duplicate labels
-  D2: Apache Jira Exports (Zenodo/direct) - rich metadata tickets
-  D3: GitHub Issues API - high-volume repo issues
-  D4: Quora Duplicate Pairs - for embedding validation
+We stopped auto-fetching public datasets on a plain `python 01_download_data.py` run.
+Reason: capstone machines / air-gapped setups / rate limits. You either (a) drop files in
+place, or (b) opt in with --with-public-datasets.
 
-Usage:
-  python 01_download_data.py --all
-  python 01_download_data.py --dataset gitbugs
-  python 01_download_data.py --dataset jira
-  python 01_download_data.py --dataset github
-  python 01_download_data.py --dataset quora
+What we actually use in the story:
+  • The big ticket CSV (~80k rows) — download from class/Google Drive manually, drop as
+    data/processed/its_tickets_80k.csv or its_ticket80.csv. This script only *registers*
+    it (manifest for step 02). No HTTP for that file.
+  • Optional: precomputed Qwen3-0.6B vectors for the 80k rows (Drive link in README)
+    — share is mostly for reproducing our embedding study; 03 still embeds by default unless you wire in a loader yourself.
+  • Synthetic tickets + stub KB markdown — generated here if you have no real export yet.
+
+Public mirrors (GitBugs, Jira, GitHub, Quora) are extras for experiments; pip install
+datasets if you use --with-public-datasets.
+
+Examples:
+  python 01_download_data.py                      # local: register major CSV + synthetic + KB
+  python 01_download_data.py --register-major-data
+  python 01_download_data.py --generate-synthetic --synthetic-count 300
+  python 01_download_data.py --with-public-datasets   # hits HuggingFace / APIs
 """
 
 import os
@@ -26,7 +33,7 @@ from tqdm import tqdm
 
 RAW_DIR = Path("./data/raw")
 PROCESSED_DIR = Path("./data/processed")
-# its_ticket80.csv is the newer name; its_tickets_80k.csv is the old one.
+# two filenames floated in our class export — whichever you have is fine
 _MAJOR_CANDIDATES = (
     PROCESSED_DIR / "its_ticket80.csv",
     PROCESSED_DIR / "its_tickets_80k.csv",
@@ -34,7 +41,7 @@ _MAJOR_CANDIDATES = (
 
 
 def default_major_its_csv_path() -> Path:
-    """Pick the first file that exists, or the default path if none do."""
+    # first match wins so teammates aren't fighting filenames
     for p in _MAJOR_CANDIDATES:
         if p.exists():
             return p
@@ -55,23 +62,22 @@ def _configure_stdout_utf8():
         pass
 
 
-# D0: major ITS export (the big ticket CSV you drop in data/processed/)
+# D0 — "major" corpus: you brought the file; we just sniff columns + row count
 def register_major_its_dataset(path: Path = MAJOR_TICKETS_PATH):
-    """Check the CSV, count rows, write major_its_dataset_manifest.json for step 02. No download."""
     print("\n[D0] Registering major ITS tickets dataset...")
     if not path.exists():
         print(f"  ⚠ Major dataset not found at: {path}")
         print("  Place the CSV there, or pass a different path with --major-path.")
         return False
 
-    # Sample only; 02 does the full pass.
+    # small read here — 02 does the heavy lift
     sample = pd.read_csv(path, nrows=500)
     columns = list(sample.columns)
     required = {"ticket_id", "title", "description", "category", "component", "status"}
     optional = {"resolution", "resolution_clean", "external_source", "language", "tags"}
     missing_required = sorted(required - set(columns))
 
-    # Line count without loading the whole file.
+    # cheap line count — don't load 80k rows twice
     with open(path, "rb") as f:
         row_count = max(sum(1 for _ in f) - 1, 0)
 
@@ -103,9 +109,9 @@ def register_major_its_dataset(path: Path = MAJOR_TICKETS_PATH):
     return not missing_required
 
 
-# D1: GitBugs (duplicate labels) — HuggingFace
+# D1 — optional GitBugs (HF) — only when you ask for it
 def download_gitbugs():
-    print("\n[D1] Downloading GitBugs Dataset...")
+    print("\n[D1] GitBugs (HuggingFace)...")
     from datasets import load_dataset
 
     try:
@@ -120,28 +126,13 @@ def download_gitbugs():
     except Exception as e:
         print(f"  HuggingFace load failed: {e}")
 
-    print("""
-  ╔══════════════════════════════════════════════════════════════╗
-  ║  MANUAL DOWNLOAD NEEDED FOR GITBUGS                        ║
-  ║                                                            ║
-  ║  Option 1: Search HuggingFace for bug report datasets:     ║
-  ║    https://huggingface.co/datasets?search=bug+report       ║
-  ║                                                            ║
-  ║  Option 2: Download Mozilla/Eclipse bug datasets:          ║
-  ║    - Mozilla Core bugs: https://bugzilla.mozilla.org       ║
-  ║    - Eclipse bugs with duplicates                          ║
-  ║    Search Zenodo: "bug report duplicate detection"         ║
-  ║                                                            ║
-  ║  Option 3: Use the synthetic generator (see below)         ║
-  ║    python 01_download_data.py --generate-synthetic         ║
-  ╚══════════════════════════════════════════════════════════════╝
-    """)
+    print("  (install datasets + check VPN if you need GitBugs manually)")
     return False
 
 
-# D2: Apache Jira
+# D2 — optional Jira-shaped exports
 def download_jira():
-    print("\n[D2] Downloading Apache Jira Exports...")
+    print("\n[D2] Apache Jira paths...")
 
     try:
         from datasets import load_dataset
@@ -164,22 +155,13 @@ def download_jira():
     except:
         pass
 
-    print("  Downloading from Apache JIRA REST API...")
+    print("  scribbling scripts/fetch_jira.py — run that yourself if you want live Jira")
     generate_jira_api_script()
-    print("""
-  ╔══════════════════════════════════════════════════════════════╗
-  ║  Run the JIRA API fetcher:                                 ║
-  ║    python scripts/fetch_jira.py                            ║
-  ║                                                            ║
-  ║  Projects to fetch: SPARK, KAFKA, HADOOP, CASSANDRA        ║
-  ║  This will get ~1000 issues per project with full metadata ║
-  ╚══════════════════════════════════════════════════════════════╝
-    """)
     return False
 
 
 def generate_jira_api_script():
-    """Writes scripts/fetch_jira.py for the public Jira REST search API."""
+    """Spit out scripts/fetch_jira.py — we don't run live Jira from 01 by default."""
     script = '''"""
 Pull Apache Jira issues (public projects, no auth).
 """
@@ -279,9 +261,9 @@ if __name__ == "__main__":
     print(f"  Generated: {script_path}")
 
 
-# D3: GitHub issues (REST; token helps with rate limits)
+# D3 — GitHub: we only emit a helper script; token is on you
 def download_github():
-    print("\n[D3] Downloading GitHub Issues...")
+    print("\n[D3] GitHub helper script...")
     generate_github_script()
     print("""
   ╔══════════════════════════════════════════════════════════════╗
@@ -392,9 +374,9 @@ if __name__ == "__main__":
     print(f"  Generated: {script_path}")
 
 
-# D4: Quora pairs (for duplicate / embedding sanity checks)
+# D4 — Quora duplicate pairs (optional sanity data)
 def download_quora():
-    # HF "quora" often nests both questions in one column; flatten to text1, text2.
+    # HF quora layout is annoyingly inconsistent; normalize to text1/text2
     print("\n[D4] Downloading Quora Duplicate Pairs...")
     try:
         from datasets import load_dataset
@@ -432,7 +414,7 @@ def download_quora():
         return False
 
 
-# Synthetic tickets if you have no real data yet
+# filler tickets when Drive export isn't there yet — still lets you run the pipeline
 def generate_synthetic_tickets(n=500):
     print(f"\n[Synthetic] Generating {n} synthetic IT tickets...")
     import random
@@ -606,7 +588,7 @@ def generate_synthetic_tickets(n=500):
     return df_tickets, df_dups
 
 
-# Stub runbooks / KB markdown for RAG testing
+# minimal KB markdown so RAG has something to retrieve on day one
 def generate_knowledge_base():
     print("\n[KB] Generating Knowledge Base documents...")
 
@@ -841,49 +823,54 @@ All printers support secure print. Documents are held until user authenticates a
 if __name__ == "__main__":
     _configure_stdout_utf8()
 
-    parser = argparse.ArgumentParser(description="ITS RAG - Data Download & Preparation")
-    parser.add_argument("--all", action="store_true", help="Download all datasets")
+    parser = argparse.ArgumentParser(
+        description="Step 1 — local-first: register your CSV, optional synthetic + KB. "
+        "Public datasets only if you pass --with-public-datasets."
+    )
     parser.add_argument(
         "--dataset",
         choices=["major", "gitbugs", "jira", "github", "quora"],
-        help="Download/register specific dataset",
+        help="One optional public mirror (only that action runs, unless combined below).",
     )
     parser.add_argument(
         "--register-major-data",
         action="store_true",
-        help="Validate/register data/processed/its_tickets_80k.csv without running preprocessing.",
+        help="Only register the major ITS CSV (manifest for 02). No downloads.",
+    )
+    parser.add_argument(
+        "--with-public-datasets",
+        action="store_true",
+        help="After other steps, try GitBugs / Jira helpers / GitHub script / Quora (network). "
+        "Needs: pip install datasets requests (and HF access if hubs block you).",
     )
     parser.add_argument(
         "--major-path",
         default=str(default_major_its_csv_path()),
-        help="Path to the major ITS tickets CSV. Default: data/processed/its_ticket80.csv "
-        "if present, else data/processed/its_tickets_80k.csv",
+        help="Major tickets CSV path (default: its_ticket80.csv if present else its_tickets_80k.csv).",
     )
-    parser.add_argument("--generate-synthetic", action="store_true", help="Generate synthetic tickets")
-    parser.add_argument("--generate-kb", action="store_true", help="Generate knowledge base documents")
-    parser.add_argument("--synthetic-count", type=int, default=500, help="Number of synthetic tickets")
+    parser.add_argument("--generate-synthetic", action="store_true", help="Only generate synthetic tickets")
+    parser.add_argument("--generate-kb", action="store_true", help="Only write stub KB markdown")
+    parser.add_argument("--synthetic-count", type=int, default=500, help="Synthetic ticket count")
 
     args = parser.parse_args()
 
+    major_path = Path(args.major_path)
+    explicit = any(
+        [
+            args.register_major_data,
+            args.dataset,
+            args.generate_synthetic,
+            args.generate_kb,
+            args.with_public_datasets,
+        ]
+    )
+
     if args.register_major_data:
-        register_major_its_dataset(Path(args.major_path))
+        register_major_its_dataset(major_path)
 
-    if args.all or not any([args.dataset, args.generate_synthetic, args.generate_kb, args.register_major_data]):
-        print("=" * 60)
-        print("ITS RAG - Complete Data Preparation")
-        print("=" * 60)
-
-        register_major_its_dataset(Path(args.major_path))
-        download_gitbugs()
-        download_jira()
-        download_github()
-        download_quora()
-        generate_synthetic_tickets(500)
-        generate_knowledge_base()
-
-    elif args.dataset:
+    if args.dataset:
         {
-            "major": lambda: register_major_its_dataset(Path(args.major_path)),
+            "major": lambda: register_major_its_dataset(major_path),
             "gitbugs": download_gitbugs,
             "jira": download_jira,
             "github": download_github,
@@ -896,5 +883,21 @@ if __name__ == "__main__":
     if args.generate_kb:
         generate_knowledge_base()
 
+    if args.with_public_datasets:
+        print("\n[optional] pulling public mirrors — skip if you only care about the 80k export")
+        download_gitbugs()
+        download_jira()
+        download_github()
+        download_quora()
+
+    if not explicit:
+        print("=" * 60)
+        print("Local prep (no HuggingFace/GitHub unless you add --with-public-datasets)")
+        print("=" * 60)
+        print("  Tip: capstone artifacts live in the shared Google Drive folder — see README.md.")
+        register_major_its_dataset(major_path)
+        generate_synthetic_tickets(args.synthetic_count)
+        generate_knowledge_base()
+
     print("\n✅ Data preparation complete!")
-    print("Next step: python 02_preprocess_data.py")
+    print("Next: python 02_preprocess_data.py")

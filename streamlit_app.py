@@ -1,16 +1,11 @@
 """
-ITS RAG - Streamlit Web Interface
-A live demo of the Intelligent Ticketing System RAG pipeline.
+Streamlit was our first UI — dead simple, good for "does retrieval even work?"
 
-Usage:
+Needs Ollama + chroma built (steps 03/04). `04_hybrid_retrieval.py` lives next to this file, not in scripts/.
+
+Run:
   pip install streamlit
   streamlit run streamlit_app.py
-
-Requires:
-  - Ollama running (ollama serve) with qwen3:8b pulled
-  - ChromaDB data in ./data/chroma_db/
-  - BM25 corpus files in ./data/processed/
-  - Scripts 04_hybrid_retrieval.py in ./scripts/
 """
 
 import streamlit as st

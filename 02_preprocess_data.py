@@ -1,28 +1,12 @@
 """
-ITS RAG - Step 2: Data Preprocessing
-Cleans, normalizes, and prepares all datasets for embedding and indexing.
+02 — beat the raw exports into one shape you can embed.
 
-Outputs:
-  - processed/all_tickets.csv          (unified ticket dataset)
-  - processed/all_tickets_clean.json   (JSON for LLM consumption)
-  - processed/data_stats.json          (dataset statistics)
+We clean text (PII-ish noise → placeholders), pull error codes, score row quality,
+merge sources, and write the CSV/JSON our later scripts expect.
 
-Usage:
-  # Full rebuild from all known sources
+Typical runs:
   python 02_preprocess_data.py
-
-  # Add a new dataset folder without reprocessing existing data
-  python 02_preprocess_data.py --new-source ./data/raw/servicenow \
-      --dataset-name servicenow --append
-
-  # Add new data and filter by quality
-  python 02_preprocess_data.py --new-source ./data/raw/jira_export \
-      --dataset-name jira2 --append --min-quality 0.3
-
-  # Provide explicit column mapping if auto-detect fails
-  python 02_preprocess_data.py --new-source ./data/raw/custom \
-      --dataset-name custom --append \
-      --column-map '{"title":"short_desc","description":"notes","resolution":"close_notes"}'
+  python 02_preprocess_data.py --new-source ./data/raw/servicenow --dataset-name servicenow --append
 """
 from __future__ import annotations
 
@@ -58,7 +42,7 @@ PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
 # --- text cleanup for embedding ---
 def clean_text(text):
-    """Strip noise (URLs, emails, paths) and normalize whitespace."""
+    """messy tickets need love: urls/emails/paths → tokens so embeddings don't chase noise"""
     if not isinstance(text, str) or not text.strip():
         return ""
     text = re.sub(r'http[s]?://\S+', '[URL]', text)
@@ -73,7 +57,7 @@ def clean_text(text):
 
 
 def extract_error_codes(text):
-    """Pull likely error codes / ticket-style IDs from free text."""
+    """grabs stuff like 0x..., TICKET-123, errno — BM25 likes these"""
     if not isinstance(text, str):
         return []
     patterns = [
@@ -89,7 +73,7 @@ def extract_error_codes(text):
 
 
 def compute_text_quality_score(row):
-    """0–1 heuristic: title, description, resolution matter; we don't require steps/env."""
+    """janky but fast 0–1 score — we use it to filter junk rows when appending"""
     score = 0.0
     if row.get("title") and len(str(row["title"])) > 5:
         score += 0.3

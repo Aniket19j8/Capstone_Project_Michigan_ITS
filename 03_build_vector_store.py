@@ -1,21 +1,14 @@
 """
-ITS RAG - Step 3: Build Vector Store & BM25 Index
-Embeds all tickets and knowledge base documents, creates ChromaDB collections
-and BM25 index for hybrid retrieval.
+03 — turn cleaned rows + KB markdown into Chroma collections and BM25 sidecars.
 
-Creates:
-  - ChromaDB collection: its_tickets (ticket embeddings)
-  - ChromaDB collection: its_knowledge_base (KB document chunks)
-  - data/processed/bm25_corpus_tickets.json (BM25 tokenized corpus)
-  - data/processed/bm25_corpus_kb.json     (BM25 tokenized KB corpus)
-  - data/processed/build_manifest.json     (build metadata for auditing)
+Ollama (or whatever ITS_EMBEDDING_MODEL says) does embeddings; we chunk KB docs,
+skip chunking for tickets, and write bm25_corpus_*.json for step 04.
+Annoying cluster note: Chroma wants a newer sqlite — the shim below swaps in pysqlite3.
 
 Usage:
-  python 03_build_vector_store.py                 # incremental (skips existing IDs)
-  python 03_build_vector_store.py --reset         # wipe and rebuild from scratch
-  python 03_build_vector_store.py --append        # same as default: only new IDs
-  python 03_build_vector_store.py --batch-size 64 # override batch size
-  python 03_build_vector_store.py --verify-only   # run test queries, skip build
+  python 03_build_vector_store.py
+  python 03_build_vector_store.py --reset
+  python 03_build_vector_store.py --verify-only
 """
 from __future__ import annotations  # Python 3.9: allows str | None in type hints (3.10+ syntax)
 
@@ -59,7 +52,7 @@ def default_embedding_model() -> str:
 
 
 def resolve_ollama_base_url(cli_url: str | None = None) -> str:
-    """Where Ollama listens; CLI wins, then ITS_OLLAMA_URL, then OLLAMA_HOST."""
+    """where the local model server lives — env wins for docker weirdness"""
     if cli_url and cli_url.strip():
         u = cli_url.strip().rstrip("/")
         return u if u.startswith("http") else f"http://{u}"
@@ -88,7 +81,7 @@ KB_COLLECTION = "its_knowledge_base"
 
 
 def chunk_document(text, title="", doc_id="", chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
-    """Split long markdown: try ## headers first, then paragraphs. Tickets skip this."""
+    """KB only — slice on ## headers when we can, else fall back to dumb windows"""
     chunks = []
 
     sections = re.split(r'\n(?=#{1,3}\s)', text)

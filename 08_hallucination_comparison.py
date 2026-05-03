@@ -1,37 +1,13 @@
 """
-ITS RAG - Script 08: Hallucination Comparison (RAG vs Base LLM)
-================================================================
-Compatible with: 04_hybrid_retrieval.py, 05_rag_pipeline.py
-Place in project root alongside scripts 01-06.
+08 — RAG vs "naked" LLM on the same prompts; judge model scores hallucination-ish answers.
 
-Sends queries through both:
-  1. Base LLM (no RAG context) — answers from training data only
-  2. RAG system (with retrieved context) — grounded answers
-
-Uses LLM-as-judge to score groundedness, specificity, accuracy.
-
-KEY FIXES applied here:
-  - Relevance threshold: only passes context with rerank_score > MIN_RERANK_SCORE
-    so out-of-scope queries (pasta, weather) don't receive irrelevant IT context
-    that confuses the LLM into generating hallucinated IT-sounding answers.
-  - Scope-aware judge prompt: clearly defines hallucination in RAG context,
-    recognises that "I don't have this information" is CORRECT for OOS queries.
-  - Separate in-scope (IT) vs out-of-scope (OOS) reporting so aggregate stats
-    are not unfairly dragged down by OOS queries.
-  - qwen3 thinking-token stripping before JSON parse.
-  - Increased context length limits (800 / 500 chars) for better grounding.
-
-Requires: Ollama running with your model pulled (qwen3:8b or qwen3:4b)
+We only stuff context into RAG when rerank scores look sane, otherwise the model
+lies confidently. Separate IT vs OOS buckets so aggregates aren't nonsense.
+Requires Ollama (qwen3:8b or qwen3:4b). Outputs: evaluation/hallucination_*.{csv,json,png}
 
 Usage:
   python 08_hallucination_comparison.py
-  python 08_hallucination_comparison.py --model qwen3:4b
-  python 08_hallucination_comparison.py --num-queries 20   (quick test)
-
-Outputs:
-  evaluation/hallucination_comparison.csv
-  evaluation/hallucination_summary.json
-  evaluation/hallucination_chart.png
+  python 08_hallucination_comparison.py --model qwen3:4b --num-queries 20
 """
 
 import json

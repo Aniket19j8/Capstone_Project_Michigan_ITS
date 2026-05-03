@@ -131,7 +131,7 @@ Two scripts under `scripts/` produce v2-vs-research-stack comparison artifacts i
 - `scripts/eval_v2_retrieval.py` — measures Pinecone+OpenAI retrieval latency and KB grounding behavior; compares to the documented research-stack baselines.
 - `scripts/eval_v2_agent.py` — runs `run_chat_turn` against a fixed scenario set covering self-resolution, ticket creation, OOS, and prompt injection; reports turn latency, route distribution, KB citation rate, ticket-creation success, and guardrail precision.
 
-Both support `--mode live` (real Pinecone/OpenAI calls) and `--mode mock` (cached numbers so charts always render). See the project README and `../CAPSTONE_FINAL_STORY.md` §21–§23 for context.
+Both support `--mode live` (real Pinecone/OpenAI calls) and `--mode mock` (cached numbers so charts always render). See the root `README.md` and this folder’s `README.md` for how v2 fits the wider project.
 
 ## Runbook
 

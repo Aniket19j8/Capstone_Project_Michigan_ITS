@@ -1,4 +1,4 @@
-"""Shared 4-department taxonomy and mapping rules for ITS tickets."""
+"""Crude keyword router — maps noisy ticket text into one of four departments (demo / eval)."""
 from __future__ import annotations
 
 import re

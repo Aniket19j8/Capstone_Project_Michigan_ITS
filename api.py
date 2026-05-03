@@ -1,8 +1,7 @@
 """
-ITS FastAPI Backend — mirrors streamlit_app.py functionality exactly.
+FastAPI layer for the React app — same brain as streamlit_app, but JSON + CORS.
 
-Usage:
-  uvicorn api:app --reload --port 8000
+Run: uvicorn api:app --reload --port 8000
 """
 
 from __future__ import annotations
@@ -30,7 +29,7 @@ OLLAMA_BASE = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 OLLAMA_GENERATE_URL = f"{OLLAMA_BASE}/api/generate"
 OLLAMA_CHAT_URL = f"{OLLAMA_BASE}/api/chat"
 
-# Persistent session for all Ollama HTTP calls — avoids new TCP handshake per request
+# Ollama session — keeps TCP warm so the UI feels less chunky
 _ollama_session = requests.Session()
 MIN_RERANK_SCORE = -2.0
 MIN_KB_RERANK_SCORE = -5.0
