@@ -1,6 +1,6 @@
 # Intelligent Ticketing System (ITS)
 
-Hey — this is our capstone for **FSE 570**, **Spring 2026**, **Team Michigan**.
+Hey, this is our capstone for **FSE 570**, **Spring 2026**, **Team Michigan**.
 
 **GitHub:** [github.com/Aniket19j8/Capstone_Project_Michigan_ITS](https://github.com/Aniket19j8/Capstone_Project_Michigan_ITS)  
 Clone: `git clone https://github.com/Aniket19j8/Capstone_Project_Michigan_ITS.git`
